@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# generated images (too large for git)
+/images/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
