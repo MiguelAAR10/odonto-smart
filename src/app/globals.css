@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════════════════════
+   ODONTO SMART V1 — Stitch Final | Design Tokens
+   Health-tech/commercial aesthetic. Inter only. No text below 14px.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background colors */
+  --color-bg-page: #f6f7f7;
+  --color-bg-main: #ffffff;
+  --color-bg-soft: #f8fafc;
+
+  /* Text colors */
+  --color-text-dark: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-light: #94a3b8;
+
+  /* Brand colors */
+  --color-brand-teal: #4eb1ac;
+  --color-brand-purple: #8e44ad;
+  --color-brand-teal-soft: rgba(78, 177, 172, 0.1);
+  --color-brand-purple-soft: rgba(142, 68, 173, 0.1);
+
+  /* Utility */
+  --color-border-subtle: #e2e8f0;
+  --color-footer-bg: #0f172a;
+  --color-hero-overlay: rgba(0, 0, 0, 0.85);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-bg-page: var(--color-bg-page);
+  --color-bg-main: var(--color-bg-main);
+  --color-bg-soft: var(--color-bg-soft);
+  --color-text-dark: var(--color-text-dark);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-light: var(--color-text-light);
+  --color-brand-teal: var(--color-brand-teal);
+  --color-brand-purple: var(--color-brand-purple);
+  --color-brand-teal-soft: var(--color-brand-teal-soft);
+  --color-brand-purple-soft: var(--color-brand-purple-soft);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-footer-bg: var(--color-footer-bg);
+  --color-hero-overlay: var(--color-hero-overlay);
+
+  /* Font - Inter only */
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─────────────────────────────────────────────────────────────────────────────
+   Base Styles
+   ───────────────────────────────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-page);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Selection
+   ───────────────────────────────────────────────────────────────────────────── */
+
+::selection {
+  background: var(--color-brand-teal);
+  color: white;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Focus Visible - Accessibility
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-teal);
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Reduced Motion
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
