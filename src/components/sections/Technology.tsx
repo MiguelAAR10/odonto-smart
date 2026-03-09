@@ -20,7 +20,7 @@ function TechCard({ title, description, image, index }: TechCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="group overflow-hidden rounded-2xl bg-bg-main shadow-lg transition-shadow duration-300 hover:shadow-xl"
+      className="group overflow-hidden rounded-2xl bg-bg-main shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       {/* Image Container */}
       <div className="relative h-56 overflow-hidden">
@@ -28,7 +28,7 @@ function TechCard({ title, description, image, index }: TechCardProps) {
           src={image}
           alt={title}
           fill
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </div>

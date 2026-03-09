@@ -1,26 +1,43 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { hero } from "@/data/content";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Parallax effect
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
   return (
     <section
+      ref={sectionRef}
       id="inicio"
       className="relative min-h-[80vh] w-full overflow-hidden pt-16 md:min-h-[88vh]"
     >
-      {/* Background Image */}
-      <Image
-        src={hero.image}
-        alt="Clínica dental moderna"
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
+      {/* Background Image with Parallax */}
+      <motion.div
+        className="absolute inset-0 h-[130%] w-full"
+        style={{ y: backgroundY }}
+      >
+        <Image
+          src={hero.image}
+          alt="Clínica dental moderna"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+      </motion.div>
 
       {/* Dark Overlay - Left side */}
       <div

@@ -1,12 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { navigation, siteConfig } from "@/data/content";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,9 +62,10 @@ export function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-[15px] font-medium text-text-muted transition-colors hover:text-text-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+              className="group relative text-[15px] font-medium text-text-muted transition-colors hover:text-text-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-brand-teal transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </a>
           ))}
         </div>
@@ -101,6 +110,12 @@ export function Navbar() {
           </svg>
         </button>
       </nav>
+
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-[2px] origin-left bg-brand-teal"
+        style={{ scaleX }}
+      />
 
       {/* Mobile Menu */}
       <AnimatePresence>
