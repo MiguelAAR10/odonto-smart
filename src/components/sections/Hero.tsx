@@ -8,7 +8,10 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative h-[600px] w-full overflow-hidden pt-16">
+    <section
+      id="inicio"
+      className="relative min-h-[80vh] w-full overflow-hidden pt-16 md:min-h-[88vh]"
+    >
       {/* Background Image */}
       <Image
         src={hero.image}
@@ -26,7 +29,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative flex h-full items-center">
+      <div className="relative flex min-h-[80vh] items-center md:min-h-[88vh]">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <div className="max-w-2xl">
             {/* Title Line 1 */}
@@ -68,13 +71,13 @@ export function Hero() {
             >
               <a
                 href={hero.buttons.primary.href}
-                className="rounded-lg bg-brand-purple px-8 py-3.5 text-[15px] font-semibold text-white transition-all hover:bg-brand-purple/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2"
+                className="rounded-lg border border-white/40 bg-white/10 px-8 py-3.5 text-[15px] font-semibold text-white backdrop-blur-sm transition-all hover:border-brand-teal hover:bg-white/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
               >
                 {hero.buttons.primary.label}
               </a>
               <a
                 href={hero.buttons.secondary.href}
-                className="rounded-lg bg-brand-teal-strong px-8 py-3.5 text-[15px] font-semibold text-white transition-all hover:bg-brand-teal-strong/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+                className="rounded-lg bg-brand-purple px-8 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-brand-purple/20 transition-all hover:-translate-y-0.5 hover:bg-brand-purple/90 hover:shadow-xl hover:shadow-brand-purple/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2"
               >
                 {hero.buttons.secondary.label}
               </a>

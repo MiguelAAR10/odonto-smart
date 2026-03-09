@@ -52,6 +52,82 @@ interface StatCardProps {
   index: number;
 }
 
+function StatIcon({ index, className }: { index: number; className: string }) {
+  if (index === 0) {
+    return (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 3c3.756 0 6.75 2.735 6.75 6.4 0 2.066-.862 3.708-1.997 5.329-.983 1.405-1.778 2.618-2.006 4.271h-1.565c-.228-1.653-1.023-2.866-2.006-4.27C10.042 13.107 9.25 11.465 9.25 9.4 9.25 5.735 12.244 3 16 3"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M8.25 3C4.494 3 1.5 5.735 1.5 9.4c0 2.066.862 3.708 1.997 5.329.983 1.405 1.778 2.618 2.006 4.271h1.565c.228-1.653 1.023-2.866 2.006-4.27"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M8 8.25c.7-.5 1.519-.75 2.458-.75 1.95 0 3.292 1.1 3.292 2.85 0 1.95-1.75 2.55-2.742 3.308-.433.33-.758.712-.758 1.342"
+        />
+        <circle cx="11" cy="16.75" r=".75" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M7.5 13.5c1.256 1.25 2.756 1.875 4.5 1.875s3.244-.625 4.5-1.875"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M8.25 9.75h.008m7.484 0h.008"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9Z"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M12 2.75c3.97 0 7.25 2.914 7.25 6.854 0 2.138-.93 4.025-2.365 5.63-1.18 1.319-1.997 2.339-2.135 4.016H9.25c-.138-1.677-.955-2.697-2.135-4.016C5.68 13.629 4.75 11.742 4.75 9.604 4.75 5.664 8.03 2.75 12 2.75Z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M9.5 9.25 12 11l2.5-1.75"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M8.75 21.25h6.5"
+      />
+    </svg>
+  );
+}
+
 function StatCard({ value, prefix, suffix, label, variant, index }: StatCardProps) {
   const bgColor = variant === "teal" ? "bg-brand-teal-soft" : "bg-brand-purple-soft";
   const iconColor = variant === "teal" ? "text-brand-teal" : "text-brand-purple";
@@ -62,32 +138,10 @@ function StatCard({ value, prefix, suffix, label, variant, index }: StatCardProp
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className={`flex flex-col items-center rounded-2xl ${bgColor} px-8 py-10`}
+      className={`flex flex-col items-center rounded-2xl border border-white/60 ${bgColor} px-8 py-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
     >
-      {/* Icon placeholder */}
-      <div className={`mb-4 ${iconColor}`}>
-        <svg
-          className="h-8 w-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          {variant === "teal" ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          )}
-        </svg>
+      <div className={`mb-4 rounded-full bg-white/80 p-3 ${iconColor}`}>
+        <StatIcon index={index} className="h-8 w-8" />
       </div>
 
       {/* Number */}

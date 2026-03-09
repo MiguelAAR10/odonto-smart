@@ -17,7 +17,7 @@ export interface Testimonial {
   id: string;
   quote: string;
   highlight: string;
-  avatar: string;
+  initial: string;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -189,21 +189,21 @@ export const reviews = {
       quote:
         "Tenía mucho miedo de ir al dentista, pero desde la primera consulta me sentí en confianza. El trato del equipo es excepcional y muy humano.",
       highlight: "Excelente trato desde el primer momento",
-      avatar: "👩",
+      initial: "M",
     },
     {
       id: "exp-2",
       quote:
         "Me realizaron una endodoncia y no sentí absolutamente nada. La tecnología que usan hace toda la diferencia. Recomendado al 100%.",
       highlight: "Procedimiento sin dolor",
-      avatar: "👨",
+      initial: "J",
     },
     {
       id: "exp-3",
       quote:
         "El diseño de sonrisa digital me permitió ver el resultado antes de empezar. Quedé impresionada con la precisión y el resultado final.",
       highlight: "Tecnología de vanguardia",
-      avatar: "👩",
+      initial: "C",
     },
   ] as Testimonial[],
   cta: {

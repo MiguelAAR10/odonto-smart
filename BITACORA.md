@@ -111,6 +111,34 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
+### [2026-03-09 01:34:15 UTC] Premium polish fase 3A: hero, stats y reviews (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: empezar la implementación de mejoras premium de alto impacto y bajo riesgo a partir de la auditoría UX/UI.
+- Resultado esperado: eliminar señales visuales genéricas y reforzar la percepción boutique sin reestructurar la landing.
+
+#### C — Contexto
+- Estado actual relevante: landing modular estable con motion básico repetitivo y algunos elementos que rompían la estética premium.
+- Problemas detectados: altura rígida del hero, CTAs con jerarquía débil, iconografía genérica en stats, avatars emoji en reviews y falta de motion en esa sección.
+- Archivos involucrados: `src/components/sections/Hero.tsx`, `src/components/sections/Stats.tsx`, `src/components/sections/Reviews.tsx`, `src/data/content.ts`.
+
+#### A — Análisis
+- Estrategia: ejecutar quick wins quirúrgicos de la fase 3A antes de abordar cambios más estructurales de motion o layout.
+- Cambios modulares:
+  - `Hero.tsx`: hacer hero responsive al viewport y marcar mejor la jerarquía de CTAs.
+  - `Stats.tsx`: sustituir iconos genéricos por iconografía dental y dar más elevación a las tarjetas.
+  - `content.ts` + `Reviews.tsx`: reemplazar emoji avatars por iniciales premium y añadir motion consistente a testimonials.
+
+#### D — Desarrollo
+- Archivos modificados:
+  - `src/components/sections/Hero.tsx` — hero con `min-h` responsive y nueva jerarquía visual de botones.
+  - `src/components/sections/Stats.tsx` — iconografía dental custom + hover/elevación sutil en cards.
+  - `src/data/content.ts` — testimonios ahora usan `initial` en vez de `avatar`.
+  - `src/components/sections/Reviews.tsx` — reviews convertida en Client Component con reveal motion e iniciales circulares.
+- **Lint:** ✅ Exitoso
+- **Build:** ⚠️ `next build` quedó sin salida final en esta sesión; no se confirmó resultado.
+- **Commit:** —
+
 ### [2026-03-09 00:27:00 UTC] Inserción modular sin romper base (TCAD)
 
 #### T — Traducción

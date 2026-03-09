@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { reviews } from "@/data/content";
@@ -20,21 +23,35 @@ export function Reviews() {
     <section id="resenas" className="bg-bg-soft py-20">
       <Container>
         {/* Header */}
-        <div className="mb-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 text-center"
+        >
           <SectionHeading
             label={reviews.label}
             title={reviews.title}
             description={reviews.description}
             centered
           />
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.testimonials.map((testimonial) => (
-            <article
+          {reviews.testimonials.map((testimonial, index) => (
+            <motion.article
               key={testimonial.id}
-              className="flex flex-col rounded-2xl border border-border-subtle bg-bg-main p-6 transition-shadow hover:shadow-md"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.55,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="flex flex-col rounded-2xl border border-border-subtle bg-bg-main p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* Quote Icon */}
               <QuoteIcon />
@@ -46,14 +63,14 @@ export function Reviews() {
 
               {/* Highlight Tag */}
               <div className="mt-6 flex items-center gap-3">
-                <span className="text-2xl" role="img" aria-label="Paciente">
-                  {testimonial.avatar}
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-teal-soft text-sm font-bold uppercase tracking-[0.2em] text-brand-teal">
+                  {testimonial.initial}
                 </span>
                 <span className="text-sm font-semibold text-brand-teal">
                   {testimonial.highlight}
                 </span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
 
