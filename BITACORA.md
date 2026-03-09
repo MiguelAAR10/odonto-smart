@@ -34,12 +34,19 @@ src/
 │   │   ├── Stats.tsx        # Client - animated counters
 │   │   ├── Technology.tsx   # Client - hover effects
 │   │   ├── Team.tsx         # Client - grayscale hover
+│   │   ├── Reviews.tsx      # Server - prueba social
 │   │   └── Footer.tsx       # Server - 4 columnas
 │   └── ui/
 │       ├── Container.tsx    # max-w-7xl px-6
 │       └── SectionHeading.tsx
 └── data/
-    └── content.ts           # Texto centralizado
+    └── content.ts           # Texto centralizado + interfaces
+```
+
+### Orden de Secciones Actual
+
+```
+Navbar → Hero → Stats → Technology → Team → Reviews → Footer
 ```
 
 ### Design Tokens Actuales
@@ -47,6 +54,7 @@ src/
 ```css
 /* Brand */
 --color-brand-teal: #4EB1AC
+--color-brand-teal-strong: #0F766E      /* Alto contraste para CTAs */
 --color-brand-purple: #8E44AD
 --color-brand-teal-soft: rgba(78, 177, 172, 0.1)
 --color-brand-purple-soft: rgba(142, 68, 173, 0.1)
@@ -73,6 +81,7 @@ src/
 ### Commits Base
 
 ```
+fed4f96 docs: add BITACORA.md for TCAD framework tracking
 f5485be docs: add style guide page for experimentation
 9e46f3f chore: add mockup.pen design file and update gitignore
 f1e23e5 chore(deps): add framer-motion for animations
@@ -82,6 +91,14 @@ d3c19db feat(layout): add Navbar with mobile menu
 cda121c feat(ui): add Container and SectionHeading components
 2b65f8b feat(data): add centralized content data structure
 a6f0243 feat(design-system): add V1 Stitch design tokens and typography
+```
+
+### Commits Posteriores (TCAD)
+
+```
+00cfea4 chore: ignore legacy experimental components
+29f0737 fix(ux): improve contrast, navigation and accessibility
+6b052e7 feat(reviews): add social proof section and Google Maps links
 ```
 
 ---
@@ -113,34 +130,12 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 #### D — Desarrollo
 - Archivos modificados:
-  - `src/app/globals.css`
-  - `src/data/content.ts`
-  - `src/components/layout/Navbar.tsx`
-  - `src/components/sections/Hero.tsx`
-  - `src/components/sections/Stats.tsx`
-  - `src/components/sections/Technology.tsx`
-  - `src/components/sections/Footer.tsx`
-- Estado: cambios aplicados localmente y listos para validación visual.
-
-### [Plantilla próximo cambio]
-
-**Timestamp:** —
-
-#### T — Traducción
-- Objetivo solicitado: —
-- Clarificación: —
-
-#### C — Contexto
-- Estado actual relevante: —
-- Archivos involucrados: —
-
-#### A — Análisis
-- Estrategia: —
-- Cambios modulares: —
-
-#### D — Desarrollo
-- Archivos modificados: —
-- Commit: —
+  - `src/app/globals.css` — token `--color-brand-teal-strong: #0f766e`
+  - `src/components/layout/Navbar.tsx` — hrefs a secciones reales
+  - `src/components/sections/Hero.tsx` — overlay lateral, teal-strong CTA
+  - `src/components/sections/Stats.tsx` — label text-[14px]
+  - `src/components/sections/Technology.tsx` — id="especialidades"
+- **Commit:** `29f0737 fix(ux): improve contrast, navigation and accessibility`
 
 ---
 
@@ -173,6 +168,7 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
   - `src/app/page.tsx` — insertar Reviews
 - **Build:** ✅ Exitoso
 - **Orden final:** `Navbar → Hero → Stats → Technology → Team → Reviews → Footer`
+- **Commit:** `6b052e7 feat(reviews): add social proof section and Google Maps links`
 
 #### Validaciones
 | Check | Estado |
@@ -186,4 +182,26 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
-*Última actualización: 2026-03-09*
+### [Plantilla próximo cambio]
+
+**Timestamp:** —
+
+#### T — Traducción
+- Objetivo solicitado: —
+- Clarificación: —
+
+#### C — Contexto
+- Estado actual relevante: —
+- Archivos involucrados: —
+
+#### A — Análisis
+- Estrategia: —
+- Cambios modulares: —
+
+#### D — Desarrollo
+- Archivos modificados: —
+- Commit: —
+
+---
+
+*Última actualización: 2026-03-09 01:45 UTC*
