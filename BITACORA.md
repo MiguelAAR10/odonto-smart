@@ -1,6 +1,8 @@
 # Bitácora de Desarrollo — Odonto Smart
 
 > Framework: **TCAD** (Traducción → Contexto → Análisis → Desarrollo/Documentación)
+>
+> 📖 **Guía completa del framework:** [`TCAD.md`](./TCAD.md)
 
 ---
 
