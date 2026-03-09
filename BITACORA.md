@@ -184,6 +184,36 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
+### [2026-03-09 02:30:00 UTC] Corrección de Baseline + Integración Skills (TCAD)
+
+#### T — Traducción
+- **Objetivo:** Corregir errores de lint, alinear README, integrar skills en TCAD
+- **Para no-técnicos:** Limpiar el proyecto para que pase validaciones y tenga documentación real
+
+#### C — Contexto
+- `Reviews.tsx:44` tenía comillas sin escapar (lint error)
+- `README.md` era el default de create-next-app
+- `TCAD.md` no referenciaba skills
+
+#### A — Análisis
+- **Estrategia:** 3 correcciones quirúrgicas
+- **Skills aplicables:** N/A (corrección de baseline)
+- **Cambios modulares:**
+  - Reviews.tsx: escapar comillas
+  - README.md: reescribir completo
+  - TCAD.md: agregar skills en fase A + checklist
+
+#### D — Desarrollo
+- **Archivos modificados:**
+  - `src/components/sections/Reviews.tsx` — comillas escapadas
+  - `README.md` — documentación real del proyecto
+  - `TCAD.md` — skills integradas en fase A
+- **Lint:** ✅
+- **Build:** ✅
+- **Commit:** `e9f6245 fix: baseline corrections and skills integration`
+
+---
+
 ### [Plantilla próximo cambio]
 
 **Timestamp:** —
@@ -198,6 +228,11 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 #### A — Análisis
 - Estrategia: —
+- Skills aplicables:
+  - [ ] audit-ui
+  - [ ] web-design-guidelines
+  - [ ] vercel-react-best-practices
+  - [ ] implement-frontend
 - Cambios modulares: —
 
 #### D — Desarrollo
@@ -206,4 +241,4 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
-*Última actualización: 2026-03-09 01:45 UTC*
+*Última actualización: 2026-03-09 02:30 UTC*
