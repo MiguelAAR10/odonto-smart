@@ -111,6 +111,33 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
+### [2026-03-09 02:11:56 UTC] Guía operativa de agentes y skills (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: dejar documentado el flow de orquestación de agentes y el uso de skills para el desarrollo del proyecto.
+- Resultado esperado: una guía clara para coordinar trabajo concurrente, uso de branches, activación de skills y trazabilidad bajo TCAD.
+
+#### C — Contexto
+- Estado actual relevante: el proyecto ya opera con TCAD, bitácora y una rama de upgrade UX/UI en curso.
+- Necesidad detectada: formalizar cómo se reparten responsabilidades entre agentes y cómo se activan las skills sin convertirlas en parte del repo.
+- Archivos involucrados: `README.md`, nuevo `GUIA-ORQUESTACION-AGENTES.md`, `BITACORA.md`.
+
+#### A — Análisis
+- Estrategia: crear una guía operativa corta pero suficiente, centrada en flujo, roles, skills, ramas y handoffs.
+- Cambios modulares:
+  - `GUIA-ORQUESTACION-AGENTES.md`: nuevo documento de orquestación.
+  - `README.md`: enlace directo a la guía.
+  - `BITACORA.md`: trazabilidad del cambio documental.
+
+#### D — Desarrollo
+- Archivos modificados:
+  - `GUIA-ORQUESTACION-AGENTES.md` — **NUEVO**
+  - `README.md` — enlace a la guía
+  - `BITACORA.md` — registro TCAD del cambio
+- **Lint:** N/A
+- **Build:** N/A
+- **Commit:** —
+
 ### [2026-03-09 01:34:15 UTC] Premium polish fase 3A: hero, stats y reviews (TCAD)
 
 #### T — Traducción

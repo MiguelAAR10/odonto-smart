@@ -51,6 +51,7 @@ Abrir [http://localhost:3000](http://localhost:3000)
 
 - [`TCAD.md`](./TCAD.md) — Framework de desarrollo
 - [`BITACORA.md`](./BITACORA.md) — Registro de cambios
+- [`GUIA-ORQUESTACION-AGENTES.md`](./GUIA-ORQUESTACION-AGENTES.md) — Flow operativo de agentes y skills
 - [`/style-guide`](http://localhost:3000/style-guide) — Tokens visuales
 
 ## Sedes
