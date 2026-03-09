@@ -96,7 +96,7 @@ function StatCard({ value, prefix, suffix, label, variant, index }: StatCardProp
       </span>
 
       {/* Label */}
-      <span className="mt-2 text-center text-xs font-bold uppercase tracking-widest text-text-muted">
+      <span className="mt-2 text-center text-[14px] font-bold uppercase tracking-widest text-text-muted">
         {label}
       </span>
     </motion.div>

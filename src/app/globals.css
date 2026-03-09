@@ -18,6 +18,7 @@
 
   /* Brand colors */
   --color-brand-teal: #4eb1ac;
+  --color-brand-teal-strong: #0f766e;
   --color-brand-purple: #8e44ad;
   --color-brand-teal-soft: rgba(78, 177, 172, 0.1);
   --color-brand-purple-soft: rgba(142, 68, 173, 0.1);
@@ -40,6 +41,7 @@
   --color-text-muted: var(--color-text-muted);
   --color-text-light: var(--color-text-light);
   --color-brand-teal: var(--color-brand-teal);
+  --color-brand-teal-strong: var(--color-brand-teal-strong);
   --color-brand-purple: var(--color-brand-purple);
   --color-brand-teal-soft: var(--color-brand-teal-soft);
   --color-brand-purple-soft: var(--color-brand-purple-soft);

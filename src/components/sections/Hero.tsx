@@ -8,7 +8,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   return (
-    <section className="relative h-[600px] w-full overflow-hidden pt-16">
+    <section id="inicio" className="relative h-[600px] w-full overflow-hidden pt-16">
       {/* Background Image */}
       <Image
         src={hero.image}
@@ -21,7 +21,7 @@ export function Hero() {
 
       {/* Dark Overlay - Left side */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-transparent"
+        className="absolute inset-y-0 left-0 w-full bg-black/70 md:w-[56%] md:bg-black/85"
         aria-hidden="true"
       />
 
@@ -44,7 +44,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.1 }}
-              className="mt-1 block text-4xl font-black italic leading-tight text-brand-teal md:text-5xl lg:text-6xl"
+              className="mt-1 block text-4xl font-black leading-tight text-brand-teal md:text-5xl lg:text-6xl"
             >
               {hero.title.line2}
             </motion.span>
@@ -74,7 +74,7 @@ export function Hero() {
               </a>
               <a
                 href={hero.buttons.secondary.href}
-                className="rounded-lg bg-brand-teal px-8 py-3.5 text-[15px] font-semibold text-white transition-all hover:bg-brand-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+                className="rounded-lg bg-brand-teal-strong px-8 py-3.5 text-[15px] font-semibold text-white transition-all hover:bg-brand-teal-strong/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
               >
                 {hero.buttons.secondary.label}
               </a>

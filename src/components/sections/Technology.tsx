@@ -46,7 +46,7 @@ function TechCard({ title, description, image, index }: TechCardProps) {
 
 export function Technology() {
   return (
-    <section className="bg-bg-soft py-20">
+    <section id="especialidades" className="bg-bg-soft py-20">
       <Container>
         {/* Header */}
         <motion.div

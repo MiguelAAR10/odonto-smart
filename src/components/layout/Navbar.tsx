@@ -64,7 +64,7 @@ export function Navbar() {
         {/* CTA Button */}
         <a
           href={navigation.cta.href}
-          className="hidden rounded-full bg-brand-teal px-6 py-2.5 text-[15px] font-semibold text-white transition-all hover:bg-brand-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 md:block"
+          className="hidden rounded-full bg-brand-teal-strong px-6 py-2.5 text-[15px] font-semibold text-white transition-all hover:bg-brand-teal-strong/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 md:block"
         >
           {navigation.cta.label}
         </a>
@@ -126,7 +126,7 @@ export function Navbar() {
               <a
                 href={navigation.cta.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-2 rounded-full bg-brand-teal px-6 py-3 text-center text-[15px] font-semibold text-white transition-all hover:bg-brand-teal/90"
+                className="mt-2 rounded-full bg-brand-teal-strong px-6 py-3 text-center text-[15px] font-semibold text-white transition-all hover:bg-brand-teal-strong/90"
               >
                 {navigation.cta.label}
               </a>
