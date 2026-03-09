@@ -43,14 +43,15 @@ export const siteConfig = {
 
 export const navigation = {
   links: [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Especialidades", href: "#especialidades" },
-    { label: "Sedes", href: "#sedes" },
-    { label: "Contacto", href: "#contacto" },
+    { label: "Inicio", href: "/" },
+    { label: "Nosotros", href: "/nosotros" },
+    { label: "Equipo", href: "/equipo" },
+    { label: "Tratamientos", href: "/tratamientos" },
+    { label: "Sedes", href: "/sedes" },
   ],
   cta: {
     label: "Reservar Cita",
-    href: "#contacto",
+    href: "/sedes#contacto",
   },
 };
 

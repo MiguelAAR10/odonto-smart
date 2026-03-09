@@ -421,4 +421,110 @@ WhatsApp:  https://wa.me/51987654321?text=...
 
 ---
 
-*Última actualización: 2026-03-09 05:00 UTC*
+### [2026-03-09 06:30:00 UTC] Full Site Pages — Equipo, Tratamientos, Sedes, Nosotros (TCAD)
+
+#### T — Traducción
+- **Objetivo:** Crear sitio web completo con páginas dedicadas para equipo, tratamientos, sedes y nosotros
+- **Para no-técnicos:** Expandir la landing page en un sitio completo donde los pacientes puedan conocer al equipo, ver tratamientos detallados, encontrar la sede más cercana y conocer la historia de la clínica
+
+#### C — Contexto
+- **Estado inicial:** Landing page única con secciones básicas
+- **Branch:** `feature/full-site-pages-v1`
+- **Requerimientos:**
+  - Página Staff: CV completo, certificaciones, fotos trabajando
+  - Página Tratamientos: proceso, tecnología, FAQs, rayos X conceptuales
+  - Página Sedes: Google Maps, galería, localizador sede cercana
+  - Página Nosotros: misión, visión, valores, estadísticas, certificaciones
+
+#### A — Análisis
+- **Estrategia:** Arquitectura de páginas con componentes reutilizables
+- **Skills aplicables:**
+  - [x] web-design-guidelines — diseño de páginas completas
+  - [x] implement-frontend — componentes interactivos
+  - [x] audit-ui — coherencia visual con landing
+- **Estructura de archivos:**
+  ```
+  src/
+  ├── data/
+  │   └── pages-content.ts (NUEVO - 500+ líneas de contenido)
+  ├── components/ui/
+  │   └── PageHeader.tsx (NUEVO - componente reutilizable)
+  └── app/
+      ├── equipo/page.tsx (NUEVO)
+      ├── tratamientos/page.tsx (NUEVO)
+      ├── sedes/page.tsx (NUEVO)
+      └── nosotros/page.tsx (NUEVO)
+  ```
+
+#### D — Desarrollo
+
+**Archivos creados:**
+
+| Archivo | Líneas | Descripción |
+|---------|--------|-------------|
+| `pages-content.ts` | ~550 | Datos estructurados para todas las páginas |
+| `PageHeader.tsx` | ~90 | Hero reutilizable con patrón y wave |
+| `equipo/page.tsx` | ~200 | Perfiles completos del staff con CV |
+| `tratamientos/page.tsx` | ~280 | Selector interactivo + proceso + FAQs |
+| `sedes/page.tsx` | ~300 | Maps embed + localizador geolocalización |
+| `nosotros/page.tsx` | ~320 | Misión/visión + stats animados + valores |
+
+**Características implementadas:**
+
+1. **Página Equipo (`/equipo`)**
+   - Perfiles alternados (izq/der)
+   - CV completo: educación, certificaciones, especialidades
+   - Foto de perfil + foto trabajando
+   - Citas personales de cada doctor
+   - CTA para agendar cita
+
+2. **Página Tratamientos (`/tratamientos`)**
+   - Selector lateral de tratamientos
+   - Tarjeta interactiva con animaciones
+   - Proceso en timeline visual
+   - Tecnología utilizada (badges)
+   - Beneficios con checks
+   - FAQs colapsables con acordeón
+   - CTA contextual por tratamiento
+
+3. **Página Sedes (`/sedes`)**
+   - **Localizador de sede cercana** con Geolocation API
+   - Galería de imágenes por sede
+   - Google Maps embed por ubicación
+   - Horarios de atención
+   - Características (parking, WiFi, etc.)
+   - Botones: "Cómo llegar" + "Agendar por WhatsApp"
+   - Highlight visual de sede más cercana
+
+4. **Página Nosotros (`/nosotros`)**
+   - Misión y Visión en cards gradient
+   - Stats animados con contadores
+   - Valores con iconos hover
+   - "Por qué elegirnos" en grid
+   - Galería de imágenes
+   - Certificaciones con logos
+   - CTA dual (Agendar + Conocer equipo)
+
+**Navegación actualizada:**
+```typescript
+links: [
+  { label: "Inicio", href: "/" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Equipo", href: "/equipo" },
+  { label: "Tratamientos", href: "/tratamientos" },
+  { label: "Sedes", href: "/sedes" },
+]
+```
+
+**Componentes reutilizados:**
+- Navbar, Footer, WhatsAppButton
+- Container, SectionHeading
+- Framer Motion animations
+
+- **Lint:** ✅
+- **TypeScript:** ✅
+- **Commit:** `feat(pages): add full site pages - staff, treatments, locations, about`
+
+---
+
+*Última actualización: 2026-03-09 06:30 UTC*
