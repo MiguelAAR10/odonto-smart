@@ -39,6 +39,12 @@ yarn-error.log*
 # generated images (too large for git)
 /images/
 
+# legacy/experimental components (kept locally for reference)
+src/components/sections/HeroCarousel.tsx
+src/components/sections/HeroCollage.tsx
+src/components/ui/AnimatedCounter.tsx
+src/data/mock.ts
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
