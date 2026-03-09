@@ -35,40 +35,50 @@ export function Footer() {
           </div>
 
           {/* Locations Column */}
-          <div>
+          <div id="sedes">
             <h4 className="text-lg font-bold">{footer.locations.title}</h4>
             <ul className="mt-4 space-y-4">
               {footer.locations.items.map((location) => (
-                <li key={location.name} className="flex items-start gap-2">
-                  <svg
-                    className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <li key={location.name}>
+                  <a
+                    href={location.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-2 transition-colors"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span className="text-[15px] text-text-light">
-                    {location.name} — {location.address}
-                  </span>
+                    <svg
+                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal transition-transform group-hover:scale-110"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    <span className="text-[15px] text-text-light transition-colors group-hover:text-white">
+                      <span className="font-semibold">{location.name}</span>
+                      <br />
+                      <span className="text-sm">{location.address}</span>
+                    </span>
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Contact Column */}
-          <div>
+          <div id="contacto">
             <h4 className="text-lg font-bold">{footer.contact.title}</h4>
             <ul className="mt-4 space-y-3">
               <li className="flex items-center gap-2 text-[15px] text-text-light">

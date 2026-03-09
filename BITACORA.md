@@ -92,7 +92,37 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
-### [Pendiente próximo cambio]
+### [2026-03-09 00:27:00 UTC] Inserción modular sin romper base (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: insertar mejoras quirúrgicas sin cambiar la base visual V1.
+- Resultado esperado: mantener estética, mejorar navegación, accesibilidad y coherencia con mockup.
+
+#### C — Contexto
+- Estado actual relevante: landing funcional con server en `:3000`, estructura visual estable.
+- Problemas detectados: CTA teal con contraste bajo, anchor links sin destino, `text-xs` en métricas.
+- Archivos involucrados: `globals.css`, `content.ts`, `Navbar.tsx`, `Hero.tsx`, `Stats.tsx`, `Technology.tsx`, `Footer.tsx`.
+
+#### A — Análisis
+- Estrategia: cambios de bajo impacto y alta trazabilidad, sin alterar orden ni componentes base.
+- Cambios modulares:
+  - contraste: introducir token `--color-brand-teal-strong` para CTAs sobre fondo sólido.
+  - navegación: conectar `href` de menú a `id` reales en secciones/columnas.
+  - fidelidad hero: overlay lateral más cercano al mockup y eliminar itálica no requerida.
+  - accesibilidad tipográfica: elevar etiqueta de stats de `text-xs` a `14px`.
+
+#### D — Desarrollo
+- Archivos modificados:
+  - `src/app/globals.css`
+  - `src/data/content.ts`
+  - `src/components/layout/Navbar.tsx`
+  - `src/components/sections/Hero.tsx`
+  - `src/components/sections/Stats.tsx`
+  - `src/components/sections/Technology.tsx`
+  - `src/components/sections/Footer.tsx`
+- Estado: cambios aplicados localmente y listos para validación visual.
+
+### [Plantilla próximo cambio]
 
 **Timestamp:** —
 
@@ -114,4 +144,46 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
-*Última actualización: 2026-03-08*
+### [2026-03-09 01:15:00 UTC] Sección Reviews + Sedes Google Maps (TCAD)
+
+#### T — Traducción
+- **Objetivo solicitado:** Insertar sección de prueba social y actualizar sedes con enlaces a Google Maps.
+- **Clarificación:** NO se muestran reseñas reales de Google. Se crean 3 testimonios editoriales con CTA a Google Reviews real.
+- **Entendible para no-técnicos:** Nueva sección con experiencias de pacientes + sedes clickeables que abren mapas.
+
+#### C — Contexto
+- **Estado actual:** Landing con `Navbar → Hero → Stats → Technology → Team → Footer`
+- **Sedes anteriores:** Miraflores y San Isidro (sin enlaces)
+- **Archivos involucrados:** `content.ts`, `Footer.tsx`, `page.tsx`, nuevo `Reviews.tsx`
+- **Patrón reutilizado:** Container, SectionHeading, bg-bg-soft, border-border-subtle
+
+#### A — Análisis
+- **Estrategia:** Inserción quirúrgica entre Team y Footer, sin alterar estructura existente.
+- **Cambios modulares:**
+  - `content.ts`: Interfaces TypeScript (`Location`, `Testimonial`), helper `getGoogleMapsUrl()`, nuevas sedes (Lince, Magdalena, Jesús María), bloque `reviews`.
+  - `Reviews.tsx`: Server Component con tarjetas de testimonios y CTA externo.
+  - `Footer.tsx`: Sedes como enlaces `<a>` con `target="_blank"` y hover.
+  - `page.tsx`: Importar e insertar `<Reviews />`.
+
+#### D — Desarrollo
+- **Archivos modificados:**
+  - `src/data/content.ts` — interfaces + sedes + reviews
+  - `src/components/sections/Reviews.tsx` — **NUEVO**
+  - `src/components/sections/Footer.tsx` — sedes clickeables
+  - `src/app/page.tsx` — insertar Reviews
+- **Build:** ✅ Exitoso
+- **Orden final:** `Navbar → Hero → Stats → Technology → Team → Reviews → Footer`
+
+#### Validaciones
+| Check | Estado |
+|-------|--------|
+| Reviews entre Team y Footer | ✅ |
+| 3 sedes abren Google Maps | ✅ |
+| Botón abre Google Reviews | ✅ |
+| No hay reseñas falsas de Google | ✅ |
+| Sin nuevas dependencias | ✅ |
+| Build exitoso | ✅ |
+
+---
+
+*Última actualización: 2026-03-09*

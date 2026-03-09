@@ -3,6 +3,35 @@
 // All text content centralized here. No hardcoded strings in components.
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Interfaces
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface Location {
+  name: string;
+  address: string;
+  href: string;
+}
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  highlight: string;
+  avatar: string;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────────────────────────────────────
+
+function getGoogleMapsUrl(address: string): string {
+  return `https://maps.google.com/?q=${encodeURIComponent(address + ", Lima, Perú")}`;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Site Configuration
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const siteConfig = {
   name: "Odonto Smart",
   logo: {
@@ -14,16 +43,20 @@ export const siteConfig = {
 
 export const navigation = {
   links: [
-    { label: "Inicio", href: "#" },
+    { label: "Inicio", href: "#inicio" },
     { label: "Especialidades", href: "#especialidades" },
     { label: "Sedes", href: "#sedes" },
     { label: "Contacto", href: "#contacto" },
   ],
   cta: {
     label: "Reservar Cita",
-    href: "#reservar",
+    href: "#contacto",
   },
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Hero Section
+// ─────────────────────────────────────────────────────────────────────────────
 
 export const hero = {
   title: {
@@ -39,11 +72,15 @@ export const hero = {
     },
     secondary: {
       label: "Ver Servicios",
-      href: "#servicios",
+      href: "#especialidades",
     },
   },
   image: "/images/odonto-smart/hero-bg.png",
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Stats Section
+// ─────────────────────────────────────────────────────────────────────────────
 
 export const stats = {
   title: "Nuestra Experiencia Nos Define",
@@ -68,6 +105,10 @@ export const stats = {
     },
   ],
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Technology Section
+// ─────────────────────────────────────────────────────────────────────────────
 
 export const technology = {
   label: "EXCELENCIA",
@@ -96,6 +137,10 @@ export const technology = {
     },
   ],
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Team Section
+// ─────────────────────────────────────────────────────────────────────────────
 
 export const team = {
   label: "EXCELENCIA",
@@ -130,6 +175,65 @@ export const team = {
   ],
 };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Reviews Section (Prueba Social)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const reviews = {
+  label: "CONFIANZA",
+  title: "Lo Que Dicen Nuestros Pacientes",
+  description: "Experiencias reales de quienes confían en nosotros.",
+  testimonials: [
+    {
+      id: "exp-1",
+      quote:
+        "Tenía mucho miedo de ir al dentista, pero desde la primera consulta me sentí en confianza. El trato del equipo es excepcional y muy humano.",
+      highlight: "Excelente trato desde el primer momento",
+      avatar: "👩",
+    },
+    {
+      id: "exp-2",
+      quote:
+        "Me realizaron una endodoncia y no sentí absolutamente nada. La tecnología que usan hace toda la diferencia. Recomendado al 100%.",
+      highlight: "Procedimiento sin dolor",
+      avatar: "👨",
+    },
+    {
+      id: "exp-3",
+      quote:
+        "El diseño de sonrisa digital me permitió ver el resultado antes de empezar. Quedé impresionada con la precisión y el resultado final.",
+      highlight: "Tecnología de vanguardia",
+      avatar: "👩",
+    },
+  ] as Testimonial[],
+  cta: {
+    label: "Ver más reseñas en Google",
+    href: "https://www.google.com/search?q=odonto+smart#lrd=0x9105c9a79909517d:0x83b58704d34befe2,1,,,,",
+  },
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Footer
+// ─────────────────────────────────────────────────────────────────────────────
+
+const footerLocations: Location[] = [
+  {
+    name: "Lince",
+    address: "Av. Arequipa 1860",
+    href: getGoogleMapsUrl("Av. Arequipa 1860, Lince"),
+  },
+  {
+    name: "Magdalena",
+    address: "Calle De La Roca de Vergallo 493",
+    href: getGoogleMapsUrl("Calle De La Roca de Vergallo 493, Magdalena"),
+  },
+  {
+    name: "Jesús María",
+    address: "Jr. Mariscal Luzuriaga 363",
+    href: getGoogleMapsUrl("Jr. Mariscal Luzuriaga 363, Jesús María"),
+  },
+];
+
 export const footer = {
   brand: {
     name: "ODONTO SMART",
@@ -148,16 +252,7 @@ export const footer = {
   },
   locations: {
     title: "Nuestras Sedes",
-    items: [
-      {
-        name: "Miraflores",
-        address: "Av. José Larco 812",
-      },
-      {
-        name: "San Isidro",
-        address: "Av. Conquistadores 1024",
-      },
-    ],
+    items: footerLocations,
   },
   contact: {
     title: "Contacto",
