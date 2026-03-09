@@ -41,7 +41,7 @@ export function Reviews() {
 
               {/* Quote Text */}
               <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-text-muted">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
 
               {/* Highlight Tag */}

@@ -98,6 +98,11 @@
 ```markdown
 #### A — Análisis
 - **Estrategia:** [enfoque general]
+- **Skills aplicables:** (marcar solo si el cambio lo requiere)
+  - [ ] audit-ui
+  - [ ] web-design-guidelines
+  - [ ] vercel-react-best-practices
+  - [ ] implement-frontend
 - **Cambios modulares:**
   - Archivo 1: [qué cambiar]
   - Archivo 2: [qué cambiar]
@@ -272,6 +277,7 @@ Antes de hacer commit de un cambio TCAD:
 - [ ] ¿El objetivo está claramente definido? (T)
 - [ ] ¿Leí los archivos involucrados? (C)
 - [ ] ¿El cambio es el mínimo necesario? (A)
+- [ ] ¿Este cambio requería revisión de UI, accesibilidad o performance? (A)
 - [ ] ¿El build pasa? (D)
 - [ ] ¿La bitácora está actualizada? (D)
 - [ ] ¿El commit message sigue el formato? (D)
