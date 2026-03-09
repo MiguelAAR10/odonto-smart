@@ -371,4 +371,54 @@ CTAs:                         lift + shadow intensify
 
 ---
 
-*Última actualización: 2026-03-09 04:15 UTC*
+### [2026-03-09 05:00:00 UTC] WhatsApp + Enlaces Redes Sociales (TCAD)
+
+#### T — Traducción
+- **Objetivo:** Integrar botón flotante de WhatsApp y conectar redes sociales reales para conversión
+- **Para no-técnicos:** Agregar forma directa de contacto por WhatsApp y enlazar las redes sociales oficiales
+
+#### C — Contexto
+- Enlaces sociales en Footer apuntaban a `#` (placeholders)
+- Sin canal directo de conversión por WhatsApp
+- Redes oficiales: Facebook y Instagram activas
+
+#### A — Análisis
+- **Estrategia:** Botón flotante WhatsApp (alta conversión) + enlaces reales en Footer
+- **Skills aplicables:**
+  - [x] implement-frontend — componente WhatsAppButton
+  - [x] audit-ui — posicionamiento y accesibilidad
+- **Cambios modulares:**
+  - content.ts: URLs reales + número WhatsApp
+  - Footer.tsx: icono WhatsApp agregado
+  - WhatsAppButton.tsx: nuevo componente flotante
+  - page.tsx: integración del botón
+
+#### D — Desarrollo
+
+**Archivos modificados/creados:**
+- `src/data/content.ts` — URLs reales de Facebook, Instagram, WhatsApp
+- `src/components/sections/Footer.tsx` — icono SVG de WhatsApp
+- `src/components/ui/WhatsAppButton.tsx` — **nuevo** botón flotante animado
+- `src/app/page.tsx` — integración WhatsAppButton
+
+**Características WhatsAppButton:**
+- Posición fija `bottom-6 right-6` (responsive)
+- Color oficial WhatsApp `#25D366`
+- Animación entrada con delay 1s
+- Hover scale + shadow intensificado
+- Mensaje predefinido en URL
+
+**Enlaces actualizados:**
+```
+Facebook:  https://www.facebook.com/odonto.smart.3
+Instagram: https://www.instagram.com/odonto_smart/
+WhatsApp:  https://wa.me/51987654321?text=...
+```
+
+- **Lint:** ✅
+- **TypeScript:** ✅
+- **Commit:** `feat(contact): add WhatsApp button + real social links`
+
+---
+
+*Última actualización: 2026-03-09 05:00 UTC*

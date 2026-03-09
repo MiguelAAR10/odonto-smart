@@ -262,12 +262,13 @@ export const footer = {
     title: "Contacto",
     phone: "(01) 234-5678",
     mobile: "+51 987 654 321",
+    whatsapp: "+51987654321",
     email: "info@odontosmart.pe",
   },
   social: [
-    { label: "Facebook", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
+    { label: "Facebook", href: "https://www.facebook.com/odonto.smart.3" },
+    { label: "Instagram", href: "https://www.instagram.com/odonto_smart/" },
+    { label: "WhatsApp", href: "https://wa.me/51987654321?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20cita" },
   ],
   copyright: "© 2026 Odonto Smart. Todos los derechos reservados.",
 };
