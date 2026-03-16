@@ -60,22 +60,82 @@ export const navigation = {
 
 export const hero = {
   title: {
-    line1: "La Inteligencia Dental de",
-    line2: "Tu Mejor Sonrisa",
+    line1: "Tu Sonrisa en Manos",
+    line2: "de Especialistas",
   },
   description:
-    "Calidad y experiencia boutique para transformar tu sonrisa con la mejor tecnología de vanguardia y un equipo de especialistas de primer nivel.",
+    "En OdontoSmart cuidamos tu salud dental con especialistas certificados, tecnología moderna y atención personalizada.",
   buttons: {
     primary: {
-      label: "Saber Más",
-      href: "#conocenos",
+      label: "Agenda Tu Cita",
+      href: "/sedes#contacto",
     },
     secondary: {
-      label: "Ver Servicios",
+      label: "Ver Especialidades",
       href: "#especialidades",
     },
   },
   image: "/images/odonto-smart/hero-bg.png",
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Treatments / Especialidades (7)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const treatments = {
+  label: "ESPECIALIDADES",
+  title: "Cuidado Integral para Tu Sonrisa",
+  items: [
+    {
+      id: "ortodoncia",
+      name: "Ortodoncia y Ortopedia Maxilar",
+      brief: "Alineamos tu sonrisa con técnicas invisibles y modernas.",
+      icon: "scan-line" as const,
+      color: "teal" as const,
+    },
+    {
+      id: "rehabilitacion",
+      name: "Rehabilitación Oral",
+      brief: "Devolvemos función y estética a tu boca completa.",
+      icon: "refresh-cw" as const,
+      color: "pink" as const,
+    },
+    {
+      id: "estetica",
+      name: "Odontología Estética y Restauradora",
+      brief: "Diseño de sonrisa, carillas y blanqueamiento premium.",
+      icon: "sparkles" as const,
+      color: "teal" as const,
+    },
+    {
+      id: "periodoncia",
+      name: "Periodoncia e Implantología",
+      brief: "Implantes de titanio y cuidado avanzado de encías.",
+      icon: "shield-check" as const,
+      color: "pink" as const,
+    },
+    {
+      id: "cirugia",
+      name: "Cirugía Oral y Maxilofacial",
+      brief: "Procedimientos quirúrgicos con precisión y seguridad.",
+      icon: "syringe" as const,
+      color: "teal" as const,
+    },
+    {
+      id: "endodoncia",
+      name: "Endodoncia",
+      brief: "Salvamos tu diente natural con tratamientos de conducto.",
+      icon: "heart-pulse" as const,
+      color: "pink" as const,
+    },
+    {
+      id: "odontopediatria",
+      name: "Odontopediatría",
+      brief: "Cuidado dental especializado para los más pequeños.",
+      icon: "baby" as const,
+      color: "teal" as const,
+    },
+  ],
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
