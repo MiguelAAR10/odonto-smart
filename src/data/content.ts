@@ -44,10 +44,9 @@ export const siteConfig = {
 export const navigation = {
   links: [
     { label: "Inicio", href: "/" },
-    { label: "Nosotros", href: "/nosotros" },
-    { label: "Equipo", href: "/equipo" },
-    { label: "Tratamientos", href: "/tratamientos" },
+    { label: "Especialidades", href: "/tratamientos" },
     { label: "Sedes", href: "/sedes" },
+    { label: "Nosotros", href: "/nosotros" },
   ],
   cta: {
     label: "Reservar Cita",
