@@ -22,7 +22,10 @@ export function SectionHeading({
           {label}
         </span>
       )}
-      <h2 className="text-3xl font-black text-text-dark md:text-4xl">
+      <h2
+        className="text-3xl font-bold text-text-dark md:text-4xl"
+        style={{ fontFamily: "var(--font-display)" }}
+      >
         {title}
       </h2>
       {description && (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Odonto Smart — La Inteligencia Dental de Tu Mejor Sonrisa",
   description:
-    "Más de 20 años transformando sonrisas con tecnología de vanguardia. Implantes, ortodoncia invisible, diseño de sonrisa y más en Miraflores y San Isidro, Lima.",
+    "Más de 20 años transformando sonrisas con tecnología de vanguardia. Implantes, ortodoncia invisible, diseño de sonrisa y más en Lima.",
   keywords: [
     "dentista",
     "odontología",
@@ -31,7 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} antialiased`}>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

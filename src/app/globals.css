@@ -1,35 +1,51 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap");
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   ODONTO SMART V1 — Stitch Final | Design Tokens
-   Health-tech/commercial aesthetic. Inter only. No text below 14px.
+   ODONTO SMART V2 — Premium Experience | Design Tokens
+   Cian (#41d4cb) + Rosa Neon (#de1bce) · Clash Display + Satoshi + Monument
+   Inspired by x.ai texture language · Matte grain · Vivid accents
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Background colors */
-  --color-bg-page: #f6f7f7;
+  /* ── Background colors ── */
+  --color-bg-page: #fafbfc;
   --color-bg-main: #ffffff;
-  --color-bg-soft: #f8fafc;
+  --color-bg-soft: #f0fdfb;
+  --color-bg-dark: #0a0f1a;
 
-  /* Text colors */
+  /* ── Text colors ── */
   --color-text-dark: #0f172a;
   --color-text-muted: #475569;
   --color-text-light: #94a3b8;
 
-  /* Brand colors */
-  --color-brand-teal: #4eb1ac;
-  --color-brand-teal-strong: #0f766e;
-  --color-brand-purple: #8e44ad;
-  --color-brand-teal-soft: rgba(78, 177, 172, 0.1);
-  --color-brand-purple-soft: rgba(142, 68, 173, 0.1);
+  /* ── Brand — Cian + Rosa Neon (VIVOS) ── */
+  --color-brand-teal: #41d4cb;
+  --color-brand-teal-strong: #2bb5ad;
+  --color-brand-teal-soft: rgba(65, 212, 203, 0.1);
+  --color-brand-purple: #de1bce;
+  --color-brand-purple-soft: rgba(222, 27, 206, 0.1);
 
-  /* Utility */
+  /* ── Gradients ── */
+  --gradient-primary: linear-gradient(135deg, #41d4cb 0%, #de1bce 100%);
+  --gradient-hero: linear-gradient(135deg, #0a0f1a 0%, #1a0a2e 50%, #0a0f1a 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  --gradient-text: linear-gradient(90deg, #41d4cb 0%, #de1bce 100%);
+
+  /* ── Utility ── */
   --color-border-subtle: #e2e8f0;
-  --color-footer-bg: #0f172a;
-  --color-hero-overlay: rgba(0, 0, 0, 0.85);
+  --color-footer-bg: #0c1322;
+  --color-hero-overlay: rgba(10, 15, 26, 0.88);
 
-  /* Motion */
+  /* ── Motion ── */
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Fonts ── */
+  --font-display: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Monument Extended", "Satoshi", ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
@@ -37,6 +53,7 @@
   --color-bg-page: var(--color-bg-page);
   --color-bg-main: var(--color-bg-main);
   --color-bg-soft: var(--color-bg-soft);
+  --color-bg-dark: var(--color-bg-dark);
   --color-text-dark: var(--color-text-dark);
   --color-text-muted: var(--color-text-muted);
   --color-text-light: var(--color-text-light);
@@ -49,8 +66,10 @@
   --color-footer-bg: var(--color-footer-bg);
   --color-hero-overlay: var(--color-hero-overlay);
 
-  /* Font - Inter only */
-  --font-sans: var(--font-inter);
+  /* Fonts */
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -70,12 +89,87 @@ html {
 body {
   background: var(--color-bg-page);
   color: var(--color-text-dark);
-  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-size: 16px;
   line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   x.ai-Inspired Texture — Subtle Film Grain (Matte Feel)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Stronger grain for dark sections */
+.bg-noise-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Premium Gradients & Effects
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-border {
+  border-image: var(--gradient-primary) 1;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(65, 212, 203, 0.25),
+              0 0 80px rgba(65, 212, 203, 0.1);
+}
+
+.glow-pink {
+  box-shadow: 0 0 40px rgba(222, 27, 206, 0.25),
+              0 0 80px rgba(222, 27, 206, 0.1);
+}
+
+.glow-gradient {
+  box-shadow: 0 8px 32px rgba(65, 212, 203, 0.3),
+              0 4px 16px rgba(222, 27, 206, 0.15);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Glassmorphism
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.glass-dark {
+  background: rgba(10, 15, 26, 0.8);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -109,4 +203,21 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   WhatsApp Pulse Glow
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px 8px rgba(37, 211, 102, 0.25);
+  }
+}
+
+.whatsapp-pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
