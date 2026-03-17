@@ -3,9 +3,6 @@
 import { useState, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/sections/Footer";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { locationsPage, ClinicLocation } from "@/data/pages-content";
@@ -301,16 +298,14 @@ export default function SedesPage() {
 
   return (
     <>
-      <Navbar />
-      <main>
-        <PageHeader
-          label={locationsPage.hero.label}
-          title={locationsPage.hero.title}
-          description={locationsPage.hero.description}
-        />
+      <PageHeader
+        label={locationsPage.hero.label}
+        title={locationsPage.hero.title}
+        description={locationsPage.hero.description}
+      />
 
-        <section className="bg-bg-page py-16">
-          <Container>
+      <section className="bg-bg-page py-16">
+        <Container>
             {/* Nearest Location Finder */}
             <div className="mb-12">
               <NearestLocationFinder
@@ -331,9 +326,6 @@ export default function SedesPage() {
             </div>
           </Container>
         </section>
-      </main>
-      <Footer />
-      <WhatsAppButton />
     </>
   );
 }

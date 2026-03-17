@@ -1,9 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import {
   motion,
   useMotionValue,
-  useSpring,
   useMotionTemplate,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
@@ -16,6 +16,7 @@ import {
   Syringe,
   HeartPulse,
   Baby,
+  ArrowRight,
 } from "lucide-react";
 import { type MouseEvent } from "react";
 
@@ -35,9 +36,10 @@ interface TreatmentCardProps {
   icon: keyof typeof iconMap;
   color: "teal" | "pink";
   index: number;
+  id: string;
 }
 
-function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) {
+function TreatmentCard({ name, brief, icon, color, index, id }: TreatmentCardProps) {
   const Icon = iconMap[icon];
   const isTeal = color === "teal";
 
@@ -62,16 +64,18 @@ function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) 
         type: "spring",
         damping: 25,
         stiffness: 120,
-        delay: index * 0.06,
+        delay: index * 0.1,
       }}
       whileHover={{ y: -4 }}
       onMouseMove={handleMouseMove}
-      className={`group relative overflow-hidden rounded-2xl border bg-white p-6 transition-shadow duration-300 hover:shadow-xl ${
+      className={`group relative overflow-hidden rounded-2xl border bg-white p-6 transition-all duration-300 hover:shadow-xl ${
         isTeal
-          ? "border-brand-teal/10 hover:shadow-brand-teal/10"
-          : "border-brand-purple/10 hover:shadow-brand-purple/10"
+          ? "border-brand-teal/10 hover:border-brand-teal/25 hover:shadow-brand-teal/10"
+          : "border-brand-purple/10 hover:border-brand-purple/25 hover:shadow-brand-purple/10"
       }`}
     >
+      <Link href={`/tratamientos`} className="absolute inset-0 z-20" aria-label={`Ver ${name}`} />
+
       {/* Directional glow */}
       <motion.div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -79,12 +83,14 @@ function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) 
       />
 
       <div className="relative z-10 flex items-start gap-4">
-        {/* Icon */}
+        {/* Icon with entrance animation */}
         <motion.div
           whileHover={{ rotate: [0, -8, 8, 0], scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
-            isTeal ? "bg-brand-teal/10" : "bg-brand-purple/10"
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
+            isTeal
+              ? "bg-brand-teal/10 group-hover:bg-brand-teal/20"
+              : "bg-brand-purple/10 group-hover:bg-brand-purple/20"
           }`}
         >
           <Icon
@@ -94,9 +100,9 @@ function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) 
         </motion.div>
 
         {/* Text */}
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <h3
-            className="text-[15px] font-bold text-text-dark"
+            className="text-[15px] font-bold text-text-dark transition-all duration-300 group-hover:tracking-wide"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {name}
@@ -105,6 +111,17 @@ function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) 
             {brief}
           </p>
         </div>
+
+        {/* Arrow reveal on hover */}
+        <div className="flex h-11 items-center">
+          <motion.div
+            className={`flex h-7 w-7 items-center justify-center rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 ${
+              isTeal ? "bg-brand-teal/10 text-brand-teal" : "bg-brand-purple/10 text-brand-purple"
+            }`}
+          >
+            <ArrowRight className="h-3.5 w-3.5 -translate-x-1 transition-transform duration-300 group-hover:translate-x-0" />
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );
@@ -112,7 +129,7 @@ function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) 
 
 export function Treatments() {
   return (
-    <section id="especialidades" className="bg-noise relative bg-bg-soft py-20">
+    <section id="especialidades" className="bg-noise lazy-section relative bg-bg-soft py-20">
       <Container>
         {/* Header */}
         <motion.div
@@ -134,11 +151,12 @@ export function Treatments() {
           <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-brand-teal to-brand-purple" />
         </motion.div>
 
-        {/* Grid — 2 columns on desktop, clean breathing room */}
+        {/* Grid — 2 columns on desktop */}
         <div className="mx-auto grid max-w-4xl gap-4 md:grid-cols-2">
           {treatments.items.map((item, index) => (
             <TreatmentCard
               key={item.id}
+              id={item.id}
               name={item.name}
               brief={item.brief}
               icon={item.icon}

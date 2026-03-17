@@ -206,6 +206,117 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
+   Custom Scrollbar — Brand gradient
+   ───────────────────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-brand-teal), var(--color-brand-purple));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-brand-teal-strong), var(--color-brand-purple));
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-teal) var(--color-bg-dark);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Skeleton / Shimmer Loading
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-soft) 25%,
+    var(--color-bg-main) 50%,
+    var(--color-bg-soft) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+.skeleton-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.03) 25%,
+    rgba(255,255,255,0.06) 50%,
+    rgba(255,255,255,0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Animation Utilities
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+@keyframes shimmer-slide {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer-text {
+  background-size: 200% auto;
+  animation: shimmer-slide 3s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
    WhatsApp Pulse Glow
    ───────────────────────────────────────────────────────────────────────────── */
 
@@ -220,4 +331,23 @@ body {
 
 .whatsapp-pulse {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Content Visibility for Below-the-Fold Sections
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Hero Diagonal Clip
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (min-width: 768px) {
+  .clip-diagonal {
+    clip-path: polygon(0 0, 58% 0, 52% 100%, 0 100%);
+  }
 }

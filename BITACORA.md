@@ -527,4 +527,137 @@ links: [
 
 ---
 
-*Última actualización: 2026-03-09 06:30 UTC*
+---
+
+## Premium Dynamic UI Upgrade
+
+**Timestamp:** 2026-03-17
+**Branch:** `feature/premium-dynamic-ui`
+**Base:** `feature/v2-premium-experience`
+
+### Objetivo
+
+Elevar la interfaz a nivel agencia premium con maximo dinamismo: micro-interacciones ricas, contenido vivo, transiciones de pagina, animaciones de scroll avanzadas -- **sin cambiar colores ni design tokens**.
+
+### Cambios Realizados
+
+#### FASE 0 — Infraestructura Base
+
+| Cambio | Archivos | Detalle |
+|--------|----------|---------|
+| Route group `(pages)` con layout compartido | `src/app/(pages)/layout.tsx` | Navbar + Footer + WhatsApp se renderizan UNA vez en el layout compartido. Las sub-paginas ya no los importan. Esto permite page transitions fluidas sin desmontar/remontar el navbar. |
+| Migracion de `<a>` a `<Link>` | `Navbar.tsx`, `Footer.tsx`, `equipo/page.tsx`, `tratamientos/page.tsx` | Todos los links internos usan `next/link` para client-side navigation SPA. |
+| Fix rAF memory leak | `SmoothScroll.tsx` | El `requestAnimationFrame` ID ahora se almacena y cancela con `cancelAnimationFrame` en cleanup. |
+| Eliminacion de codigo muerto | `HeroCarousel.tsx`, `HeroCollage.tsx`, `AnimatedCounter.tsx`, `mock.ts` | 4 archivos eliminados (~900 lineas de codigo muerto). Import no usado de `useSpring` en `Treatments.tsx` eliminado. |
+
+#### FASE 10 — CSS Global Upgrades (`globals.css`)
+
+| Feature | Detalle |
+|---------|---------|
+| Custom scrollbar | Gradient brand (teal -> purple) en WebKit + Firefox (`scrollbar-width: thin`) |
+| Skeleton shimmer | Clase `.skeleton` y `.skeleton-dark` con animacion `shimmer` para loading states |
+| Animation utilities | `.animate-float`, `.animate-float-slow`, `.animate-float-delayed`, `.animate-shimmer-text`, `.animate-gradient`, `.animate-pulse-subtle` |
+| Lazy section | `.lazy-section` con `content-visibility: auto` y `contain-intrinsic-size` para secciones below-the-fold |
+| Hero diagonal clip | `.clip-diagonal` con `clip-path: polygon()` para el efecto diagonal del hero |
+
+#### FASE 1 — Navbar Premium (`Navbar.tsx`)
+
+| Feature | Antes | Despues |
+|---------|-------|---------|
+| Scroll states | 2 estados (top/scrolled) | 3 estados progresivos: `top` (transparente), `mid` (glass suave), `scrolled` (glass compacto con sombra fuerte) |
+| Padding | Fijo `py-4` | Animado con `useSpring` — se comprime de 16px a 8px al scrollear |
+| Active link tracking | Sin active state | Detecta pathname con `usePathname()` + underline gradient persistente con `motion.span` animado |
+| Logo hover | Sin efecto | Shimmer sweep (gradient blanco que recorre de izquierda a derecha) |
+| CTA button | Static shadow | Shine sweep en hover (similar al logo) |
+| Mobile menu | Dropdown debajo del header | Full-screen overlay con blur, links con indices numerados (`01`, `02`...), stagger desde la derecha, body scroll lock |
+| Hamburger icon | SVG swap (corte duro) | Morphing animado con spring — 3 lineas se transforman en X con rotacion |
+| Progress bar | Barra gradient plana | Agregado punto luminoso (glow tip) que sigue la punta de la barra |
+| Active dot mobile | Sin indicador | Punto verde animado con `layoutId` en el link activo |
+
+#### FASE 2 — Hero Cinematico (`Hero.tsx`)
+
+| Feature | Antes | Despues |
+|---------|-------|---------|
+| Titulo linea 2 | Staggered word reveal | **Typewriter character reveal** con cursor teal parpadeante (2 blinks y desaparece) |
+| Diagonal overlay | Full-width overlay plano | `clip-path: polygon()` crea corte diagonal en desktop — imagen visible a la derecha sin overlay |
+| Diagonal glow edge | Sin separacion visual | Linea gradient sutil de teal/purple en la diagonal |
+| Floating badge | No existia | Badge glassmorphism flotante con "+20 Anos de Excelencia", animacion `float-slow` |
+| Scroll indicator | No existia | Indicador "Scroll" con punto animado que baja/sube, se desvanece al scrollear |
+| Botones | `<a>` elements | `<Link>` con sweep shine en hover, wrapeados en `motion.div` para spring hover |
+| Glow adicional | Un solo glow teal | Dos glows: teal (izquierda) + purple sutil (centro) |
+| Height | `min-h-[88vh]` | `min-h-[92vh]` para mas impacto |
+
+#### FASE 3 — Stats Rediseno (`Stats.tsx`)
+
+| Feature | Antes | Despues |
+|---------|-------|---------|
+| Layout | 3 cards separadas en grid | Strip horizontal unico con dividers verticales gradient entre items |
+| Icon animations | Solo rotate en hover | Animaciones unicas por icono: CalendarCheck (flip), HeartPulse (double pulse), ShieldCheck (bounce-in) |
+| Stagger | `delay: index * 0.12` (sutil) | `delay: index * 0.15` (mas visible, las items entran uno por uno) |
+| Counter | tabular-nums no usado | `tabular-nums` para digitos alineados |
+| Content visibility | Sin lazy loading | `lazy-section` para lazy rendering below-the-fold |
+
+#### FASE 4 — Treatments Interactivo (`Treatments.tsx`)
+
+| Feature | Antes | Despues |
+|---------|-------|---------|
+| Cards como links | Cards sin destino | Cada card es un link a `/tratamientos` con `<Link>` overlay |
+| Arrow reveal | Sin indicador de accion | Flecha `ArrowRight` aparece en hover con slide-in |
+| Border en hover | Solo shadow change | Border opacity aumenta de `/10` a `/25` |
+| Icon bg en hover | Estatico | Background opacity del icono aumenta en hover |
+| Letter spacing | Sin cambio | Titulo hace sutil expansion de tracking en hover |
+| Stagger | `delay: index * 0.06` | `delay: index * 0.1` (entrada mas dramatica) |
+| Content visibility | Sin lazy loading | `lazy-section` |
+
+#### FASE 6 — SmileReveal WOW (`SmileReveal.tsx`)
+
+| Feature | Antes | Despues |
+|---------|-------|---------|
+| `useTransform` inline | 4 llamadas inline en JSX (anti-pattern) | **TODOS hoisted** al body del componente: `pinkGlowOpacity`, `outerRingScale`, `outerRingOpacity`, `textOpacity`, `textY` |
+| Particles background | Sin particulas | 18 particulas flotantes con colores alternados teal/purple, animacion float con duraciones y delays random |
+| Stars entrance | Aparecen todas juntas | Stagger cascade con pop animation (scale 0 -> 1.3 -> 1) y delay de 0.08s entre cada estrella |
+
+#### FASE 7 — Footer Premium (`Footer.tsx`)
+
+| Feature | Antes | Despues |
+|---------|-------|---------|
+| Newsletter strip | No existia | Franja gradient encima del footer con input email + boton "Suscribirse" |
+| Service links | `href="#"` (rotos) | Links funcionales a `/tratamientos` con `<Link>` |
+| Shimmer divider | `h-px bg-white/10` (estatico) | Shimmer gradient animado que recorre de izquierda a derecha |
+| Social icons glow | Mismo color para todos | Glow especifico por marca: Facebook azul, Instagram gradient, WhatsApp verde |
+| Contact SVG icons | Sin `aria-hidden` | Agregado `aria-hidden="true"` en todos los iconos decorativos |
+| Brand name | Sin font-display | Agregado `font-display` al nombre |
+
+#### FASE 8 — Page Transitions (`template.tsx`)
+
+| Feature | Detalle |
+|---------|---------|
+| Archivo nuevo | `src/app/(pages)/template.tsx` |
+| Animacion | Fade + slide up (opacity 0->1, y 12->0) con ease-out-expo |
+| Duracion | 350ms |
+| Alcance | Todas las sub-paginas bajo `(pages)` |
+
+### Best Practices Aplicadas (Vercel React Guidelines)
+
+| Regla | Aplicacion |
+|-------|-----------|
+| `bundle-barrel-imports` | Mantenido sin barrel files |
+| `rerender-no-inline-components` | Todos los sub-componentes en module scope |
+| `rerender-defer-reads` | SmileReveal: 5 `useTransform` inline movidos al body |
+| `client-passive-event-listeners` | Navbar scroll listener ya usaba `{ passive: true }` |
+| `client-event-listeners` | SmoothScroll rAF ID cancelado correctamente |
+| `rendering-content-visibility` | Stats, Treatments, SmileReveal con `content-visibility: auto` |
+| `bundle-preload` | Links con `<Link>` habilitan prefetch automatico de Next.js |
+
+### Verificacion
+
+- **Build:** `next build` exitoso, 0 errores
+- **TypeScript:** compilacion exitosa
+- **Rutas:** todas retornan HTTP 200 (`/`, `/tratamientos`, `/sedes`, `/nosotros`, `/equipo`)
+- **Archivos eliminados:** 4 (HeroCarousel, HeroCollage, AnimatedCounter, mock)
+- **Archivos nuevos:** 2 (`(pages)/layout.tsx`, `(pages)/template.tsx`)
+- **Archivos modificados:** 10+
+
+---
+
+*Ultima actualizacion: 2026-03-17*

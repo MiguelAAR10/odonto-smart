@@ -2,10 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/sections/Footer";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { treatmentsPage, Treatment } from "@/data/pages-content";
@@ -165,13 +163,11 @@ export default function TratamientosPage() {
 
   return (
     <>
-      <Navbar />
-      <main>
-        <PageHeader
-          label={treatmentsPage.hero.label}
-          title={treatmentsPage.hero.title}
-          description={treatmentsPage.hero.description}
-        />
+      <PageHeader
+        label={treatmentsPage.hero.label}
+        title={treatmentsPage.hero.title}
+        description={treatmentsPage.hero.description}
+      />
 
         {/* Treatment Selection */}
         <section className="bg-bg-page py-16">
@@ -322,12 +318,12 @@ export default function TratamientosPage() {
                           Agenda una consulta de evaluación sin compromiso
                         </p>
                       </div>
-                      <a
+                      <Link
                         href="/sedes#contacto"
                         className="inline-block rounded-full bg-white px-6 py-3 text-center font-semibold text-brand-teal-strong transition-all hover:-translate-y-1 hover:shadow-lg"
                       >
                         Agendar Consulta
-                      </a>
+                      </Link>
                     </div>
                   </motion.div>
                 </AnimatePresence>
@@ -335,9 +331,6 @@ export default function TratamientosPage() {
             </div>
           </Container>
         </section>
-      </main>
-      <Footer />
-      <WhatsAppButton />
     </>
   );
 }

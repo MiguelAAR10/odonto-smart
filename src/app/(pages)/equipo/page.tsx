@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/sections/Footer";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { staffPage } from "@/data/pages-content";
@@ -78,13 +76,11 @@ function CertificationIcon({ className }: { className?: string }) {
 export default function EquipoPage() {
   return (
     <>
-      <Navbar />
-      <main>
-        <PageHeader
-          label={staffPage.hero.label}
-          title={staffPage.hero.title}
-          description={staffPage.hero.description}
-        />
+      <PageHeader
+        label={staffPage.hero.label}
+        title={staffPage.hero.title}
+        description={staffPage.hero.description}
+      />
 
         {/* Team Members */}
         <section className="bg-bg-page py-20">
@@ -253,18 +249,15 @@ export default function EquipoPage() {
                 Agenda una consulta con nuestros especialistas y descubre cómo
                 podemos transformar tu sonrisa.
               </p>
-              <a
+              <Link
                 href="/sedes#contacto"
                 className="mt-8 inline-block rounded-full bg-white px-8 py-4 text-lg font-semibold text-brand-teal-strong shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
               >
                 Agendar Cita
-              </a>
+              </Link>
             </motion.div>
           </Container>
         </section>
-      </main>
-      <Footer />
-      <WhatsAppButton />
     </>
   );
 }

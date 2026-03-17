@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/sections/Footer";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { aboutPage } from "@/data/pages-content";
@@ -89,13 +86,11 @@ function AnimatedStat({ value, suffix, label }: { value: number; suffix: string;
 export default function NosotrosPage() {
   return (
     <>
-      <Navbar />
-      <main>
-        <PageHeader
-          label={aboutPage.hero.label}
-          title={aboutPage.hero.title}
-          description={aboutPage.hero.description}
-        />
+      <PageHeader
+        label={aboutPage.hero.label}
+        title={aboutPage.hero.title}
+        description={aboutPage.hero.description}
+      />
 
         {/* Mission & Vision */}
         <section className="bg-bg-page py-20">
@@ -369,9 +364,6 @@ export default function NosotrosPage() {
             </motion.div>
           </Container>
         </section>
-      </main>
-      <Footer />
-      <WhatsAppButton />
     </>
   );
 }

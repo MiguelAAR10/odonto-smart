@@ -35,6 +35,49 @@ function ScrollWord({
   );
 }
 
+// Floating particles for depth
+function Particles() {
+  const particles = Array.from({ length: 18 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: 1.5 + Math.random() * 2,
+    duration: 8 + Math.random() * 6,
+    delay: Math.random() * 4,
+    color: i % 3 === 0 ? "var(--color-brand-purple)" : "var(--color-brand-teal)",
+    opacity: 0.08 + Math.random() * 0.12,
+  }));
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full"
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
+            background: p.color,
+            opacity: p.opacity,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 8, 0],
+          }}
+          transition={{
+            duration: p.duration,
+            delay: p.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 // Magnetic CTA button
 function MagneticButton({
   children,
@@ -83,25 +126,33 @@ export function SmileReveal() {
 
   const smooth = useSpring(scrollYProgress, { stiffness: 80, damping: 30 });
 
-  // Animated values linked to scroll
+  // All transforms hoisted (fixes rerender-defer-reads anti-pattern)
   const glowOpacity = useTransform(smooth, [0.15, 0.5], [0, 0.3]);
   const glowScale = useTransform(smooth, [0.15, 0.5], [0.6, 1.2]);
+  const pinkGlowOpacity = useTransform(glowOpacity, (v) => v * 0.7);
   const ringScale = useTransform(smooth, [0.2, 0.5], [0.85, 1.05]);
   const ringOpacity = useTransform(smooth, [0.2, 0.45], [0, 0.5]);
+  const outerRingScale = useTransform(ringScale, (v) => v * 1.05);
+  const outerRingOpacity = useTransform(ringOpacity, (v) => v * 0.6);
   const counterScale = useTransform(smooth, [0.3, 0.55], [0.9, 1]);
   const counterOpacity = useTransform(smooth, [0.3, 0.55], [0, 1]);
+  const textOpacity = useTransform(smooth, [0.4, 0.55], [0, 1]);
+  const textY = useTransform(smooth, [0.4, 0.55], [15, 0]);
   const ctaOpacity = useTransform(smooth, [0.5, 0.65], [0, 1]);
   const ctaY = useTransform(smooth, [0.5, 0.65], [30, 0]);
 
-  const headline = "Tu sonrisa te abre puertas al éxito";
+  const headline = "Tu sonrisa te abre puertas al exito";
   const words = headline.split(" ");
 
   return (
     <section
       ref={sectionRef}
-      className="bg-noise-dark relative overflow-hidden py-32"
+      className="bg-noise-dark lazy-section relative overflow-hidden py-32"
       style={{ background: "#0a0f1a" }}
     >
+      {/* Floating particles */}
+      <Particles />
+
       {/* Ambient glows */}
       <motion.div
         className="pointer-events-none absolute left-[15%] top-1/4 h-[500px] w-[500px] rounded-full"
@@ -117,7 +168,7 @@ export function SmileReveal() {
         className="pointer-events-none absolute right-[15%] top-[40%] h-[400px] w-[400px] rounded-full"
         style={{
           background: "#de1bce",
-          opacity: useTransform(glowOpacity, (v) => v * 0.7),
+          opacity: pinkGlowOpacity,
           scale: glowScale,
           filter: "blur(120px)",
         }}
@@ -158,7 +209,7 @@ export function SmileReveal() {
             ))}
           </h2>
 
-          {/* Animated ring + stats reveal (replaces emoji) */}
+          {/* Animated ring + stats reveal */}
           <div className="relative mb-14 flex items-center justify-center">
             {/* Decorative rings */}
             <motion.div
@@ -169,23 +220,37 @@ export function SmileReveal() {
             <motion.div
               className="absolute h-[330px] w-[330px] rounded-full border border-brand-purple/15 md:h-[400px] md:w-[400px]"
               style={{
-                scale: useTransform(ringScale, (v) => v * 1.05),
-                opacity: useTransform(ringOpacity, (v) => v * 0.6),
+                scale: outerRingScale,
+                opacity: outerRingOpacity,
               }}
               aria-hidden="true"
             />
 
-            {/* Central metric — big number */}
+            {/* Central metric */}
             <motion.div
               className="flex flex-col items-center gap-3"
               style={{ scale: counterScale, opacity: counterOpacity }}
             >
+              {/* Stars with stagger cascade */}
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star
+                  <motion.div
                     key={i}
-                    className="h-5 w-5 fill-brand-teal text-brand-teal"
-                  />
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{
+                      scale: [0, 1.3, 1],
+                      opacity: 1,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: 0.3 + i * 0.08,
+                      type: "spring" as const,
+                      stiffness: 400,
+                      damping: 15,
+                    }}
+                  >
+                    <Star className="h-5 w-5 fill-brand-teal text-brand-teal" />
+                  </motion.div>
                 ))}
               </div>
               <span
@@ -208,8 +273,8 @@ export function SmileReveal() {
           <motion.p
             className="mb-10 max-w-lg text-lg leading-relaxed text-white/50"
             style={{
-              opacity: useTransform(smooth, [0.4, 0.55], [0, 1]),
-              y: useTransform(smooth, [0.4, 0.55], [15, 0]),
+              opacity: textOpacity,
+              y: textY,
             }}
           >
             Cada paciente es una historia de confianza.
@@ -219,7 +284,7 @@ export function SmileReveal() {
           {/* Magnetic CTA */}
           <motion.div style={{ opacity: ctaOpacity, y: ctaY }}>
             <MagneticButton href="https://wa.me/51987654321?text=Hola%2C%20quiero%20agendar%20una%20cita">
-              Agenda Tu Transformación
+              Agenda Tu Transformacion
             </MagneticButton>
           </motion.div>
         </div>
