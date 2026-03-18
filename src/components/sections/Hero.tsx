@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import { hero, stats } from "@/data/content";
 import { ShieldCheck } from "lucide-react";
+import { MagneticCTA } from "@/components/ui/MagneticCTA";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -293,21 +294,7 @@ export function Hero() {
               transition={{ duration: 0.8, ease, delay: 1.4 }}
               className="mt-8 flex flex-wrap gap-4"
             >
-              {/* Primary — Glass outline with animated border on hover */}
-              <motion.div
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              >
-                <Link
-                  href={hero.buttons.primary.href}
-                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl border border-white/20 bg-white/10 px-8 py-3.5 text-[15px] font-semibold text-white backdrop-blur-sm transition-all hover:border-brand-teal/50 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
-                >
-                  {hero.buttons.primary.label}
-                  {/* Hover sweep */}
-                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
-                </Link>
-              </motion.div>
+              <MagneticCTA initialLabel={hero.buttons.primary.label} successLabel="Cita Asegurada" />
 
               {/* Secondary — Purple with glow expansion */}
               <motion.div
