@@ -147,7 +147,7 @@ export function SmileReveal() {
   return (
     <section
       ref={sectionRef}
-      className="bg-noise-dark lazy-section relative overflow-hidden py-32"
+      className="bg-noise-dark relative overflow-hidden py-32"
       style={{ background: "#0a0f1a" }}
     >
       {/* Floating particles */}

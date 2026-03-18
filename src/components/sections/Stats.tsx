@@ -139,7 +139,7 @@ function StatItem({ value, prefix, suffix, label, variant, index }: StatCardProp
 
 export function Stats() {
   return (
-    <section className="bg-noise lazy-section relative bg-bg-main py-16 md:py-20">
+    <section className="bg-noise relative bg-bg-main py-16 md:py-20">
       <Container>
         {/* Title — Clash Display */}
         <motion.div

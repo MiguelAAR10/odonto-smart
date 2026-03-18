@@ -129,7 +129,7 @@ function TreatmentCard({ name, brief, icon, color, index, id }: TreatmentCardPro
 
 export function Treatments() {
   return (
-    <section id="especialidades" className="bg-noise lazy-section relative bg-bg-soft py-20">
+    <section id="especialidades" className="bg-noise relative bg-bg-soft py-20">
       <Container>
         {/* Header */}
         <motion.div
