@@ -111,6 +111,35 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
+### [2026-03-21] Mapa de ramas, limpieza documental y trazabilidad de mejoras (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: analizar todas las ramas, dejar documentadas sus diferencias, explicar la mejora desde customer story y ordenar la rama actual para que quede limpia y trazable.
+- Resultado esperado: una lectura de negocio y tecnica de la evolucion del producto, mas una base documental util para merges, handoff y futuras decisiones.
+
+#### C — Contexto
+- Estado actual relevante: `main` sigue atras respecto a toda la cadena de ramas feature; la rama actual mezcla cambios visuales en curso, reorganizacion de documentacion y archivos locales no preparados para versionado.
+- Hallazgo clave: las ramas no compiten entre si; forman una secuencia acumulativa de mejoras sobre conversion, profundidad informativa, experiencia premium, dinamismo y gamificacion.
+- Archivos involucrados: `docs/README.md`, nuevo `docs/proceso/MAPA-RAMAS-Y-MEJORAS.md`, `docs/proceso/BITACORA.md`.
+
+#### A — Análisis
+- Estrategia: documentar primero la historia completa de ramas para evitar merges ciegos y luego dejar recomendaciones de split para la rama experimental.
+- Cambios modulares:
+  - crear un mapa de ramas con commits, customer stories, mejoras e impacto por branch.
+  - actualizar indice de documentacion para acceso rapido.
+  - registrar en bitacora la lectura evolutiva del producto y la limpieza documental.
+
+#### D — Desarrollo
+- Archivos modificados:
+  - `docs/proceso/MAPA-RAMAS-Y-MEJORAS.md` — **NUEVO**
+  - `docs/README.md` — acceso rapido al mapa de ramas
+  - `docs/proceso/BITACORA.md` — trazabilidad TCAD del analisis
+- Verificacion esperada:
+  - `git status` sin ruido documental una vez committeado
+  - documentacion suficiente para explicar por que existe cada rama y en que orden integrarlas
+  - validacion local de la app en `localhost:3000`
+- **Commit:** —
+
 ### [2026-03-09 02:11:56 UTC] Guía operativa de agentes y skills (TCAD)
 
 #### T — Traducción

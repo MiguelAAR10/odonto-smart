@@ -49,9 +49,10 @@ Abrir [http://localhost:3000](http://localhost:3000)
 
 ## Documentación
 
-- [`TCAD.md`](./TCAD.md) — Framework de desarrollo
-- [`BITACORA.md`](./BITACORA.md) — Registro de cambios
-- [`GUIA-ORQUESTACION-AGENTES.md`](./GUIA-ORQUESTACION-AGENTES.md) — Flow operativo de agentes y skills
+- [`docs/proceso/TCAD.md`](./docs/proceso/TCAD.md) — Framework de desarrollo
+- [`docs/proceso/BITACORA.md`](./docs/proceso/BITACORA.md) — Registro de cambios
+- [`docs/proceso/GUIA-ORQUESTACION-AGENTES.md`](./docs/proceso/GUIA-ORQUESTACION-AGENTES.md) — Flow operativo de agentes y skills
+- [`docs/proceso/MAPA-RAMAS-Y-MEJORAS.md`](./docs/proceso/MAPA-RAMAS-Y-MEJORAS.md) — Comparativa completa de ramas, customer stories y orden sugerido de integración
 - [`/style-guide`](http://localhost:3000/style-guide) — Tokens visuales
 
 ## Sedes

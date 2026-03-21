@@ -69,7 +69,7 @@ Fuera del repo:
 
 - skills globales del agente
 - autenticación de GitHub
-- configuración del entorno de Codex
+
 
 No crear por defecto:
 
