@@ -28,6 +28,9 @@ function getGoogleMapsUrl(address: string): string {
   return `https://maps.google.com/?q=${encodeURIComponent(address + ", Lima, Perú")}`;
 }
 
+const whatsappHref =
+  "https://wa.me/51987654321?text=Hola%2C%20quiero%20agendar%20por%20WhatsApp%20en%20Odonto%20Smart";
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Site Configuration
 // ─────────────────────────────────────────────────────────────────────────────
@@ -37,8 +40,10 @@ export const siteConfig = {
   logo: {
     text: "ODONTO",
     accent: "SMART",
+    caption: "Boutique dental premium",
   },
   tagline: "La inteligencia dental de tu mejor sonrisa",
+  locationLabel: "Lima · 3 sedes",
 };
 
 export const navigation = {
@@ -49,9 +54,10 @@ export const navigation = {
     { label: "Nosotros", href: "/nosotros" },
   ],
   cta: {
-    label: "Reservar Cita",
-    href: "/sedes#contacto",
+    label: "Agendar por WhatsApp",
+    href: whatsappHref,
   },
+  meta: "Diagnostico digital · Alta estética",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -59,23 +65,22 @@ export const navigation = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const hero = {
+  eyebrow: "Odontologia premium en Lima",
   title: {
-    line1: "Tu Sonrisa en Manos",
-    line2: "de Especialistas",
+    line1: "Transforma tu sonrisa",
+    line2: "con precision estetica premium",
   },
   description:
-    "En OdontoSmart cuidamos tu salud dental con especialistas certificados, tecnología moderna y atención personalizada.",
+    "Diagnostico digital, especialistas y resultados visibles desde la primera visita.",
   buttons: {
     primary: {
-      label: "Agenda Tu Cita",
-      href: "/sedes#contacto",
-    },
-    secondary: {
-      label: "Ver Especialidades",
-      href: "#especialidades",
+      label: "Agendar por WhatsApp",
+      href: whatsappHref,
     },
   },
-  image: "/images/odonto-smart/hero-bg.png",
+  ctaNote: "Respuesta rapida en minutos",
+  image: "/images/odonto-smart/tech-3.jpg",
+  imageAlt: "Tecnologia dental y sonrisa estetica en Odonto Smart",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -84,7 +89,8 @@ export const hero = {
 
 export const treatments = {
   label: "ESPECIALIDADES",
-  title: "Cuidado Integral para Tu Sonrisa",
+  title: "Tratamientos que elevan tu sonrisa",
+  featuredIds: ["estetica", "ortodoncia", "periodoncia"],
   items: [
     {
       id: "ortodoncia",
@@ -136,6 +142,10 @@ export const treatments = {
       color: "teal" as const,
     },
   ],
+  cta: {
+    label: "Agendar por WhatsApp",
+    href: whatsappHref,
+  },
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -143,24 +153,27 @@ export const treatments = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const stats = {
-  title: "Nuestra Experiencia Nos Define",
+  title: "Confianza premium respaldada por experiencia real",
   items: [
     {
       value: 20,
       prefix: "+",
       label: "AÑOS DE EXCELENCIA",
+      attribute: "Especialistas con criterio clinico",
       variant: "teal" as const,
     },
     {
       value: 5000,
       suffix: "+",
       label: "PACIENTES FELICES",
+      attribute: "3 sedes y atencion personalizada",
       variant: "purple" as const,
     },
     {
       value: 1000,
       suffix: "+",
       label: "CASOS DE ÉXITO",
+      attribute: "Diagnostico digital y tecnologia precisa",
       variant: "teal" as const,
     },
   ],
@@ -179,21 +192,21 @@ export const technology = {
       title: "Scanner Intraoral",
       description:
         "Tecnología líder en escaneo digital 3D — precisión milimétrica para restauraciones y ortodoncia invisible.",
-      image: "/images/odonto-smart/tech-1.png",
+      image: "/images/odonto-smart/tech-1.jpg",
     },
     {
       id: "sede",
       title: "Sede Miraflores",
       description:
         "Nuestra sede principal diseñada para ofrecerte una experiencia premium en cada visita.",
-      image: "/images/odonto-smart/tech-2.png",
+      image: "/images/odonto-smart/tech-2.jpg",
     },
     {
       id: "dsd",
       title: "Diseño de Sonrisa",
       description:
         "Diseño de sonrisa digital personalizado — visualiza tu nueva sonrisa antes de comenzar.",
-      image: "/images/odonto-smart/tech-3.png",
+      image: "/images/odonto-smart/tech-3.jpg",
     },
   ],
 };
@@ -213,28 +226,28 @@ export const team = {
       name: "Dra. María López",
       role: "Directora Clínica",
       bio: "15 años liderando equipos de alto rendimiento en odontología integral.",
-      image: "/images/odonto-smart/team-1.png",
+      image: "/images/odonto-smart/team-1.jpg",
     },
     {
       id: "carlos",
       name: "Dr. Carlos Ramírez",
       role: "Implantología",
       bio: "Especialista en implantes de carga inmediata y regeneración ósea.",
-      image: "/images/odonto-smart/team-2.png",
+      image: "/images/odonto-smart/team-2.jpg",
     },
     {
       id: "ana",
       name: "Dra. Ana Torres",
       role: "Ortodoncia",
       bio: "Experta en ortodoncia invisible y técnicas de alineación avanzada.",
-      image: "/images/odonto-smart/team-3.png",
+      image: "/images/odonto-smart/team-3.jpg",
     },
     {
       id: "pedro",
       name: "Dr. Pedro Gutiérrez",
       role: "Estética Dental",
       bio: "Pionero en diseño de sonrisa digital y carillas de última generación.",
-      image: "/images/odonto-smart/team-4.png",
+      image: "/images/odonto-smart/team-4.jpg",
     },
   ],
 };
@@ -328,7 +341,7 @@ export const footer = {
   social: [
     { label: "Facebook", href: "https://www.facebook.com/odonto.smart.3" },
     { label: "Instagram", href: "https://www.instagram.com/odonto_smart/" },
-    { label: "WhatsApp", href: "https://wa.me/51987654321?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20cita" },
+    { label: "WhatsApp", href: whatsappHref },
   ],
   copyright: "© 2026 Odonto Smart. Todos los derechos reservados.",
 };

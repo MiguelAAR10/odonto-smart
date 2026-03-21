@@ -86,8 +86,8 @@ export const staffPage = {
       name: "Dra. María López Castañeda",
       role: "Directora Clínica",
       specialty: "Odontología Integral",
-      image: "/images/odonto-smart/team-1.png",
-      workingImage: "/images/odonto-smart/team-1-working.png",
+      image: "/images/odonto-smart/team-1.jpg",
+      workingImage: "/images/odonto-smart/team-1-working.jpg",
       education: [
         "Doctorado en Odontología — Universidad Peruana Cayetano Heredia",
         "Maestría en Gestión de Servicios de Salud — ESAN",
@@ -113,8 +113,8 @@ export const staffPage = {
       name: "Dr. Carlos Ramírez Mendoza",
       role: "Jefe de Implantología",
       specialty: "Implantología Oral",
-      image: "/images/odonto-smart/team-2.png",
-      workingImage: "/images/odonto-smart/team-2-working.png",
+      image: "/images/odonto-smart/team-2.jpg",
+      workingImage: "/images/odonto-smart/team-2-working.jpg",
       education: [
         "Cirujano Dentista — Universidad Nacional Mayor de San Marcos",
         "Especialidad en Implantología Oral — Universidad de Barcelona",
@@ -140,8 +140,8 @@ export const staffPage = {
       name: "Dra. Ana Torres Villanueva",
       role: "Jefa de Ortodoncia",
       specialty: "Ortodoncia y Ortopedia Maxilar",
-      image: "/images/odonto-smart/team-3.png",
-      workingImage: "/images/odonto-smart/team-3-working.png",
+      image: "/images/odonto-smart/team-3.jpg",
+      workingImage: "/images/odonto-smart/team-3-working.jpg",
       education: [
         "Cirujano Dentista — Pontificia Universidad Católica del Perú",
         "Especialidad en Ortodoncia — Universidad de Chile",
@@ -167,8 +167,8 @@ export const staffPage = {
       name: "Dr. Pedro Gutiérrez Salazar",
       role: "Jefe de Estética Dental",
       specialty: "Odontología Estética",
-      image: "/images/odonto-smart/team-4.png",
-      workingImage: "/images/odonto-smart/team-4-working.png",
+      image: "/images/odonto-smart/team-4.jpg",
+      workingImage: "/images/odonto-smart/team-4-working.jpg",
       education: [
         "Cirujano Dentista — Universidad de Lima",
         "Maestría en Estética Dental — University of Southern California",
@@ -235,8 +235,8 @@ export const treatmentsPage = {
       fullDescription:
         "Los implantes dentales son la solución más avanzada y duradera para reemplazar dientes perdidos. Utilizamos implantes de titanio grado médico que se integran naturalmente con el hueso, proporcionando una base sólida y permanente para coronas, puentes o prótesis.",
       icon: "implant",
-      image: "/images/odonto-smart/treatment-implants.png",
-      processImage: "/images/odonto-smart/treatment-implants-process.png",
+      image: "/images/odonto-smart/treatment-implants.jpg",
+      processImage: "/images/odonto-smart/treatment-implants-process.jpg",
       duration: "3-6 meses",
       sessions: "2-4 citas",
       technology: [
@@ -305,8 +305,8 @@ export const treatmentsPage = {
       fullDescription:
         "La ortodoncia invisible utiliza alineadores transparentes removibles fabricados a medida para mover tus dientes gradualmente. Es la opción perfecta para adultos y adolescentes que desean corregir su sonrisa sin brackets metálicos visibles.",
       icon: "braces",
-      image: "/images/odonto-smart/treatment-invisalign.png",
-      processImage: "/images/odonto-smart/treatment-invisalign-process.png",
+      image: "/images/odonto-smart/treatment-invisalign.jpg",
+      processImage: "/images/odonto-smart/treatment-invisalign-process.jpg",
       duration: "6-18 meses",
       sessions: "Revisiones cada 6-8 semanas",
       technology: [
@@ -375,8 +375,8 @@ export const treatmentsPage = {
       fullDescription:
         "El Diseño de Sonrisa Digital (DSD) es una técnica revolucionaria que nos permite planificar y visualizar el resultado final de tu tratamiento estético antes de comenzar. Combinamos fotografía especializada, software de diseño y experiencia clínica para crear la sonrisa perfecta para ti.",
       icon: "smile",
-      image: "/images/odonto-smart/treatment-dsd.png",
-      processImage: "/images/odonto-smart/treatment-dsd-process.png",
+      image: "/images/odonto-smart/treatment-dsd.jpg",
+      processImage: "/images/odonto-smart/treatment-dsd-process.jpg",
       duration: "2-4 semanas",
       sessions: "3-5 citas",
       technology: [
@@ -445,8 +445,8 @@ export const treatmentsPage = {
       fullDescription:
         "Nuestro blanqueamiento dental profesional utiliza tecnología LED y geles de peróxido de alta concentración para aclarar tus dientes hasta 8 tonos en una sola sesión. Seguro, efectivo y con resultados inmediatos.",
       icon: "sparkle",
-      image: "/images/odonto-smart/treatment-whitening.png",
-      processImage: "/images/odonto-smart/treatment-whitening-process.png",
+      image: "/images/odonto-smart/treatment-whitening.jpg",
+      processImage: "/images/odonto-smart/treatment-whitening-process.jpg",
       duration: "1-2 horas",
       sessions: "1-2 sesiones",
       technology: [
@@ -549,9 +549,9 @@ export const locationsPage = {
       mapEmbedUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5!2d-77.0353!3d-12.0847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA1JzA0LjkiUyA3N8KwMDInMDcuMSJX!5e0!3m2!1sen!2spe!4v1234567890",
       images: [
-        "/images/odonto-smart/sede-lince-1.png",
-        "/images/odonto-smart/sede-lince-2.png",
-        "/images/odonto-smart/sede-lince-3.png",
+        "/images/odonto-smart/sede-lince-1.jpg",
+        "/images/odonto-smart/sede-lince-2.jpg",
+        "/images/odonto-smart/sede-lince-3.jpg",
       ],
       features: [
         "Estacionamiento gratuito",
@@ -583,9 +583,9 @@ export const locationsPage = {
       mapEmbedUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5!2d-77.0728!3d-12.0918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA1JzMwLjUiUyA3N8KwMDQnMjIuMSJX!5e0!3m2!1sen!2spe!4v1234567890",
       images: [
-        "/images/odonto-smart/sede-magdalena-1.png",
-        "/images/odonto-smart/sede-magdalena-2.png",
-        "/images/odonto-smart/sede-magdalena-3.png",
+        "/images/odonto-smart/sede-magdalena-1.jpg",
+        "/images/odonto-smart/sede-magdalena-2.jpg",
+        "/images/odonto-smart/sede-magdalena-3.jpg",
       ],
       features: [
         "Cerca al metro",
@@ -616,9 +616,9 @@ export const locationsPage = {
       mapEmbedUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5!2d-77.0489!3d-12.0722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA0JzIwLjAiUyA3N8KwMDInNTYuMCJX!5e0!3m2!1sen!2spe!4v1234567890",
       images: [
-        "/images/odonto-smart/sede-jesusmaria-1.png",
-        "/images/odonto-smart/sede-jesusmaria-2.png",
-        "/images/odonto-smart/sede-jesusmaria-3.png",
+        "/images/odonto-smart/sede-jesusmaria-1.jpg",
+        "/images/odonto-smart/sede-jesusmaria-2.jpg",
+        "/images/odonto-smart/sede-jesusmaria-3.jpg",
       ],
       features: [
         "Estacionamiento cercano",
@@ -710,9 +710,9 @@ export const aboutPage = {
     ],
   },
   certifications: [
-    { name: "ISO 9001:2015", image: "/images/odonto-smart/cert-iso.png" },
-    { name: "Invisalign Diamond", image: "/images/odonto-smart/cert-invisalign.png" },
-    { name: "Straumann Partner", image: "/images/odonto-smart/cert-straumann.png" },
-    { name: "DSD Certified", image: "/images/odonto-smart/cert-dsd.png" },
+    { name: "ISO 9001:2015", image: "/images/odonto-smart/cert-iso.jpg" },
+    { name: "Invisalign Diamond", image: "/images/odonto-smart/cert-invisalign.jpg" },
+    { name: "Straumann Partner", image: "/images/odonto-smart/cert-straumann.jpg" },
+    { name: "DSD Certified", image: "/images/odonto-smart/cert-dsd.jpg" },
   ],
 };

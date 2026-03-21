@@ -1,11 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  motion,
-  useMotionValue,
-  useMotionTemplate,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { treatments } from "@/data/content";
 import {
@@ -16,9 +12,7 @@ import {
   Syringe,
   HeartPulse,
   Baby,
-  ArrowRight,
 } from "lucide-react";
-import { type MouseEvent } from "react";
 
 const iconMap = {
   "scan-line": ScanLine,
@@ -31,6 +25,7 @@ const iconMap = {
 } as const;
 
 interface TreatmentCardProps {
+  id: string;
   name: string;
   brief: string;
   icon: keyof typeof iconMap;
@@ -38,21 +33,10 @@ interface TreatmentCardProps {
   index: number;
 }
 
-function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) {
+function TreatmentCard({ id, name, brief, icon, color, index }: TreatmentCardProps) {
   const Icon = iconMap[icon];
   const isTeal = color === "teal";
-
-  // Directional glow
-  const glowX = useMotionValue(0);
-  const glowY = useMotionValue(0);
-  const glowColor = isTeal ? "65, 212, 203" : "222, 27, 206";
-  const glowBg = useMotionTemplate`radial-gradient(250px circle at ${glowX}px ${glowY}px, rgba(${glowColor}, 0.08), transparent 70%)`;
-
-  function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-    glowX.set(e.clientX - rect.left);
-    glowY.set(e.clientY - rect.top);
-  }
+  const isFeatured = treatments.featuredIds.includes(id);
 
   return (
     <motion.div
@@ -65,31 +49,27 @@ function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) 
         stiffness: 120,
         delay: index * 0.1,
       }}
-      whileHover={{ y: -4 }}
-      onMouseMove={handleMouseMove}
-      className={`group relative overflow-hidden rounded-2xl border bg-white p-6 transition-all duration-300 hover:shadow-xl ${
+      whileHover={{ y: -3 }}
+      className={`group relative overflow-hidden rounded-[28px] border p-6 transition-all duration-300 md:min-h-[250px] ${
+        isFeatured
+          ? "bg-[linear-gradient(180deg,#ffffff_0%,#f8fdfc_100%)] shadow-[0_16px_36px_rgba(26,10,46,0.08)] md:p-7"
+          : "bg-white shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+      } ${
         isTeal
-          ? "border-brand-teal/10 hover:border-brand-teal/25 hover:shadow-brand-teal/10"
-          : "border-brand-purple/10 hover:border-brand-purple/25 hover:shadow-brand-purple/10"
+          ? "border-brand-teal/12 hover:border-brand-teal/22"
+          : "border-brand-purple/12 hover:border-brand-purple/22"
+      } ${
+        isFeatured ? "md:col-span-1 xl:col-span-4" : "md:col-span-1 xl:col-span-3"
       }`}
     >
-      <Link href={`/tratamientos`} className="absolute inset-0 z-20" aria-label={`Ver ${name}`} />
-
-      {/* Directional glow */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{ background: glowBg }}
-      />
-
       <div className="relative z-10 flex items-start gap-4">
-        {/* Icon with entrance animation */}
         <motion.div
-          whileHover={{ rotate: [0, -8, 8, 0], scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
+          whileHover={{ scale: 1.06 }}
+          transition={{ type: "spring", stiffness: 260 }}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl transition-colors duration-300 ${
             isTeal
-              ? "bg-brand-teal/10 group-hover:bg-brand-teal/20"
-              : "bg-brand-purple/10 group-hover:bg-brand-purple/20"
+              ? "bg-brand-teal/10"
+              : "bg-brand-purple/10"
           }`}
         >
           <Icon
@@ -98,28 +78,21 @@ function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) 
           />
         </motion.div>
 
-        {/* Text */}
         <div className="min-w-0 flex-1">
+          {isFeatured && (
+            <span className="mb-3 inline-flex rounded-full bg-text-dark px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
+              Especialidad destacada
+            </span>
+          )}
           <h3
-            className="text-[15px] font-bold text-text-dark transition-all duration-300 group-hover:tracking-wide"
+            className="text-[15px] font-bold text-text-dark md:text-[16px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {name}
           </h3>
-          <p className="mt-1 text-[13px] leading-relaxed text-text-muted">
+          <p className={`mt-2 leading-relaxed text-text-muted ${isFeatured ? "text-[14px]" : "text-[13px]"}`}>
             {brief}
           </p>
-        </div>
-
-        {/* Arrow reveal on hover */}
-        <div className="flex h-11 items-center">
-          <motion.div
-            className={`flex h-7 w-7 items-center justify-center rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 ${
-              isTeal ? "bg-brand-teal/10 text-brand-teal" : "bg-brand-purple/10 text-brand-purple"
-            }`}
-          >
-            <ArrowRight className="h-3.5 w-3.5 -translate-x-1 transition-transform duration-300 group-hover:translate-x-0" />
-          </motion.div>
         </div>
       </div>
     </motion.div>
@@ -151,10 +124,11 @@ export function Treatments() {
         </motion.div>
 
         {/* Grid — 2 columns on desktop */}
-        <div className="mx-auto grid max-w-4xl gap-4 md:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 xl:grid-cols-12">
           {treatments.items.map((item, index) => (
             <TreatmentCard
               key={item.id}
+              id={item.id}
               name={item.name}
               brief={item.brief}
               icon={item.icon}
@@ -163,6 +137,23 @@ export function Treatments() {
             />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-12 flex justify-center"
+        >
+          <Link
+            href={treatments.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#de1bce_0%,#41d4cb_100%)] px-7 py-3 text-[15px] font-semibold text-white shadow-[0_16px_34px_rgba(26,10,46,0.16)] transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            {treatments.cta.label}
+          </Link>
+        </motion.div>
       </Container>
     </section>
   );

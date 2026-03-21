@@ -50,32 +50,6 @@ const socialGlowColors: Record<string, string> = {
 export function Footer() {
   return (
     <footer className="bg-footer-bg text-white">
-      {/* Newsletter CTA Strip */}
-      <div className="bg-gradient-to-r from-brand-teal via-brand-teal-strong to-brand-purple py-10">
-        <Container>
-          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-white md:text-2xl" style={{ fontFamily: "var(--font-display)" }}>
-                Recibe tips de salud dental
-              </h3>
-              <p className="mt-1 text-white/70">
-                Consejos semanales para mantener tu sonrisa saludable
-              </p>
-            </div>
-            <div className="flex w-full max-w-md gap-3 md:w-auto">
-              <input
-                type="email"
-                placeholder="tu@email.com"
-                className="flex-1 rounded-full bg-white/15 px-5 py-3 text-[15px] text-white placeholder-white/40 backdrop-blur-sm transition-colors focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/30"
-              />
-              <button className="rounded-full bg-white px-6 py-3 text-[15px] font-semibold text-brand-teal-strong shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl">
-                Suscribirse
-              </button>
-            </div>
-          </div>
-        </Container>
-      </div>
-
       {/* Main Footer */}
       <div className="py-16">
         <Container>

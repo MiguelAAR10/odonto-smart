@@ -83,11 +83,12 @@ interface StatCardProps {
   prefix?: string;
   suffix?: string;
   label: string;
+  attribute: string;
   variant: "teal" | "purple";
   index: number;
 }
 
-function StatItem({ value, prefix, suffix, label, variant, index }: StatCardProps) {
+function StatItem({ value, prefix, suffix, label, attribute, variant, index }: StatCardProps) {
   const iconColor = variant === "teal" ? "text-brand-teal" : "text-brand-purple";
   const Icon = icons[index] || ShieldCheck;
   const isLast = index === stats.items.length - 1;
@@ -128,6 +129,9 @@ function StatItem({ value, prefix, suffix, label, variant, index }: StatCardProp
       <span className="mt-2 text-center text-[12px] font-bold uppercase tracking-[0.15em] text-text-muted">
         {label}
       </span>
+      <span className="mt-2 max-w-[20ch] text-center text-[13px] leading-relaxed text-text-light">
+        {attribute}
+      </span>
 
       {/* Divider — gradient vertical line between items */}
       {!isLast && (
@@ -139,7 +143,7 @@ function StatItem({ value, prefix, suffix, label, variant, index }: StatCardProp
 
 export function Stats() {
   return (
-    <section className="bg-noise relative bg-bg-main py-16 md:py-20">
+    <section className="section-wave-top bg-noise relative bg-bg-main pt-14 pb-16 md:pt-18 md:pb-20">
       <Container>
         {/* Title — Clash Display */}
         <motion.div
@@ -147,7 +151,7 @@ export function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12 text-center"
+          className="mb-10 text-center md:mb-12"
         >
           <h2
             className="text-2xl font-bold text-text-dark md:text-3xl"
@@ -155,7 +159,9 @@ export function Stats() {
           >
             {stats.title}
           </h2>
-          <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-brand-teal to-brand-purple" />
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-text-muted md:text-[15px]">
+            Tecnologia de precision, sedes estrategicas y una experiencia cuidada para convertir confianza en accion.
+          </p>
         </motion.div>
 
         {/* Stats Strip — horizontal with dividers */}
@@ -167,6 +173,7 @@ export function Stats() {
               prefix={item.prefix}
               suffix={item.suffix}
               label={item.label}
+              attribute={item.attribute}
               variant={item.variant}
               index={index}
             />

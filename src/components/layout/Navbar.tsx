@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   motion,
@@ -31,6 +32,8 @@ export function Navbar() {
   // Progressive navbar padding based on scroll
   const navPadding = useTransform(scrollY, [0, 200], [16, 8]);
   const springPadding = useSpring(navPadding, { stiffness: 200, damping: 30 });
+  const progressTipLeft = useTransform(scaleX, (value) => `calc(${value * 100}% - 20px)`);
+  const progressTipOpacity = useTransform(scaleX, [0, 0.02, 0.98, 1], [0, 1, 1, 0]);
 
   // Track scroll state for 3-tier visual changes
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -67,9 +70,9 @@ export function Navbar() {
   );
 
   const headerClasses = {
-    top: "bg-white/60 backdrop-blur-sm border-b border-transparent",
-    mid: "glass shadow-md shadow-black/[0.03] border-b border-brand-teal/10",
-    scrolled: "glass shadow-lg shadow-black/[0.06] border-b border-brand-teal/15",
+    top: "bg-transparent border-b border-transparent",
+    mid: "bg-white/35 border-b border-white/30 backdrop-blur-xl",
+    scrolled: "bg-white/50 border-b border-white/40 backdrop-blur-xl",
   };
 
   return (
@@ -78,107 +81,94 @@ export function Navbar() {
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${headerClasses[scrollState]}`}
       >
         <motion.nav
-          className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 md:px-12"
+          className="mx-auto w-full max-w-7xl px-4 md:px-8"
           style={{ paddingTop: springPadding, paddingBottom: springPadding }}
         >
-          {/* Logo — Clash Display with shimmer hover */}
-          <Link
-            href="/"
-            className="group flex items-center gap-1.5 text-xl tracking-tight"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            <span className="font-bold text-text-dark transition-colors duration-300 group-hover:text-brand-teal-strong">
-              {siteConfig.logo.text}
-            </span>
-            <span className="relative overflow-hidden font-bold italic">
-              <span className="gradient-text">{siteConfig.logo.accent}</span>
-              {/* Shimmer overlay on hover */}
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-            </span>
-          </Link>
+          <div className="premium-shell relative flex items-center justify-between gap-3 rounded-[28px] px-4 py-3 md:px-5">
+            <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-r from-white/18 via-transparent to-white/12" aria-hidden="true" />
 
-          {/* Desktop Navigation with active state */}
-          <div className="hidden items-center gap-8 md:flex">
-            {navigation.links.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={`group relative text-[15px] font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 ${
-                    active
-                      ? "text-text-dark"
-                      : "text-text-muted hover:text-text-dark"
-                  }`}
-                >
-                  {link.label}
-                  {/* Underline — persistent for active, hover for inactive */}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-gradient-to-r from-brand-teal to-brand-purple"
-                    initial={false}
-                    animate={{
-                      scaleX: active ? 1 : 0,
-                      originX: 0,
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                    style={{ originX: 0 }}
-                  />
-                  {!active && (
-                    <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-brand-teal to-brand-purple transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                  )}
-                </Link>
-              );
-            })}
-          </div>
+            <Link
+              href="/"
+              className="group relative z-10 flex min-w-0 items-center rounded-2xl px-2 py-1"
+            >
+              <Image
+                src="/images/odonto-smart/logo.svg"
+                alt={siteConfig.name}
+                width={160}
+                height={48}
+                className="h-10 w-auto md:h-12"
+                priority
+              />
+            </Link>
 
-          {/* CTA Button with subtle glow pulse */}
-          <Link
-            href={navigation.cta.href}
-            className="group relative hidden overflow-hidden rounded-full bg-brand-teal-strong px-6 py-2.5 text-[15px] font-semibold text-white shadow-lg shadow-brand-teal/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-teal/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 md:block"
-          >
-            {navigation.cta.label}
-            {/* Shine sweep on hover */}
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
-          </Link>
-
-          {/* Mobile Menu Button — Morphing hamburger/X */}
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative flex h-10 w-10 items-center justify-center rounded-lg text-text-dark transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal md:hidden"
-            aria-label={isMobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            <div className="flex h-5 w-6 flex-col justify-between">
-              <motion.span
-                animate={
-                  isMobileMenuOpen
-                    ? { rotate: 45, y: 8, width: "100%" }
-                    : { rotate: 0, y: 0, width: "100%" }
-                }
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="block h-0.5 rounded-full bg-current"
-              />
-              <motion.span
-                animate={
-                  isMobileMenuOpen
-                    ? { opacity: 0, scaleX: 0 }
-                    : { opacity: 1, scaleX: 1 }
-                }
-                transition={{ duration: 0.15 }}
-                className="block h-0.5 w-4/5 rounded-full bg-current"
-              />
-              <motion.span
-                animate={
-                  isMobileMenuOpen
-                    ? { rotate: -45, y: -8, width: "100%" }
-                    : { rotate: 0, y: 0, width: "100%" }
-                }
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="block h-0.5 w-3/5 rounded-full bg-current"
-              />
+            <div className="hidden items-center gap-3 lg:flex">
+              <div className="flex items-center gap-1 rounded-full border border-white/60 bg-white/58 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]">
+                {navigation.links.map((link) => {
+                  const active = isActive(link.href);
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className={`relative rounded-full px-4 py-2 text-[14px] font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 ${
+                        active
+                          ? "bg-[linear-gradient(135deg,rgba(222,27,206,0.1),rgba(65,212,203,0.14))] text-text-dark shadow-sm"
+                          : "text-text-muted hover:text-text-dark"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
-          </button>
+
+            <div className="relative z-10 flex items-center gap-2">
+              <div className="hidden text-right xl:block">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-text-light">
+                  {siteConfig.locationLabel}
+                </p>
+                <p className="text-xs text-text-muted">{siteConfig.tagline}</p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/50 bg-white/70 text-text-dark shadow-sm transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal md:hidden"
+                aria-label={isMobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
+                aria-expanded={isMobileMenuOpen}
+              >
+                <div className="flex h-5 w-6 flex-col justify-between">
+                  <motion.span
+                    animate={
+                      isMobileMenuOpen
+                        ? { rotate: 45, y: 8, width: "100%" }
+                        : { rotate: 0, y: 0, width: "100%" }
+                    }
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    className="block h-0.5 rounded-full bg-current"
+                  />
+                  <motion.span
+                    animate={
+                      isMobileMenuOpen
+                        ? { opacity: 0, scaleX: 0 }
+                        : { opacity: 1, scaleX: 1 }
+                    }
+                    transition={{ duration: 0.15 }}
+                    className="block h-0.5 w-4/5 rounded-full bg-current"
+                  />
+                  <motion.span
+                    animate={
+                      isMobileMenuOpen
+                        ? { rotate: -45, y: -8, width: "100%" }
+                        : { rotate: 0, y: 0, width: "100%" }
+                    }
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    className="block h-0.5 w-3/5 rounded-full bg-current"
+                  />
+                </div>
+              </button>
+            </div>
+          </div>
         </motion.nav>
 
         {/* Scroll Progress Bar with glow tip */}
@@ -191,9 +181,9 @@ export function Navbar() {
           <motion.div
             className="absolute bottom-[-1px] h-[4px] w-[40px] rounded-full blur-[4px]"
             style={{
-              left: useTransform(scaleX, (v) => `calc(${v * 100}% - 20px)`),
+              left: progressTipLeft,
               background: "var(--gradient-primary)",
-              opacity: useTransform(scaleX, [0, 0.02, 0.98, 1], [0, 1, 1, 0]),
+              opacity: progressTipOpacity,
             }}
           />
         </div>
@@ -207,7 +197,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease }}
-            className="fixed inset-0 z-40 flex flex-col bg-white/95 pt-20 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-[radial-gradient(circle_at_top,rgba(65,212,203,0.14),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,250,252,0.98))] pt-24 backdrop-blur-xl md:hidden"
           >
             {/* Background gradient decoration */}
             <div className="pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-brand-teal/5 blur-[100px]" aria-hidden="true" />
@@ -215,6 +205,13 @@ export function Navbar() {
 
             <div className="flex flex-1 flex-col justify-center px-8">
               <div className="space-y-2">
+                <div className="mb-6 rounded-3xl border border-white/70 bg-white/65 p-5 shadow-[0_18px_48px_rgba(26,10,46,0.08)]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-text-light">
+                    {siteConfig.locationLabel}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-text-muted">{siteConfig.tagline}</p>
+                </div>
+
                 {navigation.links.map((link, i) => {
                   const active = isActive(link.href);
                   return (
@@ -233,9 +230,9 @@ export function Navbar() {
                       <Link
                         href={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`flex items-center gap-4 rounded-xl px-4 py-4 transition-colors ${
+                        className={`flex items-center gap-4 rounded-2xl px-4 py-4 transition-colors ${
                           active
-                            ? "bg-brand-teal-soft text-text-dark"
+                            ? "bg-[linear-gradient(135deg,rgba(222,27,206,0.08),rgba(65,212,203,0.12))] text-text-dark"
                             : "text-text-muted hover:bg-brand-teal-soft/50 hover:text-text-dark"
                         }`}
                       >
@@ -261,31 +258,15 @@ export function Navbar() {
                 })}
               </div>
 
-              {/* Mobile CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 25 }}
-                className="mt-8"
-              >
-                <Link
-                  href={navigation.cta.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block rounded-2xl bg-gradient-to-r from-brand-teal to-brand-teal-strong px-8 py-4 text-center text-lg font-bold text-white shadow-xl shadow-brand-teal/20 transition-all hover:shadow-2xl hover:shadow-brand-teal/30"
-                >
-                  {navigation.cta.label}
-                </Link>
-              </motion.div>
-
               {/* Social links in mobile menu */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.4 }}
                 className="mt-auto flex items-center justify-center gap-6 pb-8 pt-8"
               >
                 <span className="text-xs uppercase tracking-widest text-text-light">
-                  Siguenos
+                  {siteConfig.locationLabel}
                 </span>
                 <div className="h-px flex-1 bg-border-subtle" />
               </motion.div>

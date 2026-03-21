@@ -258,7 +258,7 @@ export default function NosotrosPage() {
                 <div className="grid gap-4">
                   <div className="relative aspect-video overflow-hidden rounded-2xl">
                     <Image
-                      src="/images/odonto-smart/about-clinic.png"
+                      src="/images/odonto-smart/about-clinic.jpg"
                       alt="Clínica Odonto Smart"
                       fill
                       className="object-cover"
@@ -268,7 +268,7 @@ export default function NosotrosPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="relative aspect-square overflow-hidden rounded-2xl">
                       <Image
-                        src="/images/odonto-smart/about-tech.png"
+                        src="/images/odonto-smart/about-tech.jpg"
                         alt="Tecnología de vanguardia"
                         fill
                         className="object-cover"
@@ -277,7 +277,7 @@ export default function NosotrosPage() {
                     </div>
                     <div className="relative aspect-square overflow-hidden rounded-2xl">
                       <Image
-                        src="/images/odonto-smart/about-team.png"
+                        src="/images/odonto-smart/about-team.jpg"
                         alt="Nuestro equipo"
                         fill
                         className="object-cover"

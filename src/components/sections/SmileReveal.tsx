@@ -6,11 +6,10 @@ import {
   useScroll,
   useTransform,
   useSpring,
-  useMotionValue,
   type MotionValue,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { Sparkles, ArrowRight, Star } from "lucide-react";
+import { Sparkles, Star } from "lucide-react";
 
 const particles = Array.from({ length: 18 }, (_, i) => ({
   id: i,
@@ -78,44 +77,6 @@ function Particles() {
   );
 }
 
-// Magnetic CTA button
-function MagneticButton({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) {
-  const ref = useRef<HTMLAnchorElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
-  const springY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
-
-  return (
-    <motion.a
-      ref={ref}
-      href={href}
-      onMouseMove={(e) => {
-        if (!ref.current) return;
-        const rect = ref.current.getBoundingClientRect();
-        x.set((e.clientX - rect.left - rect.width / 2) * 0.25);
-        y.set((e.clientY - rect.top - rect.height / 2) * 0.25);
-      }}
-      onMouseLeave={() => {
-        x.set(0);
-        y.set(0);
-      }}
-      style={{ x: springX, y: springY }}
-      whileTap={{ scale: 0.96 }}
-      className="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-purple px-10 py-5 text-lg font-bold text-white shadow-xl shadow-brand-teal/20 transition-shadow duration-500 hover:shadow-2xl hover:shadow-brand-teal/35"
-    >
-      {children}
-      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-    </motion.a>
-  );
-}
-
 export function SmileReveal() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -138,9 +99,6 @@ export function SmileReveal() {
   const counterOpacity = useTransform(smooth, [0.3, 0.55], [0, 1]);
   const textOpacity = useTransform(smooth, [0.4, 0.55], [0, 1]);
   const textY = useTransform(smooth, [0.4, 0.55], [15, 0]);
-  const ctaOpacity = useTransform(smooth, [0.5, 0.65], [0, 1]);
-  const ctaY = useTransform(smooth, [0.5, 0.65], [30, 0]);
-
   const headline = "Tu sonrisa te abre puertas al exito";
   const words = headline.split(" ");
 
@@ -280,13 +238,6 @@ export function SmileReveal() {
             Cada paciente es una historia de confianza.
             Tu siguiente sonrisa comienza con una consulta.
           </motion.p>
-
-          {/* Magnetic CTA */}
-          <motion.div style={{ opacity: ctaOpacity, y: ctaY }}>
-            <MagneticButton href="https://wa.me/51987654321?text=Hola%2C%20quiero%20agendar%20una%20cita">
-              Agenda Tu Transformacion
-            </MagneticButton>
-          </motion.div>
         </div>
       </Container>
     </section>
