@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CompanionAura } from "@/components/ui/CompanionAura";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import "./globals.css";
 
@@ -27,6 +28,9 @@ export default function RootLayout({
     <html lang="es">
       <body className="antialiased">
         <SmoothScroll>{children}</SmoothScroll>
+        <div className="hidden md:block">
+          <CompanionAura />
+        </div>
       </body>
     </html>
   );

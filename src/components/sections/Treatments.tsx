@@ -36,10 +36,9 @@ interface TreatmentCardProps {
   icon: keyof typeof iconMap;
   color: "teal" | "pink";
   index: number;
-  id: string;
 }
 
-function TreatmentCard({ name, brief, icon, color, index, id }: TreatmentCardProps) {
+function TreatmentCard({ name, brief, icon, color, index }: TreatmentCardProps) {
   const Icon = iconMap[icon];
   const isTeal = color === "teal";
 
@@ -156,7 +155,6 @@ export function Treatments() {
           {treatments.items.map((item, index) => (
             <TreatmentCard
               key={item.id}
-              id={item.id}
               name={item.name}
               brief={item.brief}
               icon={item.icon}

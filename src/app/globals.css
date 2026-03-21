@@ -3,9 +3,8 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   ODONTO SMART V2 — Premium Experience | Design Tokens
-   Cian (#41d4cb) + Rosa Neon (#de1bce) · Clash Display + Satoshi + Monument
-   Inspired by x.ai texture language · Matte grain · Vivid accents
+   ODONTO SMART V3 — Smart Collision | Design Tokens
+   Fusion Mesh Gradient (Deep Purple -> Neon Cyan) · Clash Display + Satoshi
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 :root {
@@ -20,18 +19,24 @@
   --color-text-muted: #475569;
   --color-text-light: #94a3b8;
 
-  /* ── Brand — Cian + Rosa Neon (VIVOS) ── */
+  /* ── Brand — Fusion Palette ── */
   --color-brand-teal: #41d4cb;
   --color-brand-teal-strong: #2bb5ad;
   --color-brand-teal-soft: rgba(65, 212, 203, 0.1);
   --color-brand-purple: #de1bce;
   --color-brand-purple-soft: rgba(222, 27, 206, 0.1);
+  --color-brand-deep: #1a0a2e;
+  --color-brand-deep-soft: rgba(26, 10, 46, 0.2);
+
+  /* ── Hero Background (Dark Fusion) ── */
+  --color-bg-hero: radial-gradient(120% 140% at 82% 8%, rgba(65, 212, 203, 0.22) 0%, rgba(65, 212, 203, 0.08) 24%, rgba(26, 10, 46, 0.88) 58%, #0d1320 100%),
+                   linear-gradient(145deg, #0a101b 0%, #1a0a2e 52%, #0b111d 100%);
 
   /* ── Gradients ── */
-  --gradient-primary: linear-gradient(135deg, #41d4cb 0%, #de1bce 100%);
-  --gradient-hero: linear-gradient(135deg, #0a0f1a 0%, #1a0a2e 50%, #0a0f1a 100%);
+  --gradient-primary: linear-gradient(135deg, #1a0a2e 0%, #4f2c76 42%, #41d4cb 100%);
+  --gradient-hero: var(--color-bg-hero);
   --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-  --gradient-text: linear-gradient(90deg, #41d4cb 0%, #de1bce 100%);
+  --gradient-text: linear-gradient(90deg, #d8fbf8 0%, #41d4cb 55%, #8ce9e2 100%);
 
   /* ── Utility ── */
   --color-border-subtle: #e2e8f0;
@@ -62,6 +67,9 @@
   --color-brand-purple: var(--color-brand-purple);
   --color-brand-teal-soft: var(--color-brand-teal-soft);
   --color-brand-purple-soft: var(--color-brand-purple-soft);
+  --color-brand-deep: var(--color-brand-deep);
+  --color-brand-deep-soft: var(--color-brand-deep-soft);
+  --color-bg-hero: var(--color-bg-hero);
   --color-border-subtle: var(--color-border-subtle);
   --color-footer-bg: var(--color-footer-bg);
   --color-hero-overlay: var(--color-hero-overlay);

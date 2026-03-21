@@ -1,327 +1,220 @@
 "use client";
 
-import { useRef } from "react";
-import Link from "next/link";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-} from "framer-motion";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { hero, stats } from "@/data/content";
-import { ShieldCheck } from "lucide-react";
-import { MagneticCTA } from "@/components/ui/MagneticCTA";
+import Link from "next/link";
+import ReactConfetti from "react-confetti";
+import { motion, type Variants } from "framer-motion";
+import { Container } from "@/components/ui/Container";
+import { WaveDivider } from "@/components/ui/WaveDivider";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const gridVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
 
-// Staggered word reveal for line 1
-function StaggeredText({
-  text,
-  className,
-  delay = 0,
-}: {
-  text: string;
-  className?: string;
-  delay?: number;
-}) {
-  const words = text.split(" ");
+const cardOffsets = [
+  { x: -120, y: -60 },
+  { x: 95, y: -70 },
+  { x: 130, y: 15 },
+  { x: -85, y: 80 },
+  { x: 100, y: 95 },
+  { x: -110, y: 25 },
+];
 
-  return (
-    <motion.span
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: { staggerChildren: 0.08, delayChildren: delay },
-        },
-      }}
-      className={className}
-    >
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 40,
-              filter: "blur(8px)",
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px)",
-              transition: {
-                type: "spring",
-                damping: 20,
-                stiffness: 100,
-              },
-            },
-          }}
-          className="mr-[0.3em] inline-block will-change-transform"
-        >
-          {word}
-        </motion.span>
-      ))}
-    </motion.span>
-  );
-}
+const cardVariants: Variants = {
+  hidden: (index: number) => ({
+    x: cardOffsets[index]?.x ?? 0,
+    y: cardOffsets[index]?.y ?? 0,
+    opacity: 0,
+    filter: "blur(10px)",
+  }),
+  visible: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      damping: 15,
+      stiffness: 100,
+    },
+  },
+};
 
-// Typewriter-style character reveal for line 2
-function TypewriterText({
-  text,
-  className,
-  delay = 0,
-}: {
-  text: string;
-  className?: string;
-  delay?: number;
-}) {
-  const chars = text.split("");
-
-  return (
-    <motion.span
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: { staggerChildren: 0.04, delayChildren: delay },
-        },
-      }}
-      className={className}
-    >
-      {chars.map((char, i) => (
-        <motion.span
-          key={i}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { duration: 0.05 },
-            },
-          }}
-          className="inline-block"
-          style={{ whiteSpace: char === " " ? "pre" : undefined }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-      {/* Blinking cursor */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{
-          delay: delay + chars.length * 0.04 + 0.2,
-          duration: 0.8,
-          repeat: 2,
-          repeatType: "loop",
-        }}
-        className="inline-block h-[0.9em] w-[3px] translate-y-[0.1em] rounded-full bg-brand-teal"
-      />
-    </motion.span>
-  );
-}
-
-// Floating badge component
-function FloatingBadge() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay: 1.6, type: "spring", stiffness: 200, damping: 20 }}
-      className="animate-float-slow glass-dark absolute right-8 top-1/3 z-10 hidden rounded-2xl border border-white/10 px-5 py-4 md:block"
-    >
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-teal/20">
-          <ShieldCheck className="h-5 w-5 text-brand-teal" strokeWidth={1.5} />
-        </div>
-        <div>
-          <div className="text-xl font-black text-white" style={{ fontFamily: "var(--font-display)" }}>
-            +{stats.items[0].value}
-          </div>
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-white/50">
-            {stats.items[0].label}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-// Scroll indicator
-function ScrollIndicator() {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 2, duration: 0.8 }}
-      className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex"
-    >
-      <motion.span
-        className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30"
-        animate={{ opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        Scroll
-      </motion.span>
-      <div className="relative h-10 w-[1.5px] overflow-hidden rounded-full bg-white/10">
-        <motion.div
-          className="absolute left-0 top-0 h-3 w-full rounded-full bg-gradient-to-b from-brand-teal to-brand-purple"
-          animate={{ y: [0, 28, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-    </motion.div>
-  );
-}
+const cards = [
+  {
+    image: "/images/odonto-smart/tech-3.png",
+    alt: "Diseno de sonrisa",
+    title: "Diseno de Sonrisa",
+    description: "Planificacion estetica digital",
+    className: "col-span-2 row-span-2",
+  },
+  {
+    image: "/images/odonto-smart/team-2.png",
+    alt: "Dr. Carlos Ramirez",
+    title: "Dr. Carlos Ramirez",
+    description: "Precision laser y protocolo premium",
+    className: "col-span-1 row-span-2",
+  },
+  {
+    image: "/images/odonto-smart/tech-1.png",
+    alt: "Scanner intraoral",
+    title: "Scanner Intraoral",
+    description: "Diagnostico inteligente en minutos",
+    className: "col-span-1 row-span-1",
+  },
+  {
+    image: "/images/odonto-smart/team-4.png",
+    alt: "Paciente feliz",
+    title: "Paciente Feliz",
+    description: "Experiencia boutique de principio a fin",
+    className: "col-span-1 row-span-1",
+  },
+  {
+    image: "/images/odonto-smart/tech-2.png",
+    alt: "Sede moderna",
+    title: "Clinica Boutique",
+    description: "Ambiente premium y tecnologia avanzada",
+    className: "col-span-1 row-span-1",
+  },
+  {
+    image: "/images/odonto-smart/hero-bg.png",
+    alt: "Sonrisa con brackets",
+    title: "+20 anos | 5000+ sonrisas",
+    description: "Resultados reales, confianza medible",
+    className: "col-span-2 row-span-1",
+  },
+];
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [didCelebrate, setDidCelebrate] = useState(false);
+  const [viewport, setViewport] = useState(() => ({
+    width: typeof window === "undefined" ? 0 : window.innerWidth,
+    height: typeof window === "undefined" ? 0 : window.innerHeight,
+  }));
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
+  useEffect(() => {
+    const syncViewport = () => {
+      setViewport({ width: window.innerWidth, height: window.innerHeight });
+    };
 
-  // Smooth parallax with spring physics
-  const rawY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const backgroundY = useSpring(rawY, { stiffness: 100, damping: 30 });
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.6], [0, -60]);
-  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+    window.addEventListener("resize", syncViewport, { passive: true });
+
+    return () => window.removeEventListener("resize", syncViewport);
+  }, []);
+
+  const triggerCollisionCelebration = () => {
+    if (didCelebrate) return;
+    setDidCelebrate(true);
+    setShowConfetti(true);
+    window.setTimeout(() => setShowConfetti(false), 2400);
+  };
 
   return (
     <section
-      ref={sectionRef}
       id="inicio"
-      className="relative min-h-[80vh] w-full overflow-hidden pt-16 md:min-h-[92vh]"
+      className="relative overflow-x-hidden overflow-y-visible pb-24 pt-24 md:pt-28"
+      style={{ background: "var(--color-bg-hero)" }}
     >
-      {/* Background Image with Spring Parallax */}
-      <motion.div
-        className="absolute inset-0 h-[130%] w-full"
-        style={{ y: backgroundY, willChange: "transform" }}
-      >
-        <Image
-          src={hero.image}
-          alt="Clinica dental moderna"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
+      {showConfetti && viewport.width > 0 && viewport.height > 0 && (
+        <ReactConfetti
+          width={viewport.width}
+          height={viewport.height}
+          recycle={false}
+          numberOfPieces={280}
+          gravity={0.18}
+          initialVelocityY={10}
+          tweenDuration={3600}
+          colors={["#d4af37", "#f2e1a7", "#41d4cb"]}
+          style={{ position: "fixed", top: 0, left: 0, zIndex: 70, pointerEvents: "none" }}
         />
-      </motion.div>
+      )}
 
-      {/* Dark Overlay with diagonal mask on desktop */}
-      <div
-        className="bg-noise-dark absolute inset-0 md:clip-diagonal"
-        style={{ background: "var(--color-hero-overlay)" }}
-        aria-hidden="true"
-      />
+      <Container className="relative z-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center lg:text-left"
+          >
+            <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.22em] text-gray-300">
+              Odonto Smart Elite Care
+            </p>
 
-      {/* Diagonal gradient edge (desktop only) */}
-      <div
-        className="pointer-events-none absolute inset-0 hidden md:block"
-        style={{
-          background: "linear-gradient(115deg, transparent 53%, rgba(65, 212, 203, 0.08) 53.5%, transparent 54%)",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Subtle glow behind content */}
-      <div
-        className="pointer-events-none absolute left-[10%] top-1/3 h-[400px] w-[500px] rounded-full opacity-20 blur-[120px]"
-        style={{ background: "var(--color-brand-teal)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute left-[20%] top-1/2 h-[300px] w-[300px] rounded-full opacity-10 blur-[100px]"
-        style={{ background: "var(--color-brand-purple)" }}
-        aria-hidden="true"
-      />
-
-      {/* Floating Badge */}
-      <FloatingBadge />
-
-      {/* Content */}
-      <motion.div
-        className="relative flex min-h-[80vh] items-center md:min-h-[92vh]"
-        style={{ opacity: contentOpacity, y: contentY }}
-      >
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
-          <div className="max-w-2xl">
-            {/* Title Line 1 — Clash Display, staggered words */}
             <h1
-              className="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="text-white drop-shadow-md text-4xl font-black leading-[0.92] md:text-6xl"
+              style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
             >
-              <StaggeredText text={hero.title.line1} delay={0.1} />
+              Sonrisas de elite,
+              <br />
+              precision boutique.
             </h1>
 
-            {/* Title Line 2 — Typewriter with gradient + cursor */}
-            <span
-              className="mt-1 block text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              <TypewriterText
-                text={hero.title.line2}
-                className="gradient-text"
-                delay={0.6}
-              />
-            </span>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-200 md:text-lg lg:mx-0 mx-auto">
+              Tratamientos personalizados, equipo especialista y tecnologia de ultima generacion para resultados impecables con una experiencia premium.
+            </p>
 
-            {/* Description — Satoshi */}
-            <motion.p
-              initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.8, ease, delay: 1.2 }}
-              className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg"
-            >
-              {hero.description}
-            </motion.p>
-
-            {/* Buttons with enhanced hover */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 1.4 }}
-              className="mt-8 flex flex-wrap gap-4"
-            >
-              <MagneticCTA initialLabel={hero.buttons.primary.label} successLabel="Cita Asegurada" />
-
-              {/* Secondary — Purple with glow expansion */}
-              <motion.div
-                whileHover={{
-                  scale: 1.03,
-                  y: -2,
-                }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+              <Link
+                href="/sedes#contacto"
+                className="inline-flex items-center rounded-xl bg-brand-purple px-7 py-3 text-[15px] font-semibold text-white shadow-lg shadow-brand-purple/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
               >
-                <Link
-                  href={hero.buttons.secondary.href}
-                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-brand-purple px-8 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-brand-purple/25 transition-all hover:shadow-xl hover:shadow-brand-purple/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2"
-                >
-                  {hero.buttons.secondary.label}
-                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
-                </Link>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
+                Agenda Tu Cita
+              </Link>
+              <Link
+                href="/tratamientos"
+                className="inline-flex items-center rounded-xl bg-brand-teal px-7 py-3 text-[15px] font-semibold text-white shadow-lg shadow-brand-teal/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                Ver Especialidades
+              </Link>
+            </div>
+          </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div style={{ opacity: scrollIndicatorOpacity }}>
-        <ScrollIndicator />
-      </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={gridVariants}
+            onAnimationComplete={triggerCollisionCelebration}
+            className="grid auto-rows-[118px] grid-cols-2 gap-4 md:auto-rows-[128px] md:grid-cols-3"
+          >
+            {cards.map((card, index) => (
+              <motion.article
+                key={card.title}
+                custom={index}
+                variants={cardVariants}
+                whileHover={{ y: -5, rotateX: 2, rotateY: -2 }}
+                transition={{ type: "spring", stiffness: 240, damping: 20 }}
+                className={`relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.06] shadow-[0_12px_30px_rgba(0,0,0,0.28)] backdrop-blur-sm ${card.className}`}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <div className="relative h-[62%] w-full">
+                  <Image src={card.image} alt={card.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 38vw" />
+                </div>
+                <div className="p-3.5">
+                  <h3 className="text-sm font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+                    {card.title}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-gray-200">
+                    {card.description}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </Container>
+
+      <WaveDivider />
     </section>
   );
 }

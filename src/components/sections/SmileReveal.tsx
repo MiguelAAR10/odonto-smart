@@ -12,6 +12,17 @@ import {
 import { Container } from "@/components/ui/Container";
 import { Sparkles, ArrowRight, Star } from "lucide-react";
 
+const particles = Array.from({ length: 18 }, (_, i) => ({
+  id: i,
+  x: (i * 17) % 100,
+  y: (i * 29) % 100,
+  size: 1.5 + (i % 5) * 0.45,
+  duration: 8 + (i % 6),
+  delay: (i % 4) * 0.45,
+  color: i % 3 === 0 ? "var(--color-brand-purple)" : "var(--color-brand-teal)",
+  opacity: 0.08 + (i % 4) * 0.03,
+}));
+
 // Word that fades in linked to scroll progress
 function ScrollWord({
   word,
@@ -37,17 +48,6 @@ function ScrollWord({
 
 // Floating particles for depth
 function Particles() {
-  const particles = Array.from({ length: 18 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: 1.5 + Math.random() * 2,
-    duration: 8 + Math.random() * 6,
-    delay: Math.random() * 4,
-    color: i % 3 === 0 ? "var(--color-brand-purple)" : "var(--color-brand-teal)",
-    opacity: 0.08 + Math.random() * 0.12,
-  }));
-
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       {particles.map((p) => (
@@ -238,7 +238,7 @@ export function SmileReveal() {
                     key={i}
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{
-                      scale: [0, 1.3, 1],
+                      scale: 1,
                       opacity: 1,
                     }}
                     viewport={{ once: true }}

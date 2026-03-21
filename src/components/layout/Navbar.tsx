@@ -78,7 +78,7 @@ export function Navbar() {
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${headerClasses[scrollState]}`}
       >
         <motion.nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-12"
+          className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 md:px-12"
           style={{ paddingTop: springPadding, paddingBottom: springPadding }}
         >
           {/* Logo — Clash Display with shimmer hover */}
