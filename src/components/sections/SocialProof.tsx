@@ -23,10 +23,10 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-function GoogleIcon({ className }: { className?: string }) {
+function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M21.35 11.1h-9.18v2.98h5.27c-.23 1.51-1.9 4.43-5.27 4.43-3.17 0-5.76-2.63-5.76-5.87s2.59-5.87 5.76-5.87c1.8 0 3 .76 3.69 1.41l2.52-2.43C16.77 4.24 14.73 3.2 12.17 3.2 7.27 3.2 3.3 7.2 3.3 12.14s3.97 8.94 8.87 8.94c5.12 0 8.51-3.6 8.51-8.67 0-.58-.06-1.02-.13-1.31z" />
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
     </svg>
   );
 }
@@ -34,7 +34,7 @@ function GoogleIcon({ className }: { className?: string }) {
 const iconComponents = {
   tiktok: TikTokIcon,
   instagram: InstagramIcon,
-  google: GoogleIcon,
+  facebook: FacebookIcon,
 } as const;
 
 const cardThemes = {
@@ -49,12 +49,6 @@ const cardThemes = {
     keyword: "text-brand-purple",
     hover: "hover:border-brand-purple/24 hover:shadow-[0_16px_42px_rgba(222,27,206,0.12)]",
     cta: "text-brand-purple hover:text-[#c615b7]",
-  },
-  amber: {
-    iconWrap: "bg-[linear-gradient(135deg,rgba(245,158,11,0.12),rgba(251,191,36,0.08))] text-amber-500",
-    keyword: "text-amber-500",
-    hover: "hover:border-amber-300/70 hover:shadow-[0_16px_42px_rgba(245,158,11,0.14)]",
-    cta: "text-amber-600 hover:text-amber-500",
   },
 } as const;
 
