@@ -111,6 +111,128 @@ a6f0243 feat(design-system): add V1 Stitch design tokens and typography
 
 ---
 
+### [2026-03-21] Mejora de copy emocional y claridad de conversion en home (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: reforzar la conversion y la conexion emocional de la home sin perder el posicionamiento visual ya construido.
+- Para no-tecnicos: la home debe explicar mejor el problema del paciente, transmitir menos miedo y empujar con mas claridad a escribir por WhatsApp.
+- Criterio de exito: hero, stats, problema, especialidades, tecnologia y cierre final con mensajes mas humanos, directos y claros, sin romper el layout existente.
+
+#### C — Contexto
+- Estado actual: la home ya tenia una base visual premium y un CTA principal por WhatsApp, pero el copy seguia mas enfocado en marca que en aliviar incertidumbre y activar accion.
+- Archivos involucrados: `src/data/content.ts`, `src/app/page.tsx`, `src/components/sections/Hero.tsx`, `src/components/sections/Stats.tsx`, `src/components/sections/Treatments.tsx`, `src/components/sections/Technology.tsx`, nuevo `src/components/sections/ProblemSection.tsx`, `src/components/sections/SmileReveal.tsx`.
+- Patrones a reutilizar: `Container`, `SectionHeading`, composicion actual de home, CTA via WhatsApp, estructura modular de secciones.
+- Riesgos identificados: aumentar demasiado la densidad textual, romper ritmo de la home o duplicar CTAs sin jerarquia.
+
+#### A — Análisis
+- Estrategia: mantener la arquitectura actual y reemplazar el mensaje en puntos de alta friccion emocional, agregando una seccion breve de problema entre el respaldo (`Stats`) y la solucion (`Especialidades`).
+- Skills aplicadas: `typeset`, `arrange`, `frontend-design`.
+- Cambios modulares:
+  - `content.ts`: nuevo copy centralizado para hero, stats, problema, tecnologia y CTA final.
+  - `ProblemSection.tsx`: nueva seccion corta para tension emocional previa a especialidades.
+  - `Hero.tsx`: ajuste de microcopy sin tocar composicion base.
+  - `Stats.tsx`: nuevo titulo, subtitulo y atributos de credibilidad.
+  - `Treatments.tsx`: titulo y descripciones mas humanas.
+  - `Technology.tsx`: nuevo framing verbal de la tecnologia.
+  - `SmileReveal.tsx`: cierre simplificado como CTA final.
+
+#### D — Desarrollo
+- Modificados:
+  - `src/data/content.ts`
+  - `src/app/page.tsx`
+  - `src/components/sections/Hero.tsx`
+  - `src/components/sections/Stats.tsx`
+  - `src/components/sections/Treatments.tsx`
+  - `src/components/sections/Technology.tsx`
+  - `src/components/sections/SmileReveal.tsx`
+  - `src/components/sections/ProblemSection.tsx` — **NUEVO**
+- Build: pendiente de registrar con commit
+- Commit: —
+
+### [2026-03-21] Refinamiento de tono: mas humano, sereno y clinicamente confiable (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: mantener la nueva narrativa de conversion, pero bajar el tono publicitario para que se sienta mas humano, mas claro y con mayor credibilidad clinica.
+- Para no-tecnicos: la web debe sonar menos a anuncio y mas a una clinica que entiende el problema del paciente, lo explica bien y transmite seguridad.
+- Criterio de exito: hero, stats, problema, tecnologia y CTA final con mensajes mas serenos, naturales y confiables, sin mover la estructura.
+
+#### C — Contexto
+- Estado actual: la home ya habia mejorado su narrativa emocional, pero parte del texto seguia empujando demasiado desde lo publicitario y podia restar sensacion de acompanamiento real.
+- Archivos involucrados: `src/data/content.ts`, `docs/proceso/BITACORA.md`.
+- Patrones a reutilizar: contenido centralizado, estructura actual de secciones, CTA principal por WhatsApp, layout ya validado.
+- Riesgos identificados: volver el mensaje demasiado frio, o quitar demasiada energia comercial en el intento de sonar mas sereno.
+
+#### A — Análisis
+- Estrategia: ajustar solo el lenguaje, sin tocar composicion ni componentes, para que la percepcion premium venga mas de claridad y confianza que de enfasis promocional.
+- Skills aplicadas: `typeset`, `arrange`.
+- Cambios modulares:
+  - `content.ts`: refinar hero, problem, stats, technology y cierre final.
+  - `BITACORA.md`: registrar la nueva pasada TCAD.
+
+#### D — Desarrollo
+- Modificados:
+  - `src/data/content.ts`
+  - `docs/proceso/BITACORA.md`
+- Build: pendiente de registrar con commit
+- Commit: —
+
+### [2026-03-21] Ajuste fino de copy segun feedback visual del owner (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: pulir el lenguaje final para que se sienta menos forzado, menos publicitario y mas natural, con mejor lectura en pantalla.
+- Para no-tecnicos: afinar las frases que ya funcionan para que suenen mas claras, mas elegantes y mas confiables.
+- Criterio de exito: hero, stats, problema y especialidades con textos mas limpios, mejor ritmo verbal y correccion de tildes.
+
+#### C — Contexto
+- Estado actual: la narrativa general ya estaba mejor orientada, pero todavia quedaban frases largas, algo armadas o demasiado corporativas.
+- Archivos involucrados: `src/data/content.ts`, `docs/proceso/BITACORA.md`.
+- Patrones a reutilizar: estructura actual, CTA por WhatsApp, jerarquia ya validada por seccion.
+- Riesgos identificados: sobrecorregir y perder fuerza comercial, o recortar demasiado y perder claridad.
+
+#### A — Análisis
+- Estrategia: intervenir solo copy centralizado y mantener intactos layout y componentes.
+- Cambios modulares:
+  - `content.ts`: hero eyebrow, subtexto, microcopy, bloque problema, labels de stats y nombres/descripciones de especialidades.
+  - `BITACORA.md`: registro de la pasada fina.
+
+#### D — Desarrollo
+- Modificados:
+  - `src/data/content.ts`
+  - `docs/proceso/BITACORA.md`
+- Build: pendiente de registrar con commit
+- Commit: —
+
+### [2026-03-21] Hero de estatus y stats de confianza real (TCAD)
+
+#### T — Traducción
+- Objetivo solicitado: elevar el hero hacia una narrativa mas aspiracional y de estatus, manteniendo la sensacion premium, y reorientar los stats hacia pruebas de confianza mas concretas.
+- Para no-tecnicos: la home debe hacer sentir que esta es una experiencia de alto nivel, deseable y confiable, sin depender de tecnicismos ni promesas de hardware.
+- Criterio de exito: hero con nuevo mensaje maestro, top bar alineado al nuevo posicionamiento y stats centrados en estrellas, pacientes y sedes reales.
+
+#### C — Contexto
+- Estado actual: la home ya tenia una narrativa mas humana, pero todavia se apoyaba en un tono demasiado sobrio frente a la direccion estetica aspiracional del proyecto.
+- Archivos involucrados: `src/data/content.ts`, `src/components/sections/Hero.tsx`, `src/components/layout/Navbar.tsx`, `src/components/sections/Stats.tsx`, `docs/proceso/BITACORA.md`.
+- Patrones a reutilizar: hero actual con fondo oscuro, CTA a WhatsApp, top bar del navbar, layout de tres cards en stats.
+- Riesgos identificados: exagerar el tono aspiracional, cargar demasiado el hero o introducir una metrica visual imposible de renderizar con el contador actual.
+
+#### A — Análisis
+- Estrategia: mantener la estructura actual y reemplazar solo el contenido y la salida visual minima necesaria para soportarlo.
+- Cambios modulares:
+  - `content.ts`: nuevo hero de estatus, nuevo texto del top bar y nuevas metricas de confianza.
+  - `Hero.tsx`: permitir palabra destacada dentro del headline.
+  - `Navbar.tsx`: mostrar la nueva linea superior sin romper legibilidad.
+  - `Stats.tsx`: soportar metricas con display directo como `4.9/5`.
+
+#### D — Desarrollo
+- Modificados:
+  - `src/data/content.ts`
+  - `src/components/sections/Hero.tsx`
+  - `src/components/layout/Navbar.tsx`
+  - `src/components/sections/Stats.tsx`
+  - `docs/proceso/BITACORA.md`
+- Build: pendiente de registrar con commit
+- Commit: —
+
 ### [2026-03-21] Mapa de ramas, limpieza documental y trazabilidad de mejoras (TCAD)
 
 #### T — Traducción

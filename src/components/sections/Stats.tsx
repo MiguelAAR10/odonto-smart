@@ -1,35 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { stats } from "@/data/content";
-import { CalendarCheck, HeartPulse, ShieldCheck } from "lucide-react";
 
-// Reusable animated counter with spring physics (slot-machine style)
+/* ─── Animated counter — spring physics, viewport triggered ─── */
+
 function AnimatedCounter({
   value,
   prefix = "",
   suffix = "",
+  display,
 }: {
   value: number;
   prefix?: string;
   suffix?: string;
+  display?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
-    damping: 25,
-    stiffness: 60,
+    damping: 28,
+    stiffness: 50,
     mass: 0.8,
   });
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
+    if (isInView) motionValue.set(value);
   }, [isInView, motionValue, value]);
 
   useEffect(() => {
@@ -41,117 +42,99 @@ function AnimatedCounter({
 
   return (
     <span ref={ref} className="tabular-nums">
-      {prefix}
-      {displayValue.toLocaleString()}
-      {suffix}
+      {display ?? `${prefix}${displayValue.toLocaleString()}${suffix}`}
     </span>
   );
 }
 
-const icons = [CalendarCheck, HeartPulse, ShieldCheck];
+/* ─── Trust metric card ─── */
 
-// Icon entrance animations — each icon has a unique entrance
-const iconVariants = [
-  // CalendarCheck: flip in
-  {
-    hidden: { rotateY: 90, opacity: 0 },
-    visible: { rotateY: 0, opacity: 1, transition: { type: "spring" as const, stiffness: 200, damping: 15 } },
-  },
-  // HeartPulse: double pulse
-  {
-    hidden: { scale: 0, opacity: 0 },
-    visible: {
-      scale: [0, 1.3, 0.9, 1.15, 1],
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" as const },
-    },
-  },
-  // ShieldCheck: bounce in
-  {
-    hidden: { y: -30, opacity: 0, scale: 0.5 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: { type: "spring" as const, stiffness: 300, damping: 12 },
-    },
-  },
-];
+const ease = [0.22, 1, 0.36, 1] as const;
 
-interface StatCardProps {
+interface TrustCardProps {
   value: number;
   prefix?: string;
   suffix?: string;
+  display?: string;
   label: string;
   attribute: string;
-  variant: "teal" | "purple";
   index: number;
 }
 
-function StatItem({ value, prefix, suffix, label, attribute, variant, index }: StatCardProps) {
-  const iconColor = variant === "teal" ? "text-brand-teal" : "text-brand-purple";
-  const Icon = icons[index] || ShieldCheck;
-  const isLast = index === stats.items.length - 1;
-
+function TrustCard({ value, prefix, suffix, display, label, attribute, index }: TrustCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        type: "spring",
-        damping: 20,
-        stiffness: 100,
-        delay: index * 0.15,
-      }}
-      className="group relative flex flex-1 flex-col items-center px-6 py-8 md:px-10"
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, ease, delay: index * 0.12 }}
+      whileHover={{ y: -3, transition: { duration: 0.25, ease: "easeOut" } }}
+      className="group flex flex-col items-center rounded-2xl border border-border-subtle bg-white px-6 py-8 text-center shadow-[0_4px_24px_rgba(26,10,46,0.06)] transition-shadow duration-300 hover:shadow-[0_8px_32px_rgba(65,212,203,0.10)] md:px-8 md:py-10"
     >
-      {/* Icon with unique entrance animation */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        variants={iconVariants[index] || iconVariants[0]}
-        className={`mb-5 rounded-full bg-white/80 p-3 shadow-sm ${iconColor}`}
-      >
-        <Icon className="h-7 w-7" strokeWidth={1.5} />
-      </motion.div>
-
-      {/* Number — Clash Display */}
       <span
-        className="text-4xl font-black tracking-tight text-text-dark md:text-5xl"
+        className="text-[2.5rem] font-bold tracking-tight text-text-dark md:text-5xl"
         style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
       >
-        <AnimatedCounter value={value} prefix={prefix} suffix={suffix} />
+        <AnimatedCounter value={value} prefix={prefix} suffix={suffix} display={display} />
       </span>
-
-      {/* Label */}
-      <span className="mt-2 text-center text-[12px] font-bold uppercase tracking-[0.15em] text-text-muted">
+      <span className="mt-3 text-[11px] font-bold uppercase tracking-[0.18em] text-text-muted md:text-xs">
         {label}
       </span>
-      <span className="mt-2 max-w-[20ch] text-center text-[13px] leading-relaxed text-text-light">
+      <span className="mx-auto mt-2 max-w-[220px] text-[13px] leading-relaxed text-text-light md:text-sm">
         {attribute}
       </span>
-
-      {/* Divider — gradient vertical line between items */}
-      {!isLast && (
-        <div className="pointer-events-none absolute right-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-brand-teal/20 to-transparent md:block" aria-hidden="true" />
-      )}
     </motion.div>
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Stats — Brand medallion overlapping hero→stats transition + trust cards
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
 export function Stats() {
   return (
-    <section className="section-wave-top bg-noise relative bg-bg-main pt-14 pb-16 md:pt-18 md:pb-20">
+    <section className="bg-noise relative bg-bg-main pb-16 pt-28 md:pb-20 md:pt-32">
+
+      {/* ── Brand medallion — overlaps into hero wave ── */}
+      <div className="absolute inset-x-0 top-0 z-30 flex -translate-y-1/2 justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, y: 10 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease }}
+          className="relative"
+        >
+          {/* Outer glow — teal */}
+          <div
+            className="absolute inset-0 scale-[1.8] rounded-full bg-brand-teal/8 blur-[36px]"
+            aria-hidden="true"
+          />
+          {/* Inner glow — magenta */}
+          <div
+            className="absolute inset-0 scale-[1.2] rounded-full bg-brand-purple/6 blur-[24px]"
+            aria-hidden="true"
+          />
+          {/* Medallion */}
+          <div className="relative flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white p-6 shadow-[0_12px_48px_rgba(65,212,203,0.16),0_4px_20px_rgba(222,27,206,0.08)] ring-1 ring-black/[0.04] md:h-[200px] md:w-[200px] md:p-8">
+            <Image
+              src="/images/odonto-smart/logo-principal.png"
+              alt="Odonto Smart"
+              width={300}
+              height={300}
+              className="h-full w-auto object-contain"
+            />
+          </div>
+        </motion.div>
+      </div>
+
       <Container>
-        {/* Title — Clash Display */}
+        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 text-center md:mb-12"
+          transition={{ duration: 0.6, ease }}
+          className="mb-12 text-center md:mb-14"
         >
           <h2
             className="text-2xl font-bold text-text-dark md:text-3xl"
@@ -159,22 +142,22 @@ export function Stats() {
           >
             {stats.title}
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-text-muted md:text-[15px]">
-            Tecnologia de precision, sedes estrategicas y una experiencia cuidada para convertir confianza en accion.
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-text-muted md:text-[15px]">
+            {stats.description}
           </p>
         </motion.div>
 
-        {/* Stats Strip — horizontal with dividers */}
-        <div className="flex flex-col overflow-hidden rounded-2xl border border-border-subtle bg-bg-main shadow-sm md:flex-row">
+        {/* Trust cards — 3 columns desktop, stacked mobile */}
+        <div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-3 md:gap-6">
           {stats.items.map((item, index) => (
-            <StatItem
+            <TrustCard
               key={item.label}
-              value={item.value}
-              prefix={item.prefix}
-              suffix={item.suffix}
+              value={Number(item.value ?? 0)}
+              prefix={"prefix" in item ? (item as { prefix: string }).prefix : undefined}
+              suffix={"suffix" in item ? (item as { suffix: string }).suffix : undefined}
+              display={"display" in item ? (item as { display: string }).display : undefined}
               label={item.label}
               attribute={item.attribute}
-              variant={item.variant}
               index={index}
             />
           ))}

@@ -44,12 +44,12 @@ export const siteConfig = {
   },
   tagline: "La inteligencia dental de tu mejor sonrisa",
   locationLabel: "Lima · 3 sedes",
+  topBar: "Estética Avanzada. Cero Dolor. Sedes en Lince, Jesús María y Magdalena.",
 };
 
 export const navigation = {
   links: [
     { label: "Inicio", href: "/" },
-    { label: "Especialidades", href: "/tratamientos" },
     { label: "Sedes", href: "/sedes" },
     { label: "Nosotros", href: "/nosotros" },
   ],
@@ -65,22 +65,34 @@ export const navigation = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const hero = {
-  eyebrow: "Odontologia premium en Lima",
+  eyebrow: "ODONTOLOGÍA ESTÉTICA DE ALTO NIVEL",
   title: {
-    line1: "Transforma tu sonrisa",
-    line2: "con precision estetica premium",
+    line1: "El nivel de odontología",
+    line2: "que tu imagen",
+    accent: "merece.",
   },
   description:
-    "Diagnostico digital, especialistas y resultados visibles desde la primera visita.",
+    "Olvídate de la clínica tradicional y del miedo al sillón dental. Disfruta de una experiencia premium con especialistas enfocados en transformar tu estética sin estrés y con resultados reales desde tu primera visita.",
   buttons: {
     primary: {
-      label: "Agendar por WhatsApp",
+      label: "Agenda tu Valoración Premium",
       href: whatsappHref,
     },
   },
-  ctaNote: "Respuesta rapida en minutos",
-  image: "/images/odonto-smart/tech-3.jpg",
+  ctaNote: "Atención sin dolor. Facilidades de pago. Más de 5,000 sonrisas transformadas.",
+  image: "/images/odonto-smart/fotos-reales/atencion-paciente-personalizada.jpg",
   imageAlt: "Tecnologia dental y sonrisa estetica en Odonto Smart",
+};
+
+export const problemSection = {
+  label: "LO QUE MUCHOS SIGUEN POSTERGANDO",
+  title: "Sabes que deberías verlo…\npero lo sigues postergando",
+  points: [
+    "Te cuesta sonreír con naturalidad",
+    "Te preocupa que sea incómodo",
+    "No sabes cuánto podría costar ni cómo empezar",
+  ],
+  closing: "Mientras más lo postergas, más difícil puede volverse.",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -89,61 +101,61 @@ export const hero = {
 
 export const treatments = {
   label: "ESPECIALIDADES",
-  title: "Tratamientos que elevan tu sonrisa",
-  featuredIds: ["estetica", "ortodoncia", "periodoncia"],
+  title: "Soluciones claras para lo que hoy te incomoda",
+  featuredIds: ["estetica", "ortodoncia"],
   items: [
     {
+      id: "estetica",
+      name: "Diseño y estética de sonrisa",
+      brief: "Forma, color y armonia para una sonrisa que te devuelve confianza.",
+      icon: "sparkles" as const,
+      color: "teal" as const,
+    },
+    {
       id: "ortodoncia",
-      name: "Ortodoncia y Ortopedia Maxilar",
-      brief: "Alineamos tu sonrisa con técnicas invisibles y modernas.",
+      name: "Ortodoncia y alineación dental",
+      brief: "Alineamos tu sonrisa con un plan claro y resultados visibles.",
       icon: "scan-line" as const,
       color: "teal" as const,
     },
     {
       id: "rehabilitacion",
       name: "Rehabilitación Oral",
-      brief: "Devolvemos función y estética a tu boca completa.",
+      brief: "Devolvemos funcion y comodidad para sonreir sin limitaciones.",
       icon: "refresh-cw" as const,
       color: "pink" as const,
     },
     {
-      id: "estetica",
-      name: "Odontología Estética y Restauradora",
-      brief: "Diseño de sonrisa, carillas y blanqueamiento premium.",
-      icon: "sparkles" as const,
-      color: "teal" as const,
-    },
-    {
       id: "periodoncia",
       name: "Periodoncia e Implantología",
-      brief: "Implantes de titanio y cuidado avanzado de encías.",
+      brief: "Implantes y tratamiento de encias para recuperar estabilidad.",
       icon: "shield-check" as const,
       color: "pink" as const,
     },
     {
       id: "cirugia",
       name: "Cirugía Oral y Maxilofacial",
-      brief: "Procedimientos quirúrgicos con precisión y seguridad.",
+      brief: "Casos complejos resueltos con precision y explicaciones claras.",
       icon: "syringe" as const,
       color: "teal" as const,
     },
     {
       id: "endodoncia",
       name: "Endodoncia",
-      brief: "Salvamos tu diente natural con tratamientos de conducto.",
+      brief: "Salvamos tu diente a tiempo con tratamiento preciso.",
       icon: "heart-pulse" as const,
       color: "pink" as const,
     },
     {
       id: "odontopediatria",
       name: "Odontopediatría",
-      brief: "Cuidado dental especializado para los más pequeños.",
+      brief: "Sonrisas pequenas cuidadas con paciencia y carino.",
       icon: "baby" as const,
       color: "teal" as const,
     },
   ],
   cta: {
-    label: "Agendar por WhatsApp",
+    label: "Hablar por WhatsApp ahora",
     href: whatsappHref,
   },
 };
@@ -153,28 +165,66 @@ export const treatments = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const stats = {
-  title: "Confianza premium respaldada por experiencia real",
+  title: "Tu imagen merece respaldo real",
+  description:
+    "No improvisamos tratamientos. Cada decisión se apoya en experiencia, atención clara y resultados visibles.",
   items: [
     {
-      value: 20,
-      prefix: "+",
-      label: "AÑOS DE EXCELENCIA",
-      attribute: "Especialistas con criterio clinico",
+      display: "4.9/5",
+      label: "ESTRELLAS",
+      attribute: "Respaldado por pacientes reales.",
       variant: "teal" as const,
     },
     {
       value: 5000,
       suffix: "+",
       label: "PACIENTES FELICES",
-      attribute: "3 sedes y atencion personalizada",
+      attribute: "Confianza construida con atencion clara y resultados visibles.",
       variant: "purple" as const,
     },
     {
-      value: 1000,
-      suffix: "+",
-      label: "CASOS DE ÉXITO",
-      attribute: "Diagnostico digital y tecnologia precisa",
+      value: 3,
+      label: "SEDES",
+      attribute: "Ubicaciones estratégicas en Lima.",
       variant: "teal" as const,
+    },
+  ],
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Social Proof — Redes Sociales
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const socialProof = {
+  title: "Casos reales en nuestras redes",
+  description: "Mira resultados, procesos y opiniones directamente de nuestros pacientes.",
+  channels: [
+    {
+      id: "tiktok",
+      name: "TikTok",
+      headline: "Videos reales de tratamientos",
+      copy: "Procesos reales, resultados visibles y el dia a dia de la clinica sin filtros.",
+      cta: "Ver casos en TikTok",
+      href: "https://www.tiktok.com/@odonto_smart",
+      color: "teal" as const,
+    },
+    {
+      id: "instagram",
+      name: "Instagram",
+      headline: "Antes y despues reales",
+      copy: "Transformaciones documentadas con fotos reales de nuestros pacientes.",
+      cta: "Ver en Instagram",
+      href: "https://www.instagram.com/odonto_smart/",
+      color: "purple" as const,
+    },
+    {
+      id: "facebook",
+      name: "Facebook",
+      headline: "Opiniones de pacientes",
+      copy: "Lee lo que dicen quienes ya confiaron en nosotros para su tratamiento.",
+      cta: "Leer opiniones",
+      href: "https://www.facebook.com/odonto.smart.3",
+      color: "teal" as const,
     },
   ],
 };
@@ -185,30 +235,40 @@ export const stats = {
 
 export const technology = {
   label: "EXCELENCIA",
-  title: "Tecnología y Vanguardia",
+  title: "Tecnologia que te da mas claridad",
+  description: "La usamos para evaluar mejor, explicarte mejor y tratarte con mas precision desde el inicio.",
   cards: [
     {
       id: "scanner",
       title: "Scanner Intraoral",
       description:
         "Tecnología líder en escaneo digital 3D — precisión milimétrica para restauraciones y ortodoncia invisible.",
-      image: "/images/odonto-smart/tech-1.jpg",
+      image: "/images/odonto-smart/fotos-reales/tecnologia-escaneo-digital.jpg",
     },
     {
       id: "sede",
       title: "Sede Miraflores",
       description:
         "Nuestra sede principal diseñada para ofrecerte una experiencia premium en cada visita.",
-      image: "/images/odonto-smart/tech-2.jpg",
+      image: "/images/odonto-smart/fotos-reales/recepcion-clinica-principal.jpg",
     },
     {
       id: "dsd",
       title: "Diseño de Sonrisa",
       description:
         "Diseño de sonrisa digital personalizado — visualiza tu nueva sonrisa antes de comenzar.",
-      image: "/images/odonto-smart/tech-3.jpg",
+      image: "/images/odonto-smart/fotos-reales/atencion-paciente-personalizada.jpg",
     },
   ],
+};
+
+export const finalCta = {
+  title: "Tu sonrisa merece una explicacion clara",
+  cta: {
+    label: "Habla con un especialista ahora",
+    href: whatsappHref,
+  },
+  micro: "Te orientamos con calma y sin compromiso.",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -226,28 +286,28 @@ export const team = {
       name: "Dra. María López",
       role: "Directora Clínica",
       bio: "15 años liderando equipos de alto rendimiento en odontología integral.",
-      image: "/images/odonto-smart/team-1.jpg",
+      image: "/images/odonto-smart/fotos-reales/especialista-sonriente-clinica.jpg",
     },
     {
       id: "carlos",
       name: "Dr. Carlos Ramírez",
       role: "Implantología",
       bio: "Especialista en implantes de carga inmediata y regeneración ósea.",
-      image: "/images/odonto-smart/team-2.jpg",
+      image: "/images/odonto-smart/fotos-reales/especialista-odontologia-estetica.jpg",
     },
     {
       id: "ana",
       name: "Dra. Ana Torres",
       role: "Ortodoncia",
       bio: "Experta en ortodoncia invisible y técnicas de alineación avanzada.",
-      image: "/images/odonto-smart/team-3.jpg",
+      image: "/images/odonto-smart/fotos-reales/equipo-especialistas-accion.jpg",
     },
     {
       id: "pedro",
       name: "Dr. Pedro Gutiérrez",
       role: "Estética Dental",
       bio: "Pionero en diseño de sonrisa digital y carillas de última generación.",
-      image: "/images/odonto-smart/team-4.jpg",
+      image: "/images/odonto-smart/fotos-reales/equipo-administrativo-atencion.jpg",
     },
   ],
 };
