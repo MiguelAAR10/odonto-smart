@@ -29,7 +29,7 @@ function getGoogleMapsUrl(address: string): string {
 }
 
 const whatsappHref =
-  "https://wa.me/51987654321?text=Hola%2C%20quiero%20agendar%20por%20WhatsApp%20en%20Odonto%20Smart";
+  "https://wa.me/51980221985?text=Hola%2C%20quiero%20agendar%20por%20WhatsApp%20en%20Odonto%20Smart";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Site Configuration
@@ -390,7 +390,7 @@ export const sedesSection = {
       hours: "Lun–Vie 8am–8pm · Sab 9am–6pm",
       benefit: "Atencion rapida y ubicacion central.",
       mapHref: getGoogleMapsUrl("Av. Arequipa 1860, Lince"),
-      whatsappHref: "https://wa.me/51987654321?text=Hola%2C%20quiero%20agendar%20en%20sede%20Lince",
+      whatsappHref: "https://wa.me/51980221985?text=Hola%2C%20quiero%20agendar%20en%20sede%20Lince",
       isRecommended: true,
     },
     {
@@ -401,7 +401,7 @@ export const sedesSection = {
       hours: "Lun–Vie 9am–7pm · Sab 9am–5pm",
       benefit: "Ideal si vienes de la costa verde.",
       mapHref: getGoogleMapsUrl("Calle De La Roca de Vergallo 493, Magdalena del Mar"),
-      whatsappHref: "https://wa.me/51987654322?text=Hola%2C%20quiero%20agendar%20en%20sede%20Magdalena",
+      whatsappHref: "https://wa.me/51980221985?text=Hola%2C%20quiero%20agendar%20en%20sede%20Magdalena",
       isRecommended: false,
     },
     {
@@ -412,7 +412,7 @@ export const sedesSection = {
       hours: "Lun–Vie 8am–8pm · Sab 9am–6pm",
       benefit: "Acceso facil desde avenidas principales.",
       mapHref: getGoogleMapsUrl("Jr. Mariscal Luzuriaga 363, Jesús María"),
-      whatsappHref: "https://wa.me/51987654323?text=Hola%2C%20quiero%20agendar%20en%20sede%20Jesus%20Maria",
+      whatsappHref: "https://wa.me/51980221985?text=Hola%2C%20quiero%20agendar%20en%20sede%20Jesus%20Maria",
       isRecommended: false,
     },
   ],
@@ -442,7 +442,7 @@ export const footer = {
     title: "Contacto",
     phone: "(01) 234-5678",
     mobile: "+51 987 654 321",
-    whatsapp: "+51987654321",
+    whatsapp: "+51980221985",
     email: "info@odontosmart.pe",
   },
   social: [
