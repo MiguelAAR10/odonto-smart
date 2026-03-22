@@ -415,45 +415,35 @@ body {
   contain-intrinsic-size: 0 600px;
 }
 
+/* Wave animations removed — tricolor wave is static SVG in Hero component */
+
 /* ─────────────────────────────────────────────────────────────────────────────
-   Hero Animated Waves — Slow drifting, aurora-like
+   Clinic Gallery — Infinite marquee animations (GPU-composited)
    ───────────────────────────────────────────────────────────────────────────── */
 
-@keyframes wave-drift-slow {
+@keyframes marquee-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes wave-drift-medium {
+@keyframes marquee-right {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
 
-@keyframes wave-drift-fast {
-  0% { transform: translateX(-25%); }
-  100% { transform: translateX(-75%); }
+.animate-marquee-left {
+  animation: marquee-left linear infinite;
+  will-change: transform;
 }
 
-.hero-wave-1 {
-  animation: wave-drift-slow 28s linear infinite;
-}
-
-.hero-wave-2 {
-  animation: wave-drift-medium 22s linear infinite;
-}
-
-.hero-wave-3 {
-  animation: wave-drift-fast 32s linear infinite;
-}
-
-.hero-wave-bottom {
-  filter: drop-shadow(0 -4px 12px rgba(65, 212, 203, 0.08));
+.animate-marquee-right {
+  animation: marquee-right linear infinite;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-wave-1,
-  .hero-wave-2,
-  .hero-wave-3 {
+  .animate-marquee-left,
+  .animate-marquee-right {
     animation: none;
   }
 }

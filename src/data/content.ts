@@ -51,7 +51,6 @@ export const navigation = {
   links: [
     { label: "Inicio", href: "/" },
     { label: "Sedes", href: "/sedes" },
-    { label: "Nosotros", href: "/nosotros" },
   ],
   cta: {
     label: "Agendar por WhatsApp",
@@ -196,35 +195,39 @@ export const stats = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const socialProof = {
-  title: "Casos reales en nuestras redes",
-  description: "Mira resultados, procesos y opiniones directamente de nuestros pacientes.",
+  title: "Evidencia real de tu transformación.",
+  description:
+    "La tranquilidad de elegir a los expertos. Mira cómo estamos cambiando la odontología en Lima a través de los ojos de nuestros pacientes.",
   channels: [
     {
       id: "tiktok",
       name: "TikTok",
-      headline: "Videos reales de tratamientos",
-      copy: "Procesos reales, resultados visibles y el dia a dia de la clinica sin filtros.",
-      cta: "Ver casos en TikTok",
+      keyword: "PRECISIÓN",
+      headline: "El proceso, sin secretos.",
+      copy: "Mira cómo la tecnología elimina el miedo. Procedimientos rápidos y transparentes documentados en tiempo real.",
+      cta: "Ver el detrás de escena",
       href: "https://www.tiktok.com/@odonto_smart",
       color: "teal" as const,
     },
     {
       id: "instagram",
       name: "Instagram",
-      headline: "Antes y despues reales",
-      copy: "Transformaciones documentadas con fotos reales de nuestros pacientes.",
-      cta: "Ver en Instagram",
+      keyword: "ESTÉTICA",
+      headline: "Diseños de alto impacto.",
+      copy: "El arte de la transformación visual. Inspírate con las sonrisas que están redefiniendo el estatus de nuestros pacientes.",
+      cta: "Explorar galería estética",
       href: "https://www.instagram.com/odonto_smart/",
       color: "purple" as const,
     },
     {
-      id: "facebook",
-      name: "Facebook",
-      headline: "Opiniones de pacientes",
-      copy: "Lee lo que dicen quienes ya confiaron en nosotros para su tratamiento.",
-      cta: "Leer opiniones",
-      href: "https://www.facebook.com/odonto.smart.3",
-      color: "teal" as const,
+      id: "google",
+      name: "Google Reviews",
+      keyword: "CONFIANZA",
+      headline: "La tranquilidad de elegir bien.",
+      copy: "No lo decimos nosotros, lo certifican 4.9/5 estrellas. Historias de pacientes que recuperaron la seguridad en sí mismos.",
+      cta: "Leer 90+ experiencias reales",
+      href: "https://www.google.com/search?q=odonto+smart#lrd=0x9105c9a79909517d:0x83b58704d34befe2,1,,,,",
+      color: "amber" as const,
     },
   ],
 };
@@ -370,6 +373,50 @@ const footerLocations: Location[] = [
     href: getGoogleMapsUrl("Jr. Mariscal Luzuriaga 363, Jesús María"),
   },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Sedes — Landing quick-decision section
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const sedesSection = {
+  title: "Elige tu sede y agenda en segundos",
+  description: "3 ubicaciones estrategicas en Lima para atenderte mas cerca.",
+  items: [
+    {
+      id: "lince",
+      name: "Sede Lince",
+      address: "Av. Arequipa 1860, Lince",
+      phone: "(01) 234-5678",
+      hours: "Lun–Vie 8am–8pm · Sab 9am–6pm",
+      benefit: "Atencion rapida y ubicacion central.",
+      mapHref: getGoogleMapsUrl("Av. Arequipa 1860, Lince"),
+      whatsappHref: "https://wa.me/51987654321?text=Hola%2C%20quiero%20agendar%20en%20sede%20Lince",
+      isRecommended: true,
+    },
+    {
+      id: "magdalena",
+      name: "Sede Magdalena",
+      address: "Calle De La Roca de Vergallo 493, Magdalena",
+      phone: "(01) 345-6789",
+      hours: "Lun–Vie 9am–7pm · Sab 9am–5pm",
+      benefit: "Ideal si vienes de la costa verde.",
+      mapHref: getGoogleMapsUrl("Calle De La Roca de Vergallo 493, Magdalena del Mar"),
+      whatsappHref: "https://wa.me/51987654322?text=Hola%2C%20quiero%20agendar%20en%20sede%20Magdalena",
+      isRecommended: false,
+    },
+    {
+      id: "jesus-maria",
+      name: "Sede Jesus Maria",
+      address: "Jr. Mariscal Luzuriaga 363, Jesus Maria",
+      phone: "(01) 456-7890",
+      hours: "Lun–Vie 8am–8pm · Sab 9am–6pm",
+      benefit: "Acceso facil desde avenidas principales.",
+      mapHref: getGoogleMapsUrl("Jr. Mariscal Luzuriaga 363, Jesús María"),
+      whatsappHref: "https://wa.me/51987654323?text=Hola%2C%20quiero%20agendar%20en%20sede%20Jesus%20Maria",
+      isRecommended: false,
+    },
+  ],
+};
 
 export const footer = {
   brand: {

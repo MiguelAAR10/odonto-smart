@@ -119,7 +119,7 @@ export function Technology() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12"
         >
-          <SectionHeading label={technology.label} title={technology.title} />
+          <SectionHeading label={technology.label} title={technology.title} description={technology.description} />
         </motion.div>
 
         {/* Cards Grid */}

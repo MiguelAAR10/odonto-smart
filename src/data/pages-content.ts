@@ -86,7 +86,7 @@ export const staffPage = {
       name: "Dra. María López Castañeda",
       role: "Directora Clínica",
       specialty: "Odontología Integral",
-      image: "/images/odonto-smart/team-1.jpg",
+      image: "/images/odonto-smart/fotos-reales/especialista-sonriente-clinica.jpg",
       workingImage: "/images/odonto-smart/team-1-working.jpg",
       education: [
         "Doctorado en Odontología — Universidad Peruana Cayetano Heredia",
@@ -113,7 +113,7 @@ export const staffPage = {
       name: "Dr. Carlos Ramírez Mendoza",
       role: "Jefe de Implantología",
       specialty: "Implantología Oral",
-      image: "/images/odonto-smart/team-2.jpg",
+      image: "/images/odonto-smart/fotos-reales/especialista-odontologia-estetica.jpg",
       workingImage: "/images/odonto-smart/team-2-working.jpg",
       education: [
         "Cirujano Dentista — Universidad Nacional Mayor de San Marcos",
@@ -140,7 +140,7 @@ export const staffPage = {
       name: "Dra. Ana Torres Villanueva",
       role: "Jefa de Ortodoncia",
       specialty: "Ortodoncia y Ortopedia Maxilar",
-      image: "/images/odonto-smart/team-3.jpg",
+      image: "/images/odonto-smart/fotos-reales/equipo-especialistas-accion.jpg",
       workingImage: "/images/odonto-smart/team-3-working.jpg",
       education: [
         "Cirujano Dentista — Pontificia Universidad Católica del Perú",
@@ -167,7 +167,7 @@ export const staffPage = {
       name: "Dr. Pedro Gutiérrez Salazar",
       role: "Jefe de Estética Dental",
       specialty: "Odontología Estética",
-      image: "/images/odonto-smart/team-4.jpg",
+      image: "/images/odonto-smart/fotos-reales/equipo-administrativo-atencion.jpg",
       workingImage: "/images/odonto-smart/team-4-working.jpg",
       education: [
         "Cirujano Dentista — Universidad de Lima",

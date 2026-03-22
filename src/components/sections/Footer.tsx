@@ -71,7 +71,7 @@ export function Footer() {
                 {footer.services.items.map((service) => (
                   <li key={service}>
                     <Link
-                      href="/tratamientos"
+                      href="/#especialidades"
                       className="text-[15px] text-text-light transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-footer-bg"
                     >
                       {service}
