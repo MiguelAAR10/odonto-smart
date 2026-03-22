@@ -162,7 +162,7 @@ export function Hero() {
       <BackgroundCarousel />
 
       {/* ── Content ── */}
-      <Container className="relative z-10 flex h-full items-center pb-32 pt-32 md:pb-0 md:pt-0">
+      <Container className="relative z-10 flex h-full items-center pb-28 pt-28 md:pb-0 md:pt-24">
         <motion.div
           variants={stagger}
           initial="hidden"
