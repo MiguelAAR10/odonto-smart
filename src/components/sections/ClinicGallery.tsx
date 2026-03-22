@@ -64,15 +64,15 @@ function MarqueeRow({
 
   // Duplicate for seamless loop
   const doubled = [...images, ...images];
-  const animClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
 
   return (
     <div className="relative overflow-hidden">
       <div
-        className={`flex gap-3 md:gap-4 ${animClass}`}
+        className="marquee-strip flex gap-3 md:gap-4"
         style={{
-          animationDuration: `${duration}s`,
+          animation: `${direction === "left" ? "marquee-left" : "marquee-right"} ${duration}s linear infinite`,
           width: "max-content",
+          willChange: "transform",
         }}
       >
         {doubled.map((src, i) => (
