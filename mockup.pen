@@ -1,5 +1,5 @@
 {
-  "version": "2.8",
+  "version": "2.9",
   "children": [
     {
       "type": "frame",
@@ -1371,6 +1371,1702 @@
                       "fontWeight": "normal"
                     }
                   ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "i4NWF",
+      "x": 3180,
+      "y": 0,
+      "name": "Odonto Smart V3 — Smart Collision",
+      "width": 1440,
+      "fill": "#fafbfc",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "1XmW5",
+          "name": "V3 Navbar",
+          "width": "fill_container",
+          "fill": "#FFFFFFCC",
+          "stroke": {
+            "thickness": 1,
+            "fill": "#e2e8f010"
+          },
+          "effect": {
+            "type": "background_blur",
+            "radius": 20
+          },
+          "padding": [
+            16,
+            48
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PvWmT",
+              "name": "v3Logo",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jN5vL",
+                  "name": "logoIcon",
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#1a0a2e",
+                        "position": 0
+                      },
+                      {
+                        "color": "#41d4cb",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 8
+                },
+                {
+                  "type": "text",
+                  "id": "yRPX9",
+                  "name": "logoTxt",
+                  "fill": "#0f172a",
+                  "content": "ODONTO SMART",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 18,
+                  "fontWeight": "700",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "1erME",
+              "name": "v3NavLinks",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UU565",
+                  "name": "nl1",
+                  "fill": "#41d4cb",
+                  "content": "Inicio",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "A4dbO",
+                  "name": "nl2",
+                  "fill": "#475569",
+                  "content": "Nosotros",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "m0Rer",
+                  "name": "nl3",
+                  "fill": "#475569",
+                  "content": "Tratamientos",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "WnAua",
+                  "name": "nl4",
+                  "fill": "#475569",
+                  "content": "Sedes",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "00GRT",
+              "name": "v3NavCTA",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 135,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#1a0a2e",
+                    "position": 0
+                  },
+                  {
+                    "color": "#41d4cb",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 9999,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#41d4cb40",
+                "offset": {
+                  "x": 0,
+                  "y": 4
+                },
+                "blur": 16
+              },
+              "padding": [
+                12,
+                28
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "7i6XN",
+                  "name": "ctaTxt",
+                  "fill": "#FFFFFF",
+                  "content": "Agenda tu Cita",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "j4U3V",
+          "name": "V3 Hero",
+          "clip": true,
+          "width": "fill_container",
+          "height": 680,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "R4kHe",
+              "x": 50,
+              "y": 80,
+              "name": "glowTeal",
+              "fill": "#41d4cb12",
+              "width": 500,
+              "height": 500,
+              "effect": {
+                "type": "blur",
+                "radius": 120
+              }
+            },
+            {
+              "type": "ellipse",
+              "id": "UIsS8",
+              "x": 600,
+              "y": 200,
+              "name": "glowPurple",
+              "fill": "#de1bce10",
+              "width": 400,
+              "height": 400,
+              "effect": {
+                "type": "blur",
+                "radius": 100
+              }
+            },
+            {
+              "type": "frame",
+              "id": "UrEkE",
+              "x": 0,
+              "y": 0,
+              "name": "V3 Dark Base",
+              "width": 760,
+              "height": 680,
+              "fill": "#0a0f1aE8"
+            },
+            {
+              "type": "frame",
+              "id": "ikH2R",
+              "x": 760,
+              "y": 0,
+              "name": "V3 Hero Image",
+              "metadata": {
+                "type": "unsplash",
+                "username": "teravis_sk",
+                "link": "https://unsplash.com/@teravis_sk",
+                "author": "Kamal Hoseinianzade"
+              },
+              "width": 680,
+              "height": 680,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1769559893692-c6d0623bf8e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzQxMTIwNTB8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              }
+            },
+            {
+              "type": "frame",
+              "id": "jmyDA",
+              "x": 760,
+              "y": 0,
+              "name": "V3 Diagonal Overlay",
+              "width": 800,
+              "height": 680,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0a0f1aFF",
+                    "position": 0
+                  },
+                  {
+                    "color": "#0a0f1aEE",
+                    "position": 0.35
+                  },
+                  {
+                    "color": "#0a0f1a00",
+                    "position": 0.7
+                  }
+                ]
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "68jwh",
+              "x": 758,
+              "y": -10,
+              "name": "Diagonal Glow Line",
+              "rotation": 5,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#41d4cb60",
+                    "position": 0
+                  },
+                  {
+                    "color": "#de1bce40",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#41d4cb00",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 3,
+              "height": 700
+            },
+            {
+              "type": "frame",
+              "id": "nDJkH",
+              "x": 0,
+              "y": 0,
+              "name": "V3 Hero Content",
+              "width": 700,
+              "height": 680,
+              "layout": "vertical",
+              "gap": 28,
+              "padding": [
+                120,
+                64,
+                80,
+                64
+              ],
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Ou20C",
+                  "name": "badge",
+                  "fill": "#41d4cb15",
+                  "cornerRadius": 9999,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#41d4cb30"
+                  },
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "cuIHc",
+                      "name": "badgeDot",
+                      "fill": "#41d4cb",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "rCm9S",
+                      "name": "badgeTxt",
+                      "fill": "#41d4cb",
+                      "content": "+20 Años de Excelencia",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "OTeCV",
+                  "name": "heroH1a",
+                  "fill": "#f0fdfb",
+                  "content": "La Inteligencia Dental",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 56,
+                  "fontWeight": "600",
+                  "letterSpacing": -1
+                },
+                {
+                  "type": "text",
+                  "id": "DoagS",
+                  "name": "heroH1b",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 0,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#41d4cb",
+                        "position": 0
+                      },
+                      {
+                        "color": "#8ce9e2",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "content": "de Tu Mejor Sonrisa",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 56,
+                  "fontWeight": "600",
+                  "letterSpacing": -1
+                },
+                {
+                  "type": "text",
+                  "id": "QHhQw",
+                  "name": "heroSub",
+                  "fill": "#94a3b8",
+                  "textGrowth": "fixed-width",
+                  "width": 550,
+                  "content": "Tecnología de vanguardia y más de 20 años transformando sonrisas en Lima. Implantes, ortodoncia invisible, diseño de sonrisa.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Satoshi",
+                  "fontSize": 18
+                },
+                {
+                  "type": "frame",
+                  "id": "7BksR",
+                  "name": "heroCTAs",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "p6mrW",
+                      "name": "cta1",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 135,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#1a0a2e",
+                            "position": 0
+                          },
+                          {
+                            "color": "#41d4cb",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 9999,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#41d4cb40",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 32
+                      },
+                      "padding": [
+                        16,
+                        32
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "O8diO",
+                          "name": "cta1t",
+                          "fill": "#FFFFFF",
+                          "content": "Agenda tu Cita",
+                          "fontFamily": "Satoshi",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hKN8y",
+                      "name": "cta2",
+                      "fill": "#FFFFFF00",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#41d4cb50"
+                      },
+                      "padding": [
+                        16,
+                        32
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "2FlcA",
+                          "name": "cta2t",
+                          "fill": "#41d4cb",
+                          "content": "Ver Tratamientos",
+                          "fontFamily": "Satoshi",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "P1he5",
+          "name": "V3 Stats",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 1,
+              "bottom": 1
+            },
+            "fill": "#e2e8f0"
+          },
+          "padding": [
+            48,
+            80
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "kEsyH",
+              "name": "stat1",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qI9dB",
+                  "name": "s1num",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 0,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#1a0a2e",
+                        "position": 0
+                      },
+                      {
+                        "color": "#41d4cb",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "content": "+20",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 48,
+                  "fontWeight": "700",
+                  "letterSpacing": -1
+                },
+                {
+                  "type": "text",
+                  "id": "WM6yA",
+                  "name": "s1lab",
+                  "fill": "#475569",
+                  "content": "Años de Experiencia",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "7m0Cs",
+              "name": "div1",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#41d4cb00",
+                    "position": 0
+                  },
+                  {
+                    "color": "#41d4cb40",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#41d4cb00",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 1,
+              "height": 60
+            },
+            {
+              "type": "frame",
+              "id": "I5E6W",
+              "name": "stat2",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BizrM",
+                  "name": "s2num",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 0,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#1a0a2e",
+                        "position": 0
+                      },
+                      {
+                        "color": "#41d4cb",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "content": "5000+",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 48,
+                  "fontWeight": "700",
+                  "letterSpacing": -1
+                },
+                {
+                  "type": "text",
+                  "id": "G2GKO",
+                  "name": "s2lab",
+                  "fill": "#475569",
+                  "content": "Pacientes Felices",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "fHRoI",
+              "name": "div2",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#41d4cb00",
+                    "position": 0
+                  },
+                  {
+                    "color": "#41d4cb40",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#41d4cb00",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 1,
+              "height": 60
+            },
+            {
+              "type": "frame",
+              "id": "33zHH",
+              "name": "stat3",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "7t0f5",
+                  "name": "s3num",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 0,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#1a0a2e",
+                        "position": 0
+                      },
+                      {
+                        "color": "#41d4cb",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "content": "1000+",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 48,
+                  "fontWeight": "700",
+                  "letterSpacing": -1
+                },
+                {
+                  "type": "text",
+                  "id": "LMLgn",
+                  "name": "s3lab",
+                  "fill": "#475569",
+                  "content": "Implantes Exitosos",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gd8DC",
+          "name": "V3 Treatments",
+          "width": "fill_container",
+          "fill": "#f0fdfb",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            64
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "4zYAt",
+              "name": "theader",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "o2Kjk",
+                  "name": "tlabel",
+                  "fill": "#41d4cb",
+                  "content": "ESPECIALIDADES",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 13,
+                  "fontWeight": "600",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "X9Ub6",
+                  "name": "ttitle",
+                  "fill": "#0f172a",
+                  "content": "Tratamientos de Vanguardia",
+                  "textAlign": "center",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 40,
+                  "fontWeight": "600",
+                  "letterSpacing": -0.5
+                },
+                {
+                  "type": "text",
+                  "id": "HSp89",
+                  "name": "tdesc",
+                  "fill": "#475569",
+                  "textGrowth": "fixed-width",
+                  "width": 550,
+                  "content": "Combinamos tecnología avanzada con experiencia clínica para resultados excepcionales.",
+                  "textAlign": "center",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 17
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5ixqv",
+              "name": "v3TreatGrid",
+              "width": "fill_container",
+              "gap": 24,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vbZJV",
+                  "name": "Implantes Dentales",
+                  "width": 280,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#41d4cb15"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0f172a08",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 20
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "AKRVw",
+                      "name": "c1ico",
+                      "width": 48,
+                      "height": 48,
+                      "fill": "#41d4cb10",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "gfr1W",
+                          "name": "c1icn",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "gem",
+                          "iconFontFamily": "lucide",
+                          "fill": "#41d4cb"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "URsws",
+                      "name": "c1t",
+                      "fill": "#0f172a",
+                      "content": "Implantes Dentales",
+                      "fontFamily": "Clash Display",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "I8jtk",
+                      "name": "c1d",
+                      "fill": "#475569",
+                      "textGrowth": "fixed-width",
+                      "width": 232,
+                      "content": "Reemplaza dientes perdidos con implantes de titanio de última generación.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uT66d",
+                  "name": "Ortodoncia Invisible",
+                  "width": 280,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#de1bce15"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0f172a08",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 20
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "MkiFb",
+                      "name": "c2ico",
+                      "width": 48,
+                      "height": 48,
+                      "fill": "#de1bce10",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "bUG8z",
+                          "name": "c2icn",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "smile",
+                          "iconFontFamily": "lucide",
+                          "fill": "#de1bce"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "FkoMH",
+                      "name": "c2t",
+                      "fill": "#0f172a",
+                      "content": "Ortodoncia Invisible",
+                      "fontFamily": "Clash Display",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VhkVs",
+                      "name": "c2d",
+                      "fill": "#475569",
+                      "textGrowth": "fixed-width",
+                      "width": 232,
+                      "content": "Alinea tu sonrisa sin brackets visibles con tecnología Invisalign.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hENUX",
+                  "name": "Diseño de Sonrisa",
+                  "width": 280,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#41d4cb15"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0f172a08",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 20
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "P420T",
+                      "name": "c3ico",
+                      "width": 48,
+                      "height": 48,
+                      "fill": "#41d4cb10",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "5LLTN",
+                          "name": "c3icn",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "sparkles",
+                          "iconFontFamily": "lucide",
+                          "fill": "#41d4cb"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "BFCTK",
+                      "name": "c3t",
+                      "fill": "#0f172a",
+                      "content": "Diseño de Sonrisa",
+                      "fontFamily": "Clash Display",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TzBVB",
+                      "name": "c3d",
+                      "fill": "#475569",
+                      "textGrowth": "fixed-width",
+                      "width": 232,
+                      "content": "Planificación digital 3D para tu sonrisa perfecta personalizada.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tZ0Kr",
+                  "name": "Blanqueamiento",
+                  "width": 280,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#de1bce15"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0f172a08",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 20
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "oW48Z",
+                      "name": "c4ico",
+                      "width": 48,
+                      "height": 48,
+                      "fill": "#de1bce10",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "iRaZ6",
+                          "name": "c4icn",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "sun",
+                          "iconFontFamily": "lucide",
+                          "fill": "#de1bce"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "BevXj",
+                      "name": "c4t",
+                      "fill": "#0f172a",
+                      "content": "Blanqueamiento LED",
+                      "fontFamily": "Clash Display",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "I5X62",
+                      "name": "c4d",
+                      "fill": "#475569",
+                      "textGrowth": "fixed-width",
+                      "width": 232,
+                      "content": "Dientes hasta 8 tonos más blancos con tecnología LED profesional.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KweJD",
+          "name": "V3 Technology",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 64,
+          "padding": [
+            80,
+            64
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "BmrC0",
+              "name": "techImage",
+              "metadata": {
+                "type": "unsplash",
+                "username": "sparkledump",
+                "link": "https://unsplash.com/@sparkledump",
+                "author": "Kelsey Todd"
+              },
+              "width": 560,
+              "height": 400,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1700887943712-16d14f1a3879?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzQxMTIxMTF8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 20,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#41d4cb15",
+                "offset": {
+                  "x": 0,
+                  "y": 12
+                },
+                "blur": 40
+              }
+            },
+            {
+              "type": "frame",
+              "id": "QR3SI",
+              "name": "techText",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bu3ia",
+                  "name": "techLbl",
+                  "fill": "#de1bce",
+                  "content": "TECNOLOGÍA",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 13,
+                  "fontWeight": "600",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "c40zI",
+                  "name": "techTtl",
+                  "fill": "#0f172a",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Equipamiento de Última Generación",
+                  "fontFamily": "Clash Display",
+                  "fontSize": 36,
+                  "fontWeight": "600",
+                  "letterSpacing": -0.5
+                },
+                {
+                  "type": "text",
+                  "id": "nxYfk",
+                  "name": "techDsc",
+                  "fill": "#475569",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Escáner intraoral 3D, radiografía digital, láser de tejidos blandos y sistema CAD/CAM para resultados precisos en menos tiempo.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Satoshi",
+                  "fontSize": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "wiFyl",
+                  "name": "techItems",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "cc5hI",
+                      "name": "ti1",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "i5gqK",
+                          "name": "ti1i",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#41d4cb"
+                        },
+                        {
+                          "type": "text",
+                          "id": "HLAwo",
+                          "name": "ti1t",
+                          "fill": "#0f172a",
+                          "content": "Escáner Intraoral 3D",
+                          "fontFamily": "Satoshi",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "06F9Z",
+                      "name": "ti2",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "fnIYf",
+                          "name": "ti2i",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#41d4cb"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Ysdh7",
+                          "name": "ti2t",
+                          "fill": "#0f172a",
+                          "content": "Radiografía Digital Panorámica",
+                          "fontFamily": "Satoshi",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HWt4v",
+                      "name": "ti3",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "7LBaD",
+                          "name": "ti3i",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#41d4cb"
+                        },
+                        {
+                          "type": "text",
+                          "id": "MdjpJ",
+                          "name": "ti3t",
+                          "fill": "#0f172a",
+                          "content": "Sistema CAD/CAM en Consultorio",
+                          "fontFamily": "Satoshi",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "T4DcS",
+          "name": "V3 CTA Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            80,
+            64
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Y88Gg",
+              "name": "ctaLabel",
+              "fill": "#41d4cb",
+              "content": "¿LISTO PARA TU MEJOR SONRISA?",
+              "fontFamily": "Satoshi",
+              "fontSize": 13,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "uIWli",
+              "name": "ctaTitle",
+              "fill": "#f0fdfb",
+              "content": "Agenda Tu Cita Hoy",
+              "textAlign": "center",
+              "fontFamily": "Clash Display",
+              "fontSize": 48,
+              "fontWeight": "700",
+              "letterSpacing": -1
+            },
+            {
+              "type": "text",
+              "id": "AUbik",
+              "name": "ctaSub",
+              "fill": "#94a3b8",
+              "textGrowth": "fixed-width",
+              "width": 500,
+              "content": "Primera consulta de evaluación sin costo. Más de 5,000 pacientes confían en nosotros.",
+              "textAlign": "center",
+              "fontFamily": "Satoshi",
+              "fontSize": 18
+            },
+            {
+              "type": "frame",
+              "id": "szH9L",
+              "name": "ctaBtnR",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Mf118",
+                  "name": "ctaB1",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#41d4cb",
+                        "position": 0
+                      },
+                      {
+                        "color": "#2bb5ad",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 9999,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#41d4cb50",
+                    "offset": {
+                      "x": 0,
+                      "y": 8
+                    },
+                    "blur": 32
+                  },
+                  "padding": [
+                    18,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3XWwR",
+                      "name": "ctaB1t",
+                      "fill": "#0a0f1a",
+                      "content": "Agendar por WhatsApp",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fJSWA",
+                  "name": "ctaB2",
+                  "cornerRadius": 9999,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#41d4cb40"
+                  },
+                  "padding": [
+                    18,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dUPPD",
+                      "name": "ctaB2t",
+                      "fill": "#41d4cb",
+                      "content": "Llamar Ahora",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "oN34i",
+          "name": "V3 Footer",
+          "width": "fill_container",
+          "fill": "#0c1322",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": 64,
+          "children": [
+            {
+              "type": "frame",
+              "id": "06cjj",
+              "name": "footerGrid",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yqE2s",
+                  "name": "fCol1",
+                  "width": 320,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vb2J0",
+                      "name": "fLogo",
+                      "fill": "#f0fdfb",
+                      "content": "ODONTO SMART",
+                      "fontFamily": "Clash Display",
+                      "fontSize": 20,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "fWCnv",
+                      "name": "fDesc",
+                      "fill": "#94a3b8",
+                      "textGrowth": "fixed-width",
+                      "width": 300,
+                      "content": "La Inteligencia Dental de Tu Mejor Sonrisa. Más de 20 años transformando vidas en Lima.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ekMEA",
+                      "name": "fSocial",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "jlqsi",
+                          "name": "fFb",
+                          "width": 36,
+                          "height": 36,
+                          "fill": "#1e293b",
+                          "cornerRadius": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "7YN4i",
+                              "name": "fFbi",
+                              "width": 18,
+                              "height": 18,
+                              "iconFontName": "facebook",
+                              "iconFontFamily": "lucide",
+                              "fill": "#94a3b8"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "l3G2U",
+                          "name": "fIg",
+                          "width": 36,
+                          "height": 36,
+                          "fill": "#1e293b",
+                          "cornerRadius": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "clJkJ",
+                              "name": "fIgi",
+                              "width": 18,
+                              "height": 18,
+                              "iconFontName": "instagram",
+                              "iconFontFamily": "lucide",
+                              "fill": "#94a3b8"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n7NYe",
+                  "name": "fCol2",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "t37bJ",
+                      "name": "fC2t",
+                      "fill": "#f0fdfb",
+                      "content": "Servicios",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "tP1ww",
+                      "name": "fC2a",
+                      "fill": "#94a3b8",
+                      "content": "Implantes Dentales",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "dTjdM",
+                      "name": "fC2b",
+                      "fill": "#94a3b8",
+                      "content": "Ortodoncia Invisible",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "c6cX2",
+                      "name": "fC2c",
+                      "fill": "#94a3b8",
+                      "content": "Diseño de Sonrisa",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "1RIxm",
+                      "name": "fC2d",
+                      "fill": "#94a3b8",
+                      "content": "Blanqueamiento",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TP7OD",
+                  "name": "fCol3",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LlPHY",
+                      "name": "fC3t",
+                      "fill": "#f0fdfb",
+                      "content": "Sedes",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "uthMe",
+                      "name": "fC3a",
+                      "fill": "#94a3b8",
+                      "content": "Lince — Av. Arequipa 1860",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "V7SQ1",
+                      "name": "fC3b",
+                      "fill": "#94a3b8",
+                      "content": "Magdalena — Calle De La Roca 493",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "sp5XU",
+                      "name": "fC3c",
+                      "fill": "#94a3b8",
+                      "content": "Jesús María — Jr. Luzuriaga 363",
+                      "fontFamily": "Satoshi",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "80aDd",
+              "name": "footerDivider",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 0,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#41d4cb00",
+                    "position": 0
+                  },
+                  {
+                    "color": "#41d4cb30",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#de1bce00",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "HijpQ",
+              "name": "fCopy",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "G9sHh",
+                  "name": "fCopyL",
+                  "fill": "#475569",
+                  "content": "© 2026 Odonto Smart. Todos los derechos reservados.",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 13
+                },
+                {
+                  "type": "text",
+                  "id": "5mCK8",
+                  "name": "fCopyR",
+                  "fill": "#475569",
+                  "content": "Hecho con ♥ en Lima, Perú",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 13
                 }
               ]
             }
