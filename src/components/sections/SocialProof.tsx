@@ -37,105 +37,53 @@ const iconComponents = {
   facebook: FacebookIcon,
 } as const;
 
-const cardThemes = {
-  teal: {
-    iconWrap: "bg-[linear-gradient(135deg,rgba(65,212,203,0.1),rgba(65,212,203,0.04))] text-brand-teal",
-    keyword: "text-brand-teal",
-    hover: "hover:border-brand-teal/24 hover:shadow-[0_16px_42px_rgba(65,212,203,0.12)]",
-    cta: "text-brand-teal hover:text-[#2ebbb2]",
-  },
-  purple: {
-    iconWrap: "bg-[linear-gradient(135deg,rgba(222,27,206,0.1),rgba(255,138,91,0.08))] text-brand-purple",
-    keyword: "text-brand-purple",
-    hover: "hover:border-brand-purple/24 hover:shadow-[0_16px_42px_rgba(222,27,206,0.12)]",
-    cta: "text-brand-purple hover:text-[#c615b7]",
-  },
+const brandColors = {
+  tiktok: "group-hover:text-white group-hover:bg-black group-hover:shadow-black/20",
+  instagram: "group-hover:text-white group-hover:bg-gradient-to-br group-hover:from-[#f09433] group-hover:via-[#e6683c] group-hover:to-[#bc1888] group-hover:shadow-[#e6683c]/20",
+  facebook: "group-hover:text-white group-hover:bg-[#1877F2] group-hover:shadow-[#1877F2]/20",
 } as const;
-
-function SocialCard({
-  channel,
-  index,
-}: {
-  channel: (typeof socialProof.channels)[number];
-  index: number;
-}) {
-  const IconComponent = iconComponents[channel.id as keyof typeof iconComponents];
-  const theme = cardThemes[channel.color as keyof typeof cardThemes];
-
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.55, ease, delay: index * 0.1 }}
-      whileHover={{ y: -4 }}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-black/[0.04] bg-white/95 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 md:p-7 ${theme.hover}`}
-    >
-      <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.96))]" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/6 to-transparent" aria-hidden="true" />
-
-      <div className="relative z-10 flex h-full flex-col">
-        <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${theme.iconWrap}`}>
-          <IconComponent className="h-7 w-7" />
-        </div>
-
-        <p className={`mb-3 text-[11px] font-bold uppercase tracking-[0.22em] ${theme.keyword}`}>
-          {channel.keyword}
-        </p>
-
-        <h3
-          className="max-w-[14ch] text-[1.15rem] font-bold leading-[1.08] text-text-dark md:text-[1.25rem]"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          {channel.headline}
-        </h3>
-
-        <p className="mt-3 max-w-[28ch] text-[14px] leading-relaxed text-text-muted md:text-[15px]">
-          {channel.copy}
-        </p>
-
-        <Link
-          href={channel.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`mt-auto inline-flex items-center gap-2 pt-6 text-[14px] font-semibold transition-colors duration-200 ${theme.cta}`}
-        >
-          {channel.cta}
-          <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </Link>
-      </div>
-    </motion.article>
-  );
-}
 
 export function SocialProof() {
   return (
-    <section className="bg-noise relative bg-bg-soft py-18 md:py-22">
+    <section className="relative bg-bg-soft py-14 md:py-18">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        {/* Minimal headline */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease }}
-          className="mb-12 text-center md:mb-14"
+          transition={{ duration: 0.5, ease }}
+          className="mb-8 text-center text-[12px] font-bold uppercase tracking-[0.22em] text-text-light md:mb-10"
         >
-          <h2
-            className="text-3xl font-bold text-text-dark md:text-4xl"
-            style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
-          >
-            {socialProof.title}
-          </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-text-muted md:text-[15px]">
-            {socialProof.description}
-          </p>
-        </motion.div>
+          Siguenos en redes
+        </motion.p>
 
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3 md:gap-6">
-          {socialProof.channels.map((channel, index) => (
-            <SocialCard key={channel.id} channel={channel} index={index} />
-          ))}
+        {/* Icons row — big, bold, clickable */}
+        <div className="flex items-center justify-center gap-6 md:gap-10">
+          {socialProof.channels.map((channel, index) => {
+            const IconComponent = iconComponents[channel.id as keyof typeof iconComponents];
+            const hoverClass = brandColors[channel.id as keyof typeof brandColors];
+
+            return (
+              <motion.div
+                key={channel.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, ease, delay: index * 0.1 }}
+              >
+                <Link
+                  href={channel.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={channel.name}
+                  className={`group flex h-20 w-20 items-center justify-center rounded-2xl border border-border-subtle bg-white text-text-muted shadow-[0_4px_20px_rgba(26,10,46,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:h-24 md:w-24 md:rounded-3xl ${hoverClass}`}
+                >
+                  <IconComponent className="h-9 w-9 transition-colors duration-300 md:h-11 md:w-11" />
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </Container>
     </section>

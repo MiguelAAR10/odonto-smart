@@ -13,10 +13,10 @@ const SLIDE_MS = 5500;
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const heroSlides = [
-  { src: "/images/odonto-smart/fotos-reales/recepcion-clinica-principal.jpg", alt: "Lobby Odonto Smart con letrero de marca",          position: "object-center" },
-  { src: "/images/odonto-smart/fotos-reales/atencion-paciente-personalizada.jpg",              alt: "Doctora sonriente en consultorio moderno",          position: "object-center" },
-  { src: "/images/odonto-smart/fotos-reales/consultorio-dental-1.jpg",             alt: "Consultorio premium con tecnologia digital",        position: "object-center" },
-  { src: "/images/odonto-smart/fotos-reales/instalaciones-modernas-pasillo.jpg",              alt: "Especialistas atendiendo con equipamiento clinico", position: "object-[center_35%]" },
+  { src: "/images/odonto-smart/fotos-reales/recepcion-clinica-principal.jpg", alt: "Recepción de clínica dental Odonto Smart en Lima con diseño premium", position: "object-center" },
+  { src: "/images/odonto-smart/fotos-reales/atencion-paciente-personalizada.jpg", alt: "Odontóloga especialista atendiendo paciente en consultorio dental moderno", position: "object-center" },
+  { src: "/images/odonto-smart/fotos-reales/consultorio-dental-1.jpg", alt: "Consultorio dental premium con tecnología digital en Odonto Smart Lima", position: "object-center" },
+  { src: "/images/odonto-smart/fotos-reales/instalaciones-modernas-pasillo.jpg", alt: "Instalaciones modernas de clínica dental Odonto Smart en Lince", position: "object-[center_35%]" },
 ];
 
 const stagger = {
@@ -72,10 +72,10 @@ function BackgroundCarousel() {
       </AnimatePresence>
 
       {/* ── Consistent dark overlay — high contrast, never washed out ── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/72 to-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/45 to-black/30" />
 
       {/* Top vignette — blends with navbar */}
-      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/40 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/25 to-transparent" />
 
       {/* Bottom vignette — blends into wave */}
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#08090f] to-transparent" />

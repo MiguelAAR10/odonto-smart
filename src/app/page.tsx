@@ -36,8 +36,8 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
-        <SocialProof />
         <ClinicGallery images={galleryImages} />
+        <SocialProof />
         <Treatments />
         <SedesSection />
         <SmileReveal />

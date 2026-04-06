@@ -538,8 +538,8 @@ export const locationsPage = {
       whatsapp: "+51980221985",
       email: "lince@odontosmart.pe",
       hours: {
-        weekdays: "8:00 AM - 8:00 PM",
-        saturday: "9:00 AM - 6:00 PM",
+        weekdays: "9:00 AM - 8:00 PM",
+        saturday: "9:00 AM - 2:00 PM",
         sunday: "Cerrado",
       },
       coordinates: {
@@ -572,8 +572,8 @@ export const locationsPage = {
       whatsapp: "+51980221985",
       email: "magdalena@odontosmart.pe",
       hours: {
-        weekdays: "9:00 AM - 7:00 PM",
-        saturday: "9:00 AM - 5:00 PM",
+        weekdays: "9:00 AM - 8:00 PM",
+        saturday: "9:00 AM - 8:00 PM",
         sunday: "Cerrado",
       },
       coordinates: {
@@ -605,9 +605,9 @@ export const locationsPage = {
       whatsapp: "+51980221985",
       email: "jesusmaria@odontosmart.pe",
       hours: {
-        weekdays: "8:00 AM - 8:00 PM",
-        saturday: "9:00 AM - 6:00 PM",
-        sunday: "Cerrado",
+        weekdays: "9:00 AM - 8:00 PM",
+        saturday: "9:00 AM - 8:00 PM",
+        sunday: "9:00 AM - 12:00 PM",
       },
       coordinates: {
         lat: -12.0722,

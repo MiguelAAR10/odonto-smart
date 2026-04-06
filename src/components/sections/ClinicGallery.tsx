@@ -40,7 +40,8 @@ function deterministicShuffle(arr: string[]): string[] {
 
 function filenameToAlt(src: string): string {
   const name = src.split("/").pop()?.replace(/\.[^.]+$/, "") ?? "";
-  return name.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  const readable = name.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  return `${readable} — Clínica Dental Odonto Smart Lima`;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
