@@ -66,7 +66,7 @@ export const navigation = {
 export const hero = {
   eyebrow: "ODONTOLOGÍA ESTÉTICA DE ALTO NIVEL",
   title: {
-    line1: "El nivel de odontología",
+    line1: "La clínica dental en Lima",
     line2: "que tu imagen",
     accent: "merece.",
   },
@@ -100,7 +100,7 @@ export const problemSection = {
 
 export const treatments = {
   label: "ESPECIALIDADES",
-  title: "Soluciones claras para lo que hoy te incomoda",
+  title: "Estética dental, ortodoncia e implantes en Lima",
   featuredIds: ["estetica", "ortodoncia"],
   items: [
     {
@@ -164,7 +164,7 @@ export const treatments = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const stats = {
-  title: "Tu imagen merece respaldo real",
+  title: "Odontólogos de confianza en Lima",
   description:
     "No improvisamos tratamientos. Cada decisión se apoya en experiencia, atención clara y resultados visibles.",
   items: [
@@ -260,7 +260,7 @@ export const technology = {
 };
 
 export const finalCta = {
-  title: "Tu sonrisa merece una explicacion clara",
+  title: "Agenda tu cita dental en Lima hoy",
   cta: {
     label: "Habla con un especialista ahora",
     href: whatsappHref,
@@ -373,8 +373,8 @@ const footerLocations: Location[] = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const sedesSection = {
-  title: "Elige tu sede y agenda en segundos",
-  description: "3 ubicaciones estrategicas en Lima para atenderte mas cerca.",
+  title: "Sedes dentales en Lince, Magdalena y Jesús María",
+  description: "3 ubicaciones estratégicas en Lima para atenderte más cerca.",
   items: [
     {
       id: "lince",

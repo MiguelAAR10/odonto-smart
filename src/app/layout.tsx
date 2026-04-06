@@ -4,9 +4,9 @@ import "./globals.css";
 const SITE_URL = "https://odonto-smart-1.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Odonto Smart | Clínica Dental Premium en Lima (Lince, Magdalena, Jesús María)",
+  title: "Odonto Smart | Clínica Dental en Lima (Lince, Jesús María, Magdalena)",
   description:
-    "Especialistas en odontología estética, ortodoncia e implantes sin dolor. Transforma tu sonrisa con Odonto Smart en nuestras sedes de Lince, Magdalena y Jesús María. Agenda tu valoración.",
+    "Clínica dental líder en Lima. Especialistas en estética dental, ortodoncia e implantes con tecnología avanzada. ¡Reserva tu cita hoy en nuestras sedes de Lince, Jesús María y Magdalena!",
   keywords: [
     "dentista lima",
     "clínica dental lima",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     locale: "es_PE",
     url: SITE_URL,
     siteName: "Odonto Smart",
-    title: "Odonto Smart | Clínica Dental Premium en Lima",
+    title: "Odonto Smart | Clínica Dental en Lima — Lince, Jesús María, Magdalena",
     description:
-      "Especialistas en odontología estética, ortodoncia e implantes sin dolor. 3 sedes en Lima: Lince, Magdalena y Jesús María.",
+      "Clínica dental líder en Lima. Especialistas en estética dental, ortodoncia e implantes. ¡Reserva tu cita hoy!",
     images: [
       {
         url: "/images/odonto-smart/logo-horizontal-marca-premium.png",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Odonto Smart | Clínica Dental Premium en Lima",
+    title: "Odonto Smart | Clínica Dental en Lima",
     description:
-      "Especialistas en odontología estética, ortodoncia e implantes sin dolor. Agenda tu valoración.",
+      "Clínica dental líder en Lima. Especialistas en estética dental, ortodoncia e implantes. ¡Reserva tu cita!",
     images: ["/images/odonto-smart/logo-horizontal-marca-premium.png"],
   },
   robots: {
@@ -59,6 +59,15 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    google: "google7b239463988be32a",
+  },
+  other: {
+    "geo.region": "PE-LIM",
+    "geo.placename": "Lima",
+    "geo.position": "-12.0847;-77.0353",
+    "ICBM": "-12.0847, -77.0353",
   },
 };
 
