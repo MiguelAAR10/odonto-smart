@@ -82,7 +82,7 @@ const jsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/images/odonto-smart/logo-principal.png`,
   image: `${SITE_URL}/images/odonto-smart/logo-horizontal-marca-premium.png`,
-  telephone: "+51980221985",
+  telephone: "+5116782893",
   priceRange: "$$",
   aggregateRating: {
     "@type": "AggregateRating",

@@ -534,7 +534,7 @@ export const locationsPage = {
       district: "Lince",
       address: "Av. Arequipa 1860",
       fullAddress: "Av. Arequipa 1860, Lince, Lima 15046, Perú",
-      phone: "(01) 234-5678",
+      phone: "(01) 678-2893",
       whatsapp: "+51980221985",
       email: "lince@odontosmart.pe",
       hours: {
@@ -568,7 +568,7 @@ export const locationsPage = {
       district: "Magdalena del Mar",
       address: "Calle De La Roca de Vergallo 493",
       fullAddress: "Calle De La Roca de Vergallo 493, Magdalena del Mar, Lima, Perú",
-      phone: "(01) 345-6789",
+      phone: "(01) 678-2893",
       whatsapp: "+51980221985",
       email: "magdalena@odontosmart.pe",
       hours: {
@@ -601,7 +601,7 @@ export const locationsPage = {
       district: "Jesús María",
       address: "Jr. Mariscal Luzuriaga 363",
       fullAddress: "Jr. Mariscal Luzuriaga 363, Jesús María, Lima, Perú",
-      phone: "(01) 456-7890",
+      phone: "(01) 678-2893",
       whatsapp: "+51980221985",
       email: "jesusmaria@odontosmart.pe",
       hours: {
