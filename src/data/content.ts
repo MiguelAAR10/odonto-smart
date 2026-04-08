@@ -171,14 +171,14 @@ export const stats = {
     {
       display: "4.9/5",
       label: "ESTRELLAS",
-      attribute: "Respaldado por pacientes reales.",
+      attribute: "",
       variant: "teal" as const,
     },
     {
       value: 5000,
       suffix: "+",
       label: "PACIENTES FELICES",
-      attribute: "Confianza construida con atencion clara y resultados visibles.",
+      attribute: "",
       variant: "purple" as const,
     },
   ],
